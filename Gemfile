@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
-gem 'rails', '4.2.2'
+ruby '2.2.0'
+gem 'rails', '4.2.4'
 
 gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'breadcrumbs_on_rails'
-gem 'cancancan', '~> 1.9'
+gem 'cancancan', '~> 1.13.1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'draper', '~> 1.3'
 gem 'font-awesome-rails'
@@ -39,7 +39,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-byebug'
   gem 'quiet_assets'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'sqlite3'
 end
 
@@ -48,7 +48,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'   # database_cleaner is not required, but highly recommended
   gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
 end
 
 group :doc do
