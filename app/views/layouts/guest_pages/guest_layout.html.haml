@@ -7,16 +7,16 @@
     = csrf_meta_tags
 
   %body
-    -#TODO look at rendering flash partial instead. Might have been a problem or something
-    - flash.each do |name, message|
-      %strong
-        %div{:class => "alert alert-#{name}", :role => "alert"}
-          = message
-    #page
-      %header#header.site-header
-        = render "layouts/guest_pages/header"
+    #document.document
+      -#TODO look at rendering flash partial instead. Might have been a problem or something
+      - flash.each do |name, message|
+        %strong
+          %div{:class => "alert alert-#{name}", :role => "alert"}
+            = message
+
+      = render "layouts/guest_pages/header"
 
       = yield
 
-      %footer#footer.site-footer.mt100
-        = render "layouts/guest_pages/footer"
+      -# %footer#footer.site-footer.mt100
+      -#   = render "layouts/guest_pages/footer"
