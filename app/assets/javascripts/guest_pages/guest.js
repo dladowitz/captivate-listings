@@ -7,8 +7,15 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-// There are a number of JS files in this folder from the start bootstrap template.
-// Probably not being used right now but needed for full template functionaily
 
-//= require_tree .
+//= require guest_pages/jquery-1.11.2.min
+//= require guest_pages/bootstrap.min
+//= require guest_pages/respimage.min
+//= require guest_pages/jpreloader.min
+//= require guest_pages/smoothscroll.min
+//= require guest_pages/jquery.nav.min
+//= require guest_pages/jquery.inview.min
+//= require guest_pages/jquery.counterup.min
+//= require guest_pages/jquery.stellar.min
+//= require guest_pages/responsiveslides.min
+//= require guest_pages/script
