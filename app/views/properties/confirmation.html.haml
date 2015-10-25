@@ -13,15 +13,10 @@
         .hero-content.parallax
           .hero-content-inner
             .row
-              .col-md-6
+              .col-md-12
                 .hero-heading{"data-animation" => "fadeIn"}
-                  %p.hero-tagline Property Details
+                  %h1.hero-subtitle Awesome, You're All Done
+                  %p.hero-tagline We'll email you when your property is live (under 24 hrs)
 
-                = simple_form_for @property do |f|
-                  = f.input :address
-                  = f.input :city
-                  = f.input :state
-                  = f.input :zip
-                  = f.button :submit
                 %p.hero-buttons
-                  %a.btn.btn-lg.btn-primary{:href => "https://wrapbootstrap.com/theme/drew-all-in-one-marketing-landing-page-WB0350PTJ"} Start Now
+                  %a.btn.btn-lg.btn-primary{:href => "https://wrapbootstrap.com/theme/drew-all-in-one-marketing-landing-page-WB0350PTJ"} Property FAQ
