@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # resource routes
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :properties, only: [:new]
   resources :password_resets, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
