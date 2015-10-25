@@ -1,5 +1,6 @@
 And /they click on the signin link/ do
-  click_link "Sign In"
+  # click_link "Sign In" #TODO put back sign in link on landing page
+  visit signin_path
 end
 
 And /they fill out the signin form/ do
