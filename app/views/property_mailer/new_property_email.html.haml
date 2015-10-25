@@ -1,0 +1,30 @@
+.container
+  = image_tag attachments["logo_handwriting.png"].url, style: "width: 700px; margin-left: 25%;"
+
+  -#Css classes are not being loaded. Premailer gem is supposed to handle
+  .col-md-8.col-md-offset-2.mt50
+    .panel.panel-success
+      .panel-heading{style: "background-color: yellowgreen !important"}
+        .panel-title
+          %h2.text-center Someone just paid us money. Time to get to work.
+      .panel-body
+        %h3.text-center We have 24hrs to create their new property
+        %p
+          Lets get to work
+
+        %h3 Propery Details
+        %h4
+        %p
+          %strong _config.yml:
+          %br
+          = "propery-address: #{@property.address}"
+          %br
+          = "propery-city: #{@property.city}"
+          %br
+          = "propery-state: #{@property.state}"
+          %br
+          = "propery-zip: #{@property.zip}"
+
+      .panel-footer
+        %h5
+        = link_to "Captivate Listings", "#", class: "blue underline text-center"

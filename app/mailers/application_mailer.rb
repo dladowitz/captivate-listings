@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default(from: "admin@foundertraits.com")
+  default(from: "admin@captivatelistings.com")
 end

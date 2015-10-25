@@ -6,12 +6,18 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.create(property_params)
+    @property = Property.new(property_params)
 
-    #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
-    PropertyMailer.new_property_email(@property).deliver
+    if @property.save
+      #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
+      PropertyMailer.new_property_email(@property).deliver
 
-    redirect_to root_path
+      flash[:success] = "Awesome, we'll get right on this."
+      redirect_to root_path
+    else
+      flash[:danger] = "Something has gone horribly wrong."
+      render :new
+    end
   end
 
   private
