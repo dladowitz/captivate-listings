@@ -6,5 +6,7 @@ FactoryGirl.define do
     city "San Francisco"
     state "CA"
     zip 94111
+    domain_type "subdomain"
+    domain "855front.captivatelistings.com"
   end
 end

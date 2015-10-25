@@ -1,7 +1,7 @@
 /
   HERO
   \=================================
-%section#hero.hero-section.hero-layout-simple.hero-fullscreen.hero-slider.section.section-dark
+%section#hero.hero-section.hero-layout-simple.hero-fullscreen.hero-slider.section.section-dark.hero-fullscreen-new-property-page
   %ul.section-slider.parallax
     / SECTION SLIDE 1
     %li.section-slide
@@ -9,7 +9,7 @@
         / IMAGE BACKGROUND
         .section-background-image.parallax{"data-stellar-ratio" => "0.4"}
           %img{:alt => "", :src => "/assets/background/beach-home.jpg", :style => "opacity: 0.5;"}/
-      .container
+      .container.new-property-container
         .hero-content.parallax
           .hero-content-inner
             .row
@@ -22,6 +22,29 @@
                   = f.input :city
                   = f.input :state
                   = f.input :zip
+                  %br
+                  = f.input :domain_type, as: :radio_buttons, :collection => [["Generic - Free", "generic"], ["Custom - $15", "custom"]]
+                  = f.input :domain
+                  .subdomain-addition
+                    \.captivatelistings.com
+                  .com-addition
+                    \.com
                   = f.button :submit
-                %p.hero-buttons
-                  %a.btn.btn-lg.btn-primary{:href => "https://wrapbootstrap.com/theme/drew-all-in-one-marketing-landing-page-WB0350PTJ"} Start Now
+              .col-md-6.domain-checker
+                .domain-checker-text
+                  Please ensure the domain is available
+                <iframe style="width: 336px; height: 142px; overflow: hidden;" frameborder="0" scrolling="no" src="https://instantdomainsearch.com/widget/liquid/">
+                </iframe>
+                -# <iframe src="http://domaintyper.com/gadget.aspx?embed=1" width=210 height=180 frameborder=0></iframe>
+%script
+  $('#property_domain_type_custom').click(function() {
+  $('.domain-checker').show();
+  $('.subdomain-addition').hide();
+  $('.com-addition').show();
+  });
+
+  $('#property_domain_type_generic').click(function() {
+  $('.domain-checker').hide();
+  $('.subdomain-addition').show();
+  $('.com-addition').hide();
+  });
