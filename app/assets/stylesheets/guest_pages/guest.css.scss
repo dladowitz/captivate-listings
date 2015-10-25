@@ -17,3 +17,41 @@
 @import "font-awesome";
 
 //////// Styles limited to the landing page \\\\\\\\\\
+
+// Property Pages
+
+// New Page
+.hero-fullscreen-new-property-page {
+  // TODO need to make this variable height
+  height: 1000px !important;
+}
+.new-property-container {
+  bottom: 200px;
+}
+
+.property_domain {
+  width: 60%;
+}
+
+.subdomain-addition {
+  position: absolute;
+  bottom: 95px;
+  left: 347px;
+}
+
+.com-addition {
+  position: absolute;
+  bottom: 95px;
+  left: 347px;
+  display: none;
+}
+
+
+.domain-checker {
+  margin-top: 500px;
+  display: none;
+}
+
+.domain-checker-text {
+  font-size: 21px;
+}

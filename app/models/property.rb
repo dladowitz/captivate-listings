@@ -14,5 +14,23 @@
 class Property < ActiveRecord::Base
   validates :address, presence: true
   validates :city, presence: true
-  validates :state, presence: true , length: { is: 2 }
+  validates :state, presence: true, length: { is: 2 }
+  validates :domain_type, presence: true
+  validates :domain, presence: true
+
+  after_create :add_domain_suffix
+
+
+  # not sure why self is needed here, but domain is nil otherwise
+  def add_domain_suffix
+    if domain_type == "generic"
+      self.domain = self.domain + ".captivatelistings.com"
+    elsif domain_type == "custom"
+      self.domain = self.domain + ".com"
+    else
+      self.domain = self.domain + ".something-is-wrong.com"
+    end
+    
+    self.save
+  end
 end
