@@ -1,10 +1,26 @@
 class PropertiesController < ApplicationController
+  layout "guest_pages/guest_layout"
+
   def new
     @property = Property.new
+  end
 
-    render layout: "guest_pages/guest_layout"
+  def create
+    @property = Property.create(property_params)
+
+    #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
+    PropertyMailer.new_property_email(@property).deliver
+
+    redirect_to root_path
+  end
+
+  private
+
+  def property_params
+    params.require(:property).permit(:address, :city, :state, :zip)
   end
 end
+
 
 
 
