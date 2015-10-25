@@ -26,11 +26,11 @@ class Property < ActiveRecord::Base
     if domain_type == "generic"
       self.domain = self.domain + ".captivatelistings.com"
     elsif domain_type == "custom"
-      self.domain = self.domain + ".com"
+      self.domain = "www." + self.domain + ".com"
     else
       self.domain = self.domain + ".something-is-wrong.com"
     end
-    
+
     self.save
   end
 end
