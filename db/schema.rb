@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025210217) do
+ActiveRecord::Schema.define(version: 20151026011146) do
 
   create_table "password_resets", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,16 +21,8 @@ ActiveRecord::Schema.define(version: 20151025210217) do
     t.datetime "updated_at"
   end
 
-  create_table "properties", force: :cascade do |t|
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "domain_type"
-    t.string   "domain"
-  end
+# Could not dump table "properties" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
