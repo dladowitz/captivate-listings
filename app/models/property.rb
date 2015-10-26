@@ -2,13 +2,16 @@
 #
 # Table name: properties
 #
-#  id         :integer          not null, primary key
-#  address    :string
-#  city       :string
-#  state      :string
-#  zip        :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  address     :string
+#  city        :string
+#  state       :string
+#  zip         :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  domain_type :string
+#  domain      :string
+#  details     :hstore
 #
 
 class Property < ActiveRecord::Base
@@ -17,6 +20,8 @@ class Property < ActiveRecord::Base
   validates :state, presence: true, length: { is: 2 }
   validates :domain_type, presence: true
   validates :domain, presence: true
+
+  # store_accessor :details, :list_price, :sqfeet
 
   after_create :add_domain_suffix
 

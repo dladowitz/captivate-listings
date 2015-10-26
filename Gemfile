@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'nokogiri'
+gem 'pg'
 gem 'premailer-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
@@ -40,7 +41,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'quiet_assets'
   gem 'rspec-rails'
-  gem 'sqlite3'
 end
 
 group :test do
@@ -57,6 +57,5 @@ end
 
 group :production do
   gem 'newrelic_rpm'
-  gem 'pg'
   gem 'rails_12factor'
 end
