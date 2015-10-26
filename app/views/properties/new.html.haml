@@ -18,26 +18,40 @@
                   %p.hero-tagline Property Details
 
                 = simple_form_for @property do |f|
+                  -# Address
                   = f.input :address, input_html: {placeholder: '855 Front St'}
                   = f.input :city, input_html: {placeholder: 'San Francisco'}
                   = f.input :state, input_html: {placeholder: 'CA'}
                   = f.input :zip, input_html: {placeholder: '94111'}
+
+                  -# Property Details
                   = f.input :list_price, input_html: {placeholder: '$750,000'}
                   = f.input :sqfeet, input_html: {placeholder: '2300'}
                   = f.input :beds, input_html: {placeholder: '3'}
                   = f.input :baths, input_html: {placeholder: '2.5'}
                   = f.input :cars, input_html: {placeholder: '2'}
                   = f.input :garden, input_html: {placeholder: 'yes'}
-                  = f.input :description, input_html: {placeholder: 'This place is the best home in the world. Located in a remote part of the country where no one comes'}
+                  = f.input :description, input_html: {placeholder: 'Stunning full floor house-like Victorian condominium bathed in light with 11’ soaring ceilings and a modern open floorplan. This beautiful home in an iconic turreted 1890’s corner building seamlessly blends period details and modern living with 3-4BR/2.5BA and 2,300sq ft of living area, bright open kitchen with downtown views, Viking gas range w/ hood, island w/ breakfast bar seating and Calcutta marble counters, 2.5 renovated bathrooms, in-unit laundry room, rooms, coved ceilings, bay windows, wainscoting, moldings, and two fireplaces. The home is located in the hip Alamo Square neighborhood, just one block from Alamo Square Park, and close to many neighborhood amenities and shuttle stops. Deeded private garage with a separate additional deeded storage/office/exercise room and wine cellar on ground level.'}
                   = f.input :matterport_url, input_html: {placeholder: 'https://my.matterport.com/models/chQ3jHCT4Hp'}
                   -# = f.input :video_walkthrough_url, input_html: {placeholder: 'https://dl.dropboxusercontent.com/s/0jjqtv1hkbncfnn/1394McAllisterWalkthrough.mp4'}
                   -# = f.input :tag_line, input_html: {placeholder: "You're Home"}
+                  = f.input :highlights, as: :text, input_html: { :rows => 5}
+
+                  -# Agent Info
                   = f.input :agent_name, input_html: {placeholder: 'Tony Stark'}
                   = f.input :agent_phone, input_html: {placeholder: '415-666-4411'}
                   = f.input :agent_image_url, input_html: {placeholder: 'http://www.your-image-on-the-internet.jpg'}
                   = f.input :agent_company, input_html: {placeholder: 'Coldwell Banker'}
                   = f.input :agent_license, input_html: {placeholder: 'BRE #01271232'}
-                  -# = f.input :agent_logo_url, input_html: {placeholder: 'yes'}
+                  = f.input :agent_website, input_html: {placeholder: 'http://www.agent-website.com'}
+                  = f.input :agent_logo_url, input_html: {placeholder: 'http://www.agent-logo-url.jpg'}
+
+                  -# Neighborhood Info
+                  = f.input :neighborhood_name, input_html: {placeholder: 'Jackson Sq Park'}
+                  = f.input :neighboorhood_description, input_html: {placeholder: 'Jackson Square Historic District retains its character as one of the oldest commercial neighborhoods in San Francisco. Though in some cases extensively altered during seismic retrofit, the collection of three story brick buildings found on the narrow streets and alleys offer a bright glimpse into the California Gold Rush that gave San Francisco its start. Buildings on the north side of Jackson between Montgomery and Sansome retain cast iron shutters as protection against fire, but when the city burned, in one case, a warehouses contents turned out to be more significant in saving the building'}
+
+                  -# Showings
+                  = f.input :showings, as: :text, input_html: { :rows => 4}
 
                   %br
                   = f.input :domain_type, label: 'Domain Type', as: :radio_buttons, :collection => [["Generic - Free", "generic"], ["Custom - $15", "custom"]], checked: "generic", item_wrapper_class: 'inline'
@@ -65,3 +79,5 @@
   $('.subdomain-addition').show();
   $('.com-addition').hide();
   });
+  $('#property_highlights').attr('placeholder', '* Incredible Light & Views \n* Independent Garage \n* Open Floor Plan \n* 11 Ft Ceilings \n* Newly Remodled');
+  $('#property_showings').attr('placeholder', 'Saturday * Mar 25th * 2:00 - 4:00pm \nSunday  * Mar 26th * 2:00 - 4:00pm \nTuesday * Mar 28th * 10:00 - 12:00am \nTuesday * Mar 30th * 10:00 - 12:00am');
