@@ -7,7 +7,6 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new(property_params)
-
     if @property.save
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
       PropertyMailer.new_property_email(@property).deliver
@@ -23,7 +22,12 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:address, :city, :state, :zip, :domain_type, :domain)
+    params.require(:property).permit(
+                                      :address, :city, :state, :zip, :domain_type, :domain,
+                                      :list_price, :sqfeet, :beds, :baths, :cars, :garden,
+                                      :description, :matterport_url, :video_walkthrough_url,
+                                      :tag_line, :agent_name, :agent_phone, :agent_image_url,
+                                      :agent_company, :agent_license, :agent_logo_url)
   end
 end
 

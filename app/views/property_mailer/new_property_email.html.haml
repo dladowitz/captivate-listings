@@ -17,17 +17,115 @@
         %p
           %strong _config.yml:
           %br
-          = "propery-address: #{@property.address}"
-          %br
-          = "propery-city: #{@property.city}"
-          %br
-          = "propery-state: #{@property.state}"
-          %br
-          = "propery-zip: #{@property.zip}"
+          \# Domain
           %br
           = "domain_type: #{@property.domain_type}"
           %br
-          = "domain: #{@property.domain}"
+          = "domain: http://#{@property.domain}"
+          %br
+          %br
+          \# Property Info
+          %br
+          = "propery-address: #{@property.address}"
+          %br
+          = "property-full-address: #{@property.address}, #{@property.state}, #{@property.zip}, United States"
+          %br
+          = "list-price: #{@property.details["list_price"]}"
+          %br
+          = "sqft: #{@property.details["sqfeet"]}"
+          %br
+          = "number-of-beds: #{@property.details["beds"]}"
+          %br
+          = "number-of-baths: #{@property.details["baths"]}"
+          %br
+          = "number-of-cars: #{@property.details["cars"]}"
+          %br
+          = "garden: #{@property.details["garden"]}"
+          %br
+          = "property-description: #{@property.details["description"]}"
+          %br
+          = "matterport-embed-url: #{@property.details["matterport_url"]}"
+          %br
+          = "video-walkthrough-url: #{@property.details["video_walkthrough_url"]}"
+          %br
+          = "property-tag-line: #{@property.details["tag_line"]}"
+          %br
+          %br
+          \# Agent Info
+          %br
+          = "agent-name: #{@property.details["agent_name"]}"
+          %br
+          = "agent-phone: #{@property.details["agent_phone"]}"
+          %br
+          = "agent-image-url: #{@property.details["agent_image_url"]}"
+          %br
+          = "agent-company: #{@property.details["agent_company"]}"
+          %br
+          = "agent-license: #{@property.details["agent_license"]}"
+          %br
+          = "agent-logo-url: #{@property.details["agent_logo_url"]}"
+
       .panel-footer
         %h5
         = link_to "Captivate Listings", "#", class: "blue underline text-center"
+
+
+-# # Agent Info
+-# agent-name: Marshall Darr
+-# agent-phone: 408 867 5309
+-# agent-image-url: "https://dl.dropboxusercontent.com/s/k9g328p1mgv9z0f/marshall.jpg?dl=0"
+-# agent-company: Captivate Real Estate
+-# agent-button-name-phone: "Marshall: 408 867 5309"
+-# # Optional Agent Info
+-# agent-license: "BRE #01245678"
+-# agent-logo:
+
+-# # Showings
+-# showings: [
+-#   {
+-#     weekday: Saturday,
+-#     date: October 24,
+-#     time: "2:00-4:00PM"
+-#   },
+-#   { weekday: Sunday,
+-#     date: October 25,
+-#     time: "2:00-4:00PM"
+-#   },
+-#   {
+-#     weekday: Tuesday,
+-#     date:    October 27,
+-#     time:    "11:00-12:30PM"
+-#   },
+-#   {
+-#     weekday: Thursday,
+-#     date:    October 29,
+-#     time:    "5:30-6:30PM"
+-#   }
+-# ]
+-#
+-# # Highlight TODO figure out a way to do two lists side by side with only one highlight collection. Add Columns to Highlights
+-# highlights-1: [
+-#   attribute: Incredible Light & Views,
+-#   attribute: Luxury Renovation,
+-#   attribute: Open Floor Plan,
+-#   attribute: 3-4BR/2.5BA,
+-# ]
+-# highlights-2: [
+-#   attribute: 11 Ft Ceilings,
+-#   attribute: Independent Garage,
+-#   attribute: "HOA Dues: $550/month",
+-#   attribute: "Sq Ft: 2300 per tax records",
+-# ]
+-#
+-# # Neighboorhood
+-# neighboorhood-background-image-url: "http://jacksonsquaresf.com/wp-content/uploads/2014/10/jackson_sq_sign.jpg"
+-# neighboorhood-name: Jackson Square
+-# neighboorhood-description: Jackson Square Historic District retains its character as one of the oldest commercial neighborhoods in San Francisco. Though in some cases extensively altered during seismic retrofit, the collection of three story brick buildings found on the narrow streets and alleys offer a bright glimpse into the California Gold Rush that gave San Francisco its start. Buildings on the north side of Jackson between Montgomery and Sansome retain cast iron shutters as protection against fire, but when the city burned, in one case, a warehouses contents turned out to be more significant in saving the building
+-# # Get GPS Coordinates from http://www.gps-coordinates.net/
+-# map-longitude: "-122.40023"
+-# map-latitude: "37.79949"
+-# map-zoom-level: 14
+-#
+-# # Contact Section
+-# contact-us-background-image-url: "https://dl.dropboxusercontent.com/s/udahjg026txl67f/2015-09-18%2016.55.17.jpg?dl=0"
+-# agent-website: "http://www.tradecrafted.com"

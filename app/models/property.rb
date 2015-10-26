@@ -13,6 +13,10 @@
 #  domain      :string
 #  details     :hstore
 #
+# Indexes
+#
+#  index_properties_on_details  (details)
+#
 
 class Property < ActiveRecord::Base
   validates :address, presence: true
@@ -21,10 +25,11 @@ class Property < ActiveRecord::Base
   validates :domain_type, presence: true
   validates :domain, presence: true
 
-  # store_accessor :details, :list_price, :sqfeet
+  # Property Details - may become very large
+  store_accessor :details, :list_price, :sqfeet, :beds, :baths, :cars, :garden, :description, :matterport_url, :video_walkthrough_url, :tag_line, :agent_name, :agent_phone, :agent_image_url, :agent_company, :agent_license, :agent_logo_url
+  validates :sqfeet, numericality: true
 
   after_create :add_domain_suffix
-
 
   # not sure why self is needed here, but domain is nil otherwise
   def add_domain_suffix
