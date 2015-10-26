@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026011146) do
+ActiveRecord::Schema.define(version: 20151026013917) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "password_resets", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,8 +25,19 @@ ActiveRecord::Schema.define(version: 20151026011146) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "properties" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "properties", force: :cascade do |t|
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "domain_type"
+    t.string   "domain"
+    t.hstore   "details"
+  end
+
+  add_index "properties", ["details"], name: "index_properties_on_details", using: :gin
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
