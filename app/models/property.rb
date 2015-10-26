@@ -26,7 +26,12 @@ class Property < ActiveRecord::Base
   validates :domain, presence: true
 
   # Property Details - may become very large
-  store_accessor :details, :list_price, :sqfeet, :beds, :baths, :cars, :garden, :description, :matterport_url, :video_walkthrough_url, :tag_line, :agent_name, :agent_phone, :agent_image_url, :agent_company, :agent_license, :agent_logo_url
+  store_accessor :details,
+    :list_price, :sqfeet, :beds, :baths, :cars, :garden, :description, :matterport_url,
+    :video_walkthrough_url, :highlights, :tag_line, :agent_name, :agent_phone, :agent_image_url,
+    :agent_company, :agent_license, :agent_logo_url, :agent_website, :neighborhood_name,
+    :neighboorhood_description, :showings
+
   validates :sqfeet, numericality: true
 
   after_create :add_domain_suffix

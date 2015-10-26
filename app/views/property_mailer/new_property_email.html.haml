@@ -50,6 +50,8 @@
           %br
           = "property-tag-line: #{@property.details["tag_line"]}"
           %br
+          = "propery-highlights: #{@property.details["highlights"]}" #TODO Convert this into two Arrays for eash addition to _config.yml
+          %br
           %br
           \# Agent Info
           %br
@@ -63,23 +65,44 @@
           %br
           = "agent-license: #{@property.details["agent_license"]}"
           %br
+          = "agent-website: #{@property.details["agent_website"]}"
+          %br
           = "agent-logo-url: #{@property.details["agent_logo_url"]}"
+          %br
+          %br
+          \# Neighborhood Info
+          %br
+          = "neighborhood-name: #{@property.details["neighborhood_name"]}"
+          %br
+          = "neighboorhood-description: #{@property.details["neighboorhood_description"]}"
+          %br
+          = "neighboorhood-background-image: ???????" # Use one of the photos
+          %br
+          = "map-zoom: 14"
+          %br
+          \# Get GPS Coordinates from http://www.gps-coordinates.net/
+          %br
+          = "map-longitude: ?????"
+          %br
+          = "map-latitude ??????"
+          %br
+          %br
+          \# Showings
+          %br
+          = "showings: #{@property.details["showings"]}" #TODO Convert this to an Array of hashes for easy addition to _config.yml template
+          %br
+          %br
+          \# Contact Section
+          %br
+          = "contact-us-background-image-url: ???????"# Use one of the photos
 
       .panel-footer
         %h5
         = link_to "Captivate Listings", "#", class: "blue underline text-center"
 
 
--# # Agent Info
--# agent-name: Marshall Darr
--# agent-phone: 408 867 5309
--# agent-image-url: "https://dl.dropboxusercontent.com/s/k9g328p1mgv9z0f/marshall.jpg?dl=0"
--# agent-company: Captivate Real Estate
--# agent-button-name-phone: "Marshall: 408 867 5309"
--# # Optional Agent Info
--# agent-license: "BRE #01245678"
--# agent-logo:
 
+-# TODO Automate the process for exporting showings and highlights
 -# # Showings
 -# showings: [
 -#   {
@@ -116,16 +139,3 @@
 -#   attribute: "HOA Dues: $550/month",
 -#   attribute: "Sq Ft: 2300 per tax records",
 -# ]
--#
--# # Neighboorhood
--# neighboorhood-background-image-url: "http://jacksonsquaresf.com/wp-content/uploads/2014/10/jackson_sq_sign.jpg"
--# neighboorhood-name: Jackson Square
--# neighboorhood-description: Jackson Square Historic District retains its character as one of the oldest commercial neighborhoods in San Francisco. Though in some cases extensively altered during seismic retrofit, the collection of three story brick buildings found on the narrow streets and alleys offer a bright glimpse into the California Gold Rush that gave San Francisco its start. Buildings on the north side of Jackson between Montgomery and Sansome retain cast iron shutters as protection against fire, but when the city burned, in one case, a warehouses contents turned out to be more significant in saving the building
--# # Get GPS Coordinates from http://www.gps-coordinates.net/
--# map-longitude: "-122.40023"
--# map-latitude: "37.79949"
--# map-zoom-level: 14
--#
--# # Contact Section
--# contact-us-background-image-url: "https://dl.dropboxusercontent.com/s/udahjg026txl67f/2015-09-18%2016.55.17.jpg?dl=0"
--# agent-website: "http://www.tradecrafted.com"
