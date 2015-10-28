@@ -21,10 +21,24 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find params[:id]
+    @photo = @property.photos.build
+    @photos = @property.photos.order('position')
   end
 
   def confirmation
 
+  end
+
+  # Sorts the photos on a property by position
+  def sort
+    params[:photo].each_with_index do |id, index|
+      photo = Photo.find id
+      puts "before: #{photo.position} >>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+      photo.update(position: index+1, id: id)
+      # Photo.update_all({position: index+1}, {id: id})
+      puts "after: #{photo.position} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+    end
+    render nothing: true
   end
 
   private

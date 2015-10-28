@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   # resource routes
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
   resources :properties, only: [:new, :create, :show] do
     get "confirmation", on: :collection
+    post "sort",        on: :collection
 
-    resources :photos, only: [:create]
+    resources :photos, only: [:new, :create]
 
   end
   resources :password_resets, only: [:create]

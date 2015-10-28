@@ -15,8 +15,9 @@
 #
 
 class Photo < ActiveRecord::Base
+  acts_as_list
+
   belongs_to :property
 
-  validates :position, presence: true
   validates :url, presence: true
 end
