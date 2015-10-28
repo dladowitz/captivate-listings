@@ -13,6 +13,7 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
+ENV["RAILS_ENV"] ||= 'test' #this might need to be Rails.env 
 
 # no require of rails or active record, suppose this loads them
 require "bundler/setup"

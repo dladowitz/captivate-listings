@@ -36,9 +36,9 @@ class Property < ActiveRecord::Base
     :agent_company, :agent_license, :agent_logo_url, :agent_website, :neighborhood_name,
     :neighboorhood_description, :showings
 
-  validates :sqfeet, numericality: true
-  validates :beds, numericality: true
-  validates :baths, numericality: true
+  # validates :sqfeet, numericality: true
+  # validates :beds, numericality: true
+  # validates :baths, numericality: true
 
 
   # not sure why self is needed here, but domain is nil otherwise

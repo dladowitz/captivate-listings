@@ -1,0 +1,5 @@
+%h1= @property.address
+  %ul
+    = @property.photos.each do |photo|
+      %li
+        = image_tag photo.url
