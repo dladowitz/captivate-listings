@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :properties, only: [:new, :create] do
     get "confirmation", on: :collection
+
+    resources :photos, only: [:create]
+
   end
   resources :password_resets, only: [:create]
 

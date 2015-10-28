@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  property_id :integer
 #  position    :integer
+#  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -17,4 +18,5 @@ class Photo < ActiveRecord::Base
   belongs_to :property
 
   validates :position, presence: true
+  validates :url, presence: true
 end
