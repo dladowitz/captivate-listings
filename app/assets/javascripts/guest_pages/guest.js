@@ -19,3 +19,7 @@
 //= require guest_pages/jquery.stellar.min
 //= require guest_pages/responsiveslides.min
 //= require guest_pages/script
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
+//= require guest_pages/property
