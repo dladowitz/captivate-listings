@@ -19,13 +19,17 @@
 #
 
 class Property < ActiveRecord::Base
+  has_many :photos
+
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true, length: { is: 2 }
   validates :domain_type, presence: true
   validates :domain, presence: true
 
-  # Property Details - may become very large
+  after_create :add_domain_suffix
+
+  # hstore attribute - Property Details - may become very large
   store_accessor :details,
     :list_price, :sqfeet, :beds, :baths, :cars, :garden, :description, :matterport_url,
     :video_walkthrough_url, :highlights, :tag_line, :agent_name, :agent_phone, :agent_image_url,
@@ -33,8 +37,9 @@ class Property < ActiveRecord::Base
     :neighboorhood_description, :showings
 
   validates :sqfeet, numericality: true
+  validates :beds, numericality: true
+  validates :baths, numericality: true
 
-  after_create :add_domain_suffix
 
   # not sure why self is needed here, but domain is nil otherwise
   def add_domain_suffix

@@ -8,5 +8,8 @@ FactoryGirl.define do
     zip 94111
     domain_type "subdomain"
     domain "855front.captivatelistings.com"
+    sqfeet 1500
+    beds 3
+    baths 2.5
   end
 end
