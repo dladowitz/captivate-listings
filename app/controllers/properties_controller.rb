@@ -19,6 +19,14 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def show
+    @property = Property.find params[:id]
+  end
+
+  def confirmation
+
+  end
+
   private
 
   def property_params
