@@ -1,6 +1,6 @@
 jQuery ->
   $('#photos').sortable(
-    axis: 'y'
+    # axis: 'y'
     handle: '.handle'
     update: ->
       $.post($(this).data('update-url'), $(this).sortable('serialize'))

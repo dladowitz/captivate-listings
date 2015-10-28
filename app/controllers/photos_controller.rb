@@ -4,7 +4,6 @@ class PhotosController < ApplicationController
   def create
     @property = Property.find params[:property_id]
     @photo = @property.photos.build photo_params
-    binding.pry
 
     if @photo.save
       flash[:success] = "Nice one, photo created!"

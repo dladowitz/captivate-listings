@@ -61,3 +61,14 @@
   color: #777;
   cursor: move;
 }
+
+img.handle {
+  max-height: 100px;
+  margin: 10px;
+}
+
+ul#photos {
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns:3;
+}

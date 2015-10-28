@@ -1,17 +1,19 @@
-%h1= @property.address
-%h2 Drag to re-order photos
-%ul#photos{data: {update_url: sort_properties_url}}
-  - @photos.each do |photo|
-    = content_tag_for :li, photo do
-      %span.handle.fa.fa-arrows-v
-      = image_tag photo.url, class: "handle"
-      = photo.position
-      %span.handle.fa.fa-arrows-v
+.container
+  .row
+    %h1= @property.address
+    %h2 Drag to re-order photos
+    %ul#photos{data: {update_url: sort_properties_url}}
+      - @photos.each do |photo|
+        = content_tag_for :li, photo do
+          %span.handle.fa.fa-arrows-v
+          = image_tag photo.url, class: "handle"
+          = photo.position
+          %span.handle.fa.fa-arrows-v
 
 
-.col-md-5.col-md-offset-4
-  = simple_form_for [@property, @photo] do |f|
-    -# Address
-    = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
-    -# = f.input :position, as: :hidden
-    = f.button :submit
+  %hr
+  .col-md-5.col-md-offset-4
+    = simple_form_for [@property, @photo] do |f|
+      -# Address
+      = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
+      = f.button :submit
