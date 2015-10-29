@@ -20,6 +20,7 @@ gem 'momentjs-rails', '>= 2.8.1'
 gem 'nokogiri'
 gem 'pg'
 gem 'premailer-rails'
+gem 's3_direct_upload'
 gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
