@@ -12,8 +12,21 @@
 
 
   %hr
-  .col-md-5.col-md-offset-4
-    = simple_form_for [@property, @photo] do |f|
-      -# Address
-      = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
-      = f.button :submit
+  .row
+    .col-md-6.col-md-offset-3
+      = simple_form_for [@property, @photo] do |f|
+        -# Address
+        = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
+        = f.button :submit
+
+  %hr
+  .row
+    .col-md-6.col-md-offset-3
+      = s3_uploader_form callback_url: new_property_photo_path(@property), callback_param: "photo[url]", id: "s3-uploader", key: "files/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}", key_starts_with: "files/", acl: "public-read", max_file_size: 20.megabytes, class: "upload-form", data: {:key => :val} do
+        = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }
+
+%script#template-upload{:type => "text/x-tmpl"}
+  .upload{:id => "file-{%=o.unique_id%}"}
+    {%=o.name%}
+    .progress
+      .bar{:style => "width: 0%"}
