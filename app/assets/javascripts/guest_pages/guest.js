@@ -23,3 +23,5 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require guest_pages/property
+
+#= require s3_direct_upload
