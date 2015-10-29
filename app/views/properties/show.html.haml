@@ -25,15 +25,20 @@
       = s3_uploader_form callback_url: property_photos_path(@property),
                          callback_param: "photo[url]",
                          id: "s3-uploader",
-                         key: "property-photos/#{@property.id}/{timestamp}-#{SecureRandom.hex}-${filename}",
+                         key: "property-photos/#{@property.id}/{timestamp}-${filename}",
                          key_starts_with: "property-photos/",
                          acl: "public-read",
                          max_file_size: 20.megabytes,
                          class: "upload-form", data: {:key => :val} do
         = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }
 
+
 %script#template-upload{:type => "text/x-tmpl"}
   .upload{:id => "file-{%=o.unique_id%}"}
     {%=o.name%}
     .progress
       .bar{:style => "width: 0%"}
+
+
+
+- # Old Image URL - key: "property-photos/#{@property.id}/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}"
