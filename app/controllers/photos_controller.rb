@@ -4,13 +4,14 @@ class PhotosController < ApplicationController
   def create
     @property = Property.find params[:property_id]
     @photo = @property.photos.build photo_params
-binding.pry
     if @photo.save
       flash[:success] = "Nice one, photo created!"
-      redirect_to @property
+      render :file => "/properties/create.js.erb"
+      # redirect_to @property
     else
       flash[:danger] = "Damn Gina, something went wrong."
-      redirect_to @property
+      # redirect_to @property
+      render :file => "/properties/create.js.erb"
     end
   end
 

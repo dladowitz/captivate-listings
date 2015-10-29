@@ -20,6 +20,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    puts "rerendering property show page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @property = Property.find params[:id]
     @photo = @property.photos.build
     @photos = @property.photos.order('position')
