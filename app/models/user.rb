@@ -10,9 +10,12 @@
 #  admin           :boolean
 #  created_at      :datetime
 #  updated_at      :datetime
+#  stripe_id       :string
 #
 
 class User < ActiveRecord::Base
+  has_one :subscription
+
   validates :first_name, presence: true
   validates :email,      presence: true, uniqueness: true
   validates :password,   presence: { on: create }, length: { minimum: 6 }, if: :password_digest_changed?
