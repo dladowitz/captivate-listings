@@ -9,7 +9,13 @@
           = link_to "Update Account", edit_user_path(@user), class: "btn btn-primary ml10"
           = link_to "Sign Up For A Subscription", new_user_subscription_path(@user), class: "btn btn-primary ml10"
 
+        .row
+          .col-md-6
+            .h2
+              %strong Subscription Level:
+              = @user.subscription ? "Silver" : "None"
 
+        .row
           .posts.m-t-lg
             .no-posts.m-l-lg
               = image_tag "http://www.eonline.com/eol_images/Entire_Site/201478/rs_500x281-140808102730-cutest-cat-gifs-please.gif",
