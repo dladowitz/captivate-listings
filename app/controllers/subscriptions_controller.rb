@@ -11,6 +11,8 @@ class SubscriptionsController < ApplicationController
 
     begin
       raise "Please, check subscription errors" unless @subscription.valid?
+
+      # Maybe change the plan name on stripe
       stripe_customer = Stripe::Customer.create( source: params["stripeToken"], plan: "01", email: params["stripeEmail"] )
       @user.update_attributes(stripe_id: stripe_customer.id)
       @subscription.save
