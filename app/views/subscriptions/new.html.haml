@@ -5,6 +5,6 @@
     = f.input :level, as: :select, selected: "Silver", disabled: [2, 3], collection: { "Silver": 1, "Gold": 2, "Platinum": 3 }
     .actions
       %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js",
-        data: {amount: 1000, description: "Website Hosting", key: ENV["STRIPE_TEST_PUBLISHABLE_KEY"]}}
+        data: {amount: 1000, description: "Website Hosting", key: ENV["STRIPE_PUBLISHABLE_KEY"]}}
 
     -# = f.button :submit

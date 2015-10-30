@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # resource routes
   resources :users do
-    resources :subscriptions, only: [:new, :create, :edit]
+    resources :subscriptions, only: [:new, :create, :edit, :destroy]
   end
 
   resources :sessions, only: [:new, :create, :destroy]

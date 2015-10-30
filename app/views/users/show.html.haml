@@ -2,30 +2,37 @@
   .col-lg-10
     .ibox.float-e-margins
       .ibox-title
-        %h3
-          Here is all your relevant info
+        %h2
+          Account Info
       .ibox-content
         .row
           = link_to "Update Account", edit_user_path(@user), class: "btn btn-primary ml10"
-          = link_to "Sign Up For A Subscription", new_user_subscription_path(@user), class: "btn btn-primary ml10"
 
+        %hr
         .row
-          .col-md-6
-            .h2
-              %strong Subscription Level:
-              = @user.subscription ? "Silver" : "None"
+          .col-md-8
+            %h1
+              %strong Subscription
 
-        .row
-          .posts.m-t-lg
-            .no-posts.m-l-lg
-              = image_tag "http://www.eonline.com/eol_images/Entire_Site/201478/rs_500x281-140808102730-cutest-cat-gifs-please.gif",
-                class: "col-sm-6 mt30"
+            %h2
+              %strong Level:
+              - if @subscription && @subscription.level > 0
+                Silver
+                %br
+                = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10"
+              - else
+                None
+                %br
+                = link_to "Sign Up to Create Properties", new_user_subscription_path(@user), class: "btn btn-primary mt10"
 
-              = image_tag "http://31.media.tumblr.com/323247f4fdf2cc14831bb7980bb432af/tumblr_njy5ihohLL1re3kvuo1_400.gif",
-                class: "col-sm-6 mt30"
+        - if @subscription && @subscription.level > 0
+          %hr
+          .row
+            .col-md-8
+              %h1
+                %strong Properties
 
-              = image_tag "http://viralgifs.com/wp-content/uploads/2014/03/cat_did_u_forget.gif?fb43fe",
-                class: "col-sm-6 mt30"
-
-              = image_tag "http://www.myhappyoffice.com/wp-content/uploads/2012/03/cute-happy-funny-giggle-cat-5.gif",
-                class: "col-sm-6 mt30"
+              %h2
+                You don't have any properties yet. Go add one!
+                %br
+                = link_to "Add a Property", new_property_path, class: "btn btn-success mt10"

@@ -31,7 +31,9 @@ class UsersController < ApplicationController
   def show
     @page_name = "Dashboard"
 
+
     if @user
+      @subscription = @user.subscription if @user.subscription
       render :show
     else
       redirect_to root_path
