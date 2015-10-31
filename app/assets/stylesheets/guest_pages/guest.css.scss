@@ -20,7 +20,6 @@
 //////// Styles limited to the landing page \\\\\\\\\\
 
 // Property Pages
-
 // New Page
 .hero-fullscreen-new-property-page {
   // TODO need to make this variable height
@@ -72,4 +71,9 @@ ul#photos {
   columns: 3;
   -webkit-columns: 3;
   -moz-columns:3;
+}
+
+// Signup & Signin
+.section-background-image-size {
+  max-width: 100% !important;
 }
