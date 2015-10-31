@@ -22,6 +22,6 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require guest_pages/property
 
+// This is weird, seems like it should be in appplication.js, but brea
 #= require s3_direct_upload

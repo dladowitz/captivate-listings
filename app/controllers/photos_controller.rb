@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  layout "guest_pages/guest_layout"
+  skip_before_filter  :verify_authenticity_token
 
   def create
     @property = Property.find params[:property_id]

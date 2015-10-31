@@ -12,6 +12,7 @@
 #  domain_type :string
 #  domain      :string
 #  details     :hstore
+#  user_id     :integer
 #
 # Indexes
 #
@@ -20,14 +21,15 @@
 
 class Property < ActiveRecord::Base
   has_many :photos
+  belongs_to :user
 
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true, length: { is: 2 }
-  validates :domain_type, presence: true
-  validates :domain, presence: true
+  # validates :domain_type, presence: true
+  # validates :domain, presence: true
 
-  after_create :add_domain_suffix
+  # after_create :add_domain_suffix
 
   # hstore attribute - Property Details - may become very large
   store_accessor :details,
@@ -43,7 +45,7 @@ class Property < ActiveRecord::Base
 
   # not sure why self is needed here, but domain is nil otherwise
   def add_domain_suffix
-    if domain_type == "generic"
+    if domain_type && domain_type == "generic"
       self.domain = self.domain + ".captivatelistings.com"
     elsif domain_type == "custom"
       self.domain = "www." + self.domain + ".com"

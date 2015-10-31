@@ -33,18 +33,33 @@
   color: green;
 }
 
-
 .ibox-content {
   .post {
     width: 90%;
   }
 }
 
+.post {
+  background: #DFDFE2;
+  padding: 20px;
+  width: 45%;
+  border-radius: 5px;
+}
 
-  .post {
-    background: #DFDFE2;
-    padding: 20px;
-    width: 45%;
-    border-radius: 5px;
-  }
+// Properties Show Page
+.handle {
+  font-size: 30px;
+  color: #777;
+  cursor: move;
+}
 
+img.handle {
+  max-height: 100px;
+  margin: 10px;
+}
+
+ul#photos {
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns:3;
+}

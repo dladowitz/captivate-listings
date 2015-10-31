@@ -2,7 +2,7 @@
   .row
     %h1= @property.address
     %h2 Drag to re-order photos
-    %ul#photos{data: {update_url: sort_properties_url}}
+    %ul#photos{data: {update_url: sort_user_properties_url}}
       - @photos.each do |photo|
         = content_tag_for :li, photo do
           %span.handle.fa.fa-arrows-v
@@ -11,26 +11,26 @@
           %span.handle.fa.fa-arrows-v
 
 
-  %hr
-  .row
-    .col-md-6.col-md-offset-3
-      = simple_form_for [@property, @photo] do |f|
+  -# %hr
+  -# .row
+    -# .col-md-6.col-md-offset-3
+      -# = simple_form_for [@user, @property, @photo] do |f|
         -# Address
-        = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
-        = f.button :submit
+        -# = f.input :url, input_html: {placeholder: 'http://www.myhome.jpg'}
+        -# = f.button :submit
 
-  %hr
-  .row
-    .col-md-6.col-md-offset-3
-      = s3_uploader_form callback_url: property_photos_path(@property),
-                         callback_param: "photo[url]",
-                         id: "s3-uploader",
-                         key: "property-photos/#{@property.id}/{timestamp}-${filename}",
-                         key_starts_with: "property-photos/",
-                         acl: "public-read",
-                         max_file_size: 20.megabytes,
-                         class: "upload-form", data: {:key => :val} do
-        = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }
+  -# %hr
+  -# .row
+  -#   .col-md-6.col-md-offset-3
+  -#     = s3_uploader_form callback_url: user_property_photos_path(@user, @property),
+  -#                        callback_param: "photo[url]",
+  -#                        id: "s3-uploader",
+  -#                        key: "property-photos/#{@property.id}/{timestamp}-${filename}",
+  -#                        key_starts_with: "property-photos/",
+  -#                        acl: "public-read",
+  -#                        max_file_size: 20.megabytes,
+  -#                        class: "upload-form", data: {:key => :val} do
+  -#       = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }
 
 
 %script#template-upload{:type => "text/x-tmpl"}
@@ -38,7 +38,6 @@
     {%=o.name%}
     .progress
       .bar{:style => "width: 0%"}
-
 
 
 - # Old Image URL - key: "property-photos/#{@property.id}/{timestamp}-{unique_id}-#{SecureRandom.hex}/${filename}"

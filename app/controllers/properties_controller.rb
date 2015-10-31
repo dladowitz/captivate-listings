@@ -1,18 +1,20 @@
 class PropertiesController < ApplicationController
-  layout "guest_pages/guest_layout"
+  skip_before_filter  :verify_authenticity_token
 
   def new
-    @property = Property.new
+    @user = User.find params[:user_id]
+    @property = @user.properties.build
   end
 
   def create
-    @property = Property.new(property_params)
+    @user = User.find params[:user_id]
+    @property = @user.properties.build(property_params)
     if @property.save
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
       PropertyMailer.new_property_email(@property).deliver
 
-      flash[:success] = "Awesome, we'll get right on this."
-      redirect_to root_path
+      flash[:success] = "Awesome, lets add some property details."
+      redirect_to @user
     else
       flash[:danger] = "Something has gone horribly wrong."
       render :new
@@ -20,7 +22,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    puts "rerendering property show page >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    @user = User.find params[:user_id]
     @property = Property.find params[:id]
     @photo = @property.photos.build
     @photos = @property.photos.order('position')

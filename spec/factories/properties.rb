@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :property do
+    association :user
     address "855 Front St"
     city "San Francisco"
     state "CA"

@@ -15,17 +15,18 @@ Rails.application.routes.draw do
   # resource routes
   resources :users do
     resources :subscriptions, only: [:new, :create, :edit, :destroy]
+
+    resources :properties, only: [:new, :create, :show] do
+      get "confirmation", on: :collection
+      post "sort",        on: :collection
+
+      resources :photos, only: [:new, :create]
+
+    end
   end
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :properties, only: [:new, :create, :show] do
-    get "confirmation", on: :collection
-    post "sort",        on: :collection
-
-    resources :photos, only: [:new, :create]
-
-  end
   resources :password_resets, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.

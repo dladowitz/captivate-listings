@@ -33,6 +33,11 @@
                 %strong Properties
 
               %h2
-                You don't have any properties yet. Go add one!
-                %br
-                = link_to "Add a Property", new_property_path, class: "btn btn-success mt10"
+                - if @user.properties.any?
+                  - @user.properties.each do |property|
+                    %li
+                      = link_to property.address, user_property_path(@user, property)
+                - else
+                  You don't have any properties yet. Go add one!
+                  %br
+                  = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10"

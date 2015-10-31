@@ -13,14 +13,14 @@ class PropertyMailer < ApplicationMailer
   #   @registration = registration
   #   attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
   #
-  #   mail(to: @registration.email, subject: "Little Cat Labs - Registration")
+  #   mail(to: @registration.email, subject: "Captivate Labs - Registration")
   # end
   #
   # def signup_email(user)
   #   @user = user
   #   attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
   #
-  #   mail(to: @user.email, subject: "Little Cat Labs - Signup")
+  #   mail(to: @user.email, subject: "Captivate Labs - Signup")
   # end
   #
   # def request_password(user, token)
@@ -28,6 +28,6 @@ class PropertyMailer < ApplicationMailer
   #   @reset_link = RESET_LINK_BASE + token
   #   attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
   #
-  #   mail(to: @user.email, subject: "Little Cat Labs - Password Reset")
+  #   mail(to: @user.email, subject: "Captivate Labs - Password Reset")
   # end
 end
