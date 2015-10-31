@@ -1,0 +1,18 @@
+.row
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Agent Details
+      .ibox-content
+        .row
+          .col-md-8
+            = simple_form_for [@user, @property] do |f|
+              = f.input :agent_name, input_html: {placeholder: 'Tony Stark'}
+              = f.input :agent_phone, input_html: {placeholder: '415-666-4411'}
+              = f.input :agent_image_url, input_html: {placeholder: 'http://www.your-image-on-the-internet.jpg'}
+              = f.input :agent_company, input_html: {placeholder: 'Coldwell Banker'}
+              = f.input :agent_license, input_html: {placeholder: 'BRE #01271232'}
+              = f.input :agent_website, input_html: {placeholder: 'http://www.agent-website.com'}
+              = f.input :agent_logo_url, input_html: {placeholder: 'http://www.agent-logo-url.jpg'}
+              = f.button :submit, "Update Agent"

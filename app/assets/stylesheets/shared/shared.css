@@ -341,3 +341,25 @@
 .width-70 {
   width: 70px;
 }
+
+/*Font Weight*/
+.weight-100 {
+  font-weight: 100;
+}
+
+.weight-200 {
+  font-weight: 200;
+}
+
+.weight-300 {
+  font-weight: 300;
+}
+
+.weight-400 {
+  font-weight: 400;
+}
+
+/*Line Height*/
+.lheight-23 {
+  line-height: 23px
+}

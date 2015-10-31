@@ -1,13 +1,13 @@
 class PropertiesController < ApplicationController
   skip_before_filter  :verify_authenticity_token
+  before_action :set_user, except: :sort
+  before_action :set_property, only: [:show, :edit, :update]
 
   def new
-    @user = User.find params[:user_id]
     @property = @user.properties.build
   end
 
   def create
-    @user = User.find params[:user_id]
     @property = @user.properties.build(property_params)
     if @property.save
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
@@ -22,14 +22,33 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @user = User.find params[:user_id]
-    @property = Property.find params[:id]
     @photo = @property.photos.build
     @photos = @property.photos.order('position')
   end
 
-  def confirmation
+  # def confirmation
+  #
+  # end
 
+  def edit
+    case params[:detail_section]
+    when "property"
+      render :property_details_form
+    when "agent"
+      render :agent_details_form
+    when "neighborhood"
+      render :neighborhood_details_form
+    end
+  end
+
+  def update
+    if @property.update_attributes(property_params)
+      flash[:success] = "Awesome, the property has been updated!"
+      render :show
+    else
+      flash[:danger] = "Something has gone all wrong."
+      render :update
+    end
   end
 
   # Sorts the photos on a property by position
@@ -55,38 +74,12 @@ class PropertiesController < ApplicationController
                                       :agent_company, :agent_license, :agent_logo_url, :agent_website,
                                       :neighborhood_name, :neighboorhood_description, :showings)
   end
+
+  def set_user
+    @user = User.find params[:user_id]
+  end
+
+  def set_property
+    @property = Property.find params[:id]
+  end
 end
-
-
-
-
-# class SessionsController < ApplicationController
-#   def new
-#     render layout: "guest_pages/guest_layout"
-#   end
-#
-#   def create
-#     @user = User.find_by_email params[:email]
-#
-#     if @user && @user.authenticate(params[:password])
-#       session[:id] = @user.id
-#
-#       flash[:success] = "Welcome, #{@user.first_name}"
-#       redirect_to user_path(@user)
-#     else
-#       flash[:danger] = "Username and/or Password dont appear to be correct"
-#       redirect_to signin_path
-#     end
-#   end
-#
-#   def destroy
-#     if session[:id]
-#       session[:id] = nil
-#       flash[:success] = "Bye Bye. Have fun storming the castle."
-#     else
-#       flash[:danger] = "Errr, you can't log out when you aren't logged in. That's science."
-#     end
-#
-#     redirect_to signin_path
-#   end
-# end

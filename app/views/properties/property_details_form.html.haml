@@ -1,0 +1,56 @@
+.row
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Property Details
+      .ibox-content
+        .row
+          .col-md-8
+            = simple_form_for [@user, @property] do |f|
+              .col-md-4
+                = f.input :list_price, input_html: {type: "number", min: '0', step: '1', placeholder: '$750,000'}
+                = f.input :sqfeet, input_html: {type: "number", min: '0', step: '1', placeholder: '2300'}
+                = f.input :beds, input_html: {type: "number", min: '0', step: '1', placeholder: '3'}
+                = f.input :baths, input_html: {type: "number", min: '0', step: '.5', placeholder: '2.5'}
+                = f.input :cars, input_html: {type: "number", min: '0', step: '1', placeholder: '2'}
+                = f.input :garden, as: :select, selected: "no", collection: { "no": "no", "yes": "yes" }
+
+              .col-md-12
+                = f.input :matterport_url, input_html: {placeholder: 'https://my.matterport.com/models/chQ3jHCT4Hp'}
+                = f.input :description, as: :text, input_html: {rows: 15, placeholder: 'Stunning full floor house-like Victorian condominium bathed in light with 11’ soaring ceilings and a modern open floorplan. This beautiful home in an iconic turreted 1890’s corner building seamlessly blends period details and modern living with 3-4BR/2.5BA and 2,300sq ft of living area, bright open kitchen with downtown views, Viking gas range w/ hood, island w/ breakfast bar seating and Calcutta marble counters, 2.5 renovated bathrooms, in-unit laundry room, rooms, coved ceilings, bay windows, wainscoting, moldings, and two fireplaces. The home is located in the hip Alamo Square neighborhood, just one block from Alamo Square Park, and close to many neighborhood amenities and shuttle stops. Deeded private garage with a separate additional deeded storage/office/exercise room and wine cellar on ground level.'}
+                -# = f.input :video_walkthrough_url, input_html: {placeholder: 'https://dl.dropboxusercontent.com/s/0jjqtv1hkbncfnn/1394McAllisterWalkthrough.mp4'}
+                -# = f.input :tag_line, input_html: {placeholder: "You're Home"}
+                -# = f.input :highlights, as: :text, input_html: { :rows => 5}
+
+                -# -# Showings
+                -# = f.input :showings, as: :text, input_html: { :rows => 4}
+                -#
+                -# %br
+                -# = f.input :domain_type, label: 'Domain Type', as: :radio_buttons, :collection => [["Generic - Free", "generic"], ["Custom - $15", "custom"]], checked: "generic", item_wrapper_class: 'inline'
+                -# = f.input :domain, input_html: {placeholder: '855Front'}
+                -# .subdomain-addition
+                -#   \.captivatelistings.com
+                -# .com-addition
+                -#   \.com
+                = f.button :submit
+
+              -# .col-md-6.domain-checker
+              -# .domain-checker-text
+              -#   Please ensure the domain is available
+              -# <iframe style="width: 336px; height: 142px; overflow: hidden;" frameborder="0" scrolling="no" src="https://instantdomainsearch.com/widget/liquid/"></iframe>
+
+-# %script
+-#   $('#property_domain_type_custom').click(function() {
+-#   $('.domain-checker').show();
+-#   $('.subdomain-addition').hide();
+-#   $('.com-addition').show();
+-#   });
+-#
+-#   $('#property_domain_type_generic').click(function() {
+-#   $('.domain-checker').hide();
+-#   $('.subdomain-addition').show();
+-#   $('.com-addition').hide();
+-#   });
+-#   $('#property_highlights').attr('placeholder', '* Incredible Light & Views \n* Independent Garage \n* Open Floor Plan \n* 11 Ft Ceilings \n* Newly Remodled');
+-#   $('#property_showings').attr('placeholder', 'Saturday * Mar 25th * 2:00 - 4:00pm \nSunday  * Mar 26th * 2:00 - 4:00pm \nTuesday * Mar 28th * 10:00 - 12:00am \nTuesday * Mar 30th * 10:00 - 12:00am');
