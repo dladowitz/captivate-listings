@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :subscriptions, only: [:new, :create, :edit, :destroy]
 
-    resources :properties, only: [:new, :create, :show] do
+    resources :properties, only: [:new, :create, :show, :edit] do
       get "confirmation", on: :collection
       post "sort",        on: :collection
 

@@ -43,6 +43,10 @@ class Property < ActiveRecord::Base
   # validates :baths, numericality: true
 
 
+  def full_address
+    "#{address}, #{city}, #{state} #{zip}"
+  end
+
   # not sure why self is needed here, but domain is nil otherwise
   def add_domain_suffix
     if domain_type && domain_type == "generic"

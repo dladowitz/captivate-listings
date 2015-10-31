@@ -16,7 +16,7 @@
 
             %h2
               %strong Level:
-              - if @subscription && @subscription.level > 0
+              - if @user.valid_subscription?
                 Silver
                 %br
                 = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10"
@@ -25,13 +25,12 @@
                 %br
                 = link_to "Sign Up to Create Properties", new_user_subscription_path(@user), class: "btn btn-primary mt10"
 
-        - if @subscription && @subscription.level > 0
-          %hr
-          .row
-            .col-md-8
-              %h1
-                %strong Properties
-
+        %hr
+        .row
+          .col-md-8
+            %h1
+              %strong Properties
+            - if @user.valid_subscription?
               %h2
                 - if @user.properties.any?
                   - @user.properties.each do |property|
@@ -41,3 +40,7 @@
                   You don't have any properties yet. Go add one!
                   %br
                   = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10"
+            - else
+              %h2
+                %i.fa.fa-warning
+                You needs to sign up for a subscription first
