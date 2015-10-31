@@ -1,31 +1,70 @@
-%main#main.site-main
+-# %main#main.site-main
+-#   .container
+-#     .row
+-#       .col-sm-4.col-sm-offset-4
+-#         -#validates errors div
+-#         = render "layouts/validation_errors", :model => @user
+-#
+-#       .col-xs-4.col-xs-offset-4
+-#         %h1 Sign Up
+-#
+-#         = form_for @user do |f|
+-#           .form-group
+-#             = f.label :first_name, class: "label-control"
+-#             = f.text_field :first_name, class: "form-control"
+-#           .form-group
+-#             = f.label :email, class: "label-control"
+-#             = f.text_field :email, class: "form-control"
+-#           .form-group
+-#             = f.label :password, class: "label-control"
+-#             = f.password_field :password, class: "form-control"
+-#           .form-group
+-#             = f.label :password_confirmation, class: "label-control"
+-#             = f.password_field :password_confirmation, class: "form-control"
+-#           .form-group
+-#             = f.submit "Sign Up", class: "btn btn-success"
+-#
+-#     .row.mt50
+-#       .col-xs-4.col-xs-offset-4.text-left
+-#         %i.fa.fa-envelope.mr10
+-#         We promise never do anything uncool with your info
+-#     -#TODO strange issue with different versions of bootstrap or theme being used for btn-large on render vs redirect
+-#
+
+%section#hero.hero-section.hero-layout-simple.hero-fullscreen.section.section-dark
+  .section-background
+    / IMAGE BACKGROUND
+    .section-background-image.parallax.section-background-image-size{"data-stellar-ratio" => "0.4"}
+      %img{:alt => "", :src => "assets/background/new_england_dark_top.jpg", :style => "opacity: 1.0;", :class => "section-background-image-size"}/
   .container
-    .row
-      .col-sm-4.col-sm-offset-4
-        -#validates errors div
-        = render "layouts/validation_errors", :model => @user
+    .hero-content
+      .hero-content-inner
+        .row
+          .col-sm-4.col-sm-offset-4
+            -#validates errors div
+            = render "layouts/validation_errors", :model => @user
 
-      .col-xs-4.col-xs-offset-4
-        %h1 Sign Up
+          .col-xs-5.col-xs-offset-3
+            = form_for @user, :html => {:class => "darker-form-8", } do |f|
+              %h1 Sign Up
 
-        = form_for @user do |f|
-          .form-group
-            = f.label :first_name, class: "label-control"
-            = f.text_field :first_name, class: "form-control"
-          .form-group
-            = f.label :email, class: "label-control"
-            = f.text_field :email, class: "form-control"
-          .form-group
-            = f.label :password, class: "label-control"
-            = f.password_field :password, class: "form-control"
-          .form-group
-            = f.label :password_confirmation, class: "label-control"
-            = f.password_field :password_confirmation, class: "form-control"
-          .form-group
-            = f.submit "Sign Up", class: "btn btn-success"
+              .form-group
+                = f.label :first_name, class: "label-control"
+                = f.text_field :first_name, class: "form-control"
+              .form-group
+                = f.label :email, class: "label-control"
+                = f.text_field :email, class: "form-control"
+              .form-group
+                = f.label :password, class: "label-control"
+                = f.password_field :password, class: "form-control"
+              .form-group
+                = f.label :password_confirmation, class: "label-control"
+                = f.password_field :password_confirmation, class: "form-control"
+              .form-group
+                = f.submit "Sign Up", class: "btn btn-success"
 
-    .row.mt50
-      .col-xs-4.col-xs-offset-4.text-left
-        %i.fa.fa-envelope.mr10
-        We promise never do anything uncool with your info
-    -#TODO strange issue with different versions of bootstrap or theme being used for btn-large on render vs redirect
+        .row.mt50
+          .col-xs-4.col-xs-offset-4.text-left
+            %i.fa.fa-envelope.mr10
+            We promise never do anything uncool with your info
+        -#TODO strange issue with different versions of bootstrap or theme being used for btn-large on render vs redirect
