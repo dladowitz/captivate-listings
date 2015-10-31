@@ -14,7 +14,7 @@ class PropertiesController < ApplicationController
       PropertyMailer.new_property_email(@property).deliver
 
       flash[:success] = "Awesome, lets add some property details."
-      redirect_to @user
+      redirect_to user_property_path(@user, @property)
     else
       flash[:danger] = "Something has gone horribly wrong."
       render :new

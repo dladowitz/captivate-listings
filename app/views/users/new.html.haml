@@ -1,36 +1,3 @@
--# %main#main.site-main
--#   .container
--#     .row
--#       .col-sm-4.col-sm-offset-4
--#         -#validates errors div
--#         = render "layouts/validation_errors", :model => @user
--#
--#       .col-xs-4.col-xs-offset-4
--#         %h1 Sign Up
--#
--#         = form_for @user do |f|
--#           .form-group
--#             = f.label :first_name, class: "label-control"
--#             = f.text_field :first_name, class: "form-control"
--#           .form-group
--#             = f.label :email, class: "label-control"
--#             = f.text_field :email, class: "form-control"
--#           .form-group
--#             = f.label :password, class: "label-control"
--#             = f.password_field :password, class: "form-control"
--#           .form-group
--#             = f.label :password_confirmation, class: "label-control"
--#             = f.password_field :password_confirmation, class: "form-control"
--#           .form-group
--#             = f.submit "Sign Up", class: "btn btn-success"
--#
--#     .row.mt50
--#       .col-xs-4.col-xs-offset-4.text-left
--#         %i.fa.fa-envelope.mr10
--#         We promise never do anything uncool with your info
--#     -#TODO strange issue with different versions of bootstrap or theme being used for btn-large on render vs redirect
--#
-
 %section#hero.hero-section.hero-layout-simple.hero-fullscreen.section.section-dark
   .section-background
     / IMAGE BACKGROUND
@@ -62,6 +29,10 @@
                 = f.password_field :password_confirmation, class: "form-control"
               .form-group
                 = f.submit "Sign Up", class: "btn btn-success"
+                #password_links.pull-right
+                  = link_to "Sign In", signin_path, id: "signin"
+                  |
+                  = link_to "Forgot Password", request_password_path
 
         .row.mt50
           .col-xs-4.col-xs-offset-4.text-left
