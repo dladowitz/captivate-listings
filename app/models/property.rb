@@ -34,9 +34,9 @@ class Property < ActiveRecord::Base
   # hstore attribute - Property Details - may become very large
   store_accessor :details,
     :list_price, :sqfeet, :beds, :baths, :cars, :garden, :description, :matterport_url,
-    :video_walkthrough_url, :highlights, :tag_line, :agent_name, :agent_phone, :agent_image_url,
+    :video_walkthrough_url, :highlights, :showings, :tag_line, :agent_name, :agent_phone, :agent_image_url,
     :agent_company, :agent_license, :agent_logo_url, :agent_website, :neighborhood_name,
-    :neighboorhood_description, :showings
+    :neighboorhood_description
 
   # validates :sqfeet, numericality: true
   # validates :beds, numericality: true
