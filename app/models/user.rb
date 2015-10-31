@@ -15,6 +15,7 @@
 
 class User < ActiveRecord::Base
   has_one :subscription
+  has_many :properties
 
   validates :first_name, presence: true
   validates :email,      presence: true, uniqueness: true
