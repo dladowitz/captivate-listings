@@ -16,7 +16,7 @@
   -#   %h1.second-photo 2nd
   .col-md-12
     %ul#photos{data: {update_url: sort_user_properties_url}}
-      - if @photos.any?
+      - if @photos
         - @photos.each do |photo|
           = content_tag_for :li, photo do
             = image_tag photo.url, class: "handle"

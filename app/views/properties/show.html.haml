@@ -152,15 +152,15 @@
 
 .row
   .col-lg-8
-    .widget.navy-bg.no-padding
+    .widget.widget-border
       .p-m
         %h1.m-xs Photos
         - if @photos
-          %ul#photos{data: {update_url: sort_user_properties_url}}
+          %ul#photos.photos-show-page{data: {update_url: sort_user_properties_url}}
             - @photos.each do |photo|
               = content_tag_for :li, photo do
                 = image_tag photo.url, class: "handle"
-                = photo.position
+                -# = photo.position
           = link_to "Add Photos", user_property_photos_path(@user, @property), class: "btn btn-default mt20 btn-outline"
         - else
           = link_to "Add Photos", user_property_photos_path(@user, @property), class: "btn btn-default mt20 btn-outline"
