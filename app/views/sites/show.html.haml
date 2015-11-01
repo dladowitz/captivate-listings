@@ -107,7 +107,7 @@
                     %h1
                       - if @property.list_price
                         Purchase Price:
-                        = @property.list_price
+                        = number_to_currency(@property.list_price, precision: 0)
                       %br
                       %strong= "#{@property.sqfeet} sqft"
 

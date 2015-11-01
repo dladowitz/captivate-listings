@@ -20,53 +20,53 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Property Details
-        - if  @property.details && (@property.details["sqfeet"] || @property.details["list_price"] || @property.details["beds"] || @property.details["batsh"] || @property.details["description"])
+        - if  @property.details && (@property.sqfeet || @property.list_price || @property.beds || @property.baths || @property.description)
           %table.table
             %tr
               %td.col-md-2
                 %h3 List Price:
               %td
-                %h3.weight-100= @property.details["list_price"]
+                %h3.weight-100= number_to_currency(@property.list_price, precision: 0)
             %tr
               %td.col-md-2
                 %h3 Square Feet:
               %td
-                %h3.weight-100= @property.details["sqfeet"]
+                %h3.weight-100= @property.sqfeet
             %tr
               %td.col-md-2
                 %h3 Beds:
               %td
-                %h3.weight-100= @property.details["beds"]
+                %h3.weight-100= @property.beds
             %tr
               %td.col-md-2
                 %h3 Baths:
               %td
-                %h3.weight-100= @property.details["baths"]
+                %h3.weight-100= @property.baths
             %tr
               %td.col-md-2
                 %h3 Cars:
               %td
-                %h3.weight-100= @property.details["cars"]
+                %h3.weight-100= @property.cars
             %tr
               %td.col-md-2
                 %h3 Garden:
               %td
-                %h3.weight-100= @property.details["garden"]
+                %h3.weight-100= @property.garden
             %tr
               %td.col-md-2
                 %h3 Description:
               %td
-                %h3.weight-100= @property.details["description"]
-            %tr
-              %td.col-md-2
-                %h3 Tageline:
-              %td
-                %h3.weight-100= @property.details["tagline"]
+                %h3.weight-100.lheight-23= @property.description
+            -# %tr
+            -#   %td.col-md-2
+            -#     %h3 Tageline:
+            -#   %td
+            -#     %h3.weight-100= @property.tag_line
             %tr
               %td.col-md-2
                 %h3 Matterport URL:
               %td
-                %h3.weight-100= @property.details["matterport_url"]
+                %h3.weight-100= @property.matterport_url
             -# %tr
             -#   %td.col-md-2
             -#     %h3 Highlights:
@@ -91,43 +91,43 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Agent
-        - if @property.details && @property.details["agent_name"]
+        - if @property.details && @property.agent_name
           %table.table
             %tr
               %td.col-md-2
                 %h3 Name:
               %td
-                %h3.weight-100= @property.details["agent_name"]
+                %h3.weight-100= @property.agent_name
             %tr
               %td.col-md-2
                 %h3 Phone:
               %td
-                %h3.weight-100= @property.details["agent_phone"]
+                %h3.weight-100= @property.agent_phone
             %tr
               %td.col-md-2
                 %h3 Company:
               %td
-                %h3.weight-100= @property.details["agent_company"]
+                %h3.weight-100= @property.agent_company
             %tr
               %td.col-md-2
                 %h3 License #:
               %td
-                %h3.weight-100= @property.details["agent_license"]
+                %h3.weight-100= @property.agent_license
             %tr
               %td.col-md-2
                 %h3 Website:
               %td
-                %h3.weight-100= @property.details["agent_phone"]
+                %h3.weight-100= @property.agent_phone
             %tr
               %td.col-md-2
                 %h3 Logo URL:
               %td
-                %h3.weight-100= @property.details["agent_logo_url"]
+                %h3.weight-100= @property.agent_logo_url
             %tr
               %td.col-md-2
                 %h3 Headshot URL:
               %td
-                %h3.weight-100= @property.details["agent_image_url"]
+                %h3.weight-100= @property.agent_image_url
 
           = link_to "Update Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline"
         - else
@@ -138,18 +138,18 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Neighborhood
-        - if @property.details && @property.details["neighborhood_name"]
+        - if @property.details && @property.neighborhood_name
           %table.table
             %tr
               %td.col-md-2
                 %h3 Name:
               %td
-                %h3.weight-100= @property.details["neighborhood_name"]
+                %h3.weight-100= @property.neighborhood_name
             %tr
               %td.col-md-2
                 %h3 Description:
               %td
-                %h3.weight-100.lheight-23= @property.details["neighboorhood_description"]
+                %h3.weight-100.lheight-23= @property.neighboorhood_description
           = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
         - else
           = link_to "Add Neighborhood", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
