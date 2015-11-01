@@ -22,6 +22,7 @@
 class Property < ActiveRecord::Base
   has_many :photos
   belongs_to :user
+  has_one :site
 
   validates :address, presence: true
   validates :city, presence: true
