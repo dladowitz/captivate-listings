@@ -54,13 +54,29 @@
   padding-left: 0px !important;
 }
 
-/*Agent Details*/
+/*Agent Info*/
 .agent-name {
-  font-size: 1.5em;
+  color:rgb(31, 37, 38);
+  font-family:europa;
+  max-width: 100%;
+  font-size:16px;
+  letter-spacing:2px;
+  line-height:1.4em;
+  text-transform:uppercase
 }
-.image-caption-wrapper {
-  margin-top: 5px;
+
+.agent-logo {
+  width: 100%;
+  margin-bottom: 25px;
 }
+
+.agent-details {
+  font-size: 1.25em !important;
+}
+
+// .image-caption-wrapper {
+//   margin-top: 5px;
+// }
 
 /*Gallery*/
 .gallery-thumb-link {
