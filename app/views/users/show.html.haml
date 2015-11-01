@@ -27,15 +27,17 @@
 
         %hr
         .row
-          .col-md-8
+          .col-md-6
             %h1
               %strong Properties
             - if @user.valid_subscription?
               %h2
                 - if @user.properties.any?
-                  - @user.properties.each do |property|
-                    %li
-                      = link_to property.address, user_property_path(@user, property)
+                  %table.table
+                    - @user.properties.each do |property|
+                      %tr
+                        %td
+                          = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
                 - else
                   You don't have any properties yet. Go add one!
                   %br
