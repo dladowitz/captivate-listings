@@ -1,0 +1,15 @@
+.row
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Address
+      .ibox-content
+        .row
+          .col-md-8
+            = simple_form_for [@user, @property] do |f|
+              = f.input :address#, input_html: {placeholder: '855 Front St'}
+              = f.input :city#, input_html: {placeholder: 'San Francisco'}
+              = f.input :state#, input_html: {placeholder: 'CA'}
+              = f.input :zip#, input_html: {placeholder: '94111'}
+              = f.button :submit
