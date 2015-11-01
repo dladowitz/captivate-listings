@@ -16,7 +16,7 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Property Details
-        - if @property.details["sqfeet"] || @property.details["list_price"] || @property.details["beds"] || @property.details["batsh"] || @property.details["description"]
+        - if  @property.details && (@property.details["sqfeet"] || @property.details["list_price"] || @property.details["beds"] || @property.details["batsh"] || @property.details["description"])
           %table.table
             %tr
               %td.col-md-2
@@ -87,7 +87,7 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Agent
-        - if @property.details["agent_name"]
+        - if @property.details && @property.details["agent_name"]
           %table.table
             %tr
               %td.col-md-2
@@ -134,8 +134,7 @@
     .widget.navy-bg.no-padding
       .p-m
         %h1.m-xs Neighborhood
-        %hr
-        - if @property.details["neighborhood_name"]
+        - if @property.details && @property.details["neighborhood_name"]
           %table.table
             %tr
               %td.col-md-2
