@@ -1,7 +1,7 @@
 / CSS
 %link{:href => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css", :rel => "stylesheet"}/
 %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}/
-= stylesheet_link_tag    'site_pages/site', media: 'all', 'data-turbolinks-track' => true
+= stylesheet_link_tag 'site_pages/site', media: 'all', 'data-turbolinks-track' => true
 -# %link{:href => "css/site.css?&filterFeatures=false", :rel => "stylesheet", :type => "text/css"}/
 -# %link{:href => "css/commerce-min.css", :rel => "stylesheet", :type => "text/css"}/
 -# %link{:href => "css/ekko-lightbox.css", :rel => "stylesheet"}/
@@ -89,7 +89,7 @@
       banner = $('#page-thumb img').first();
 
       // Walkthrough Video URL
-      var url = "0";
+      // var url = @property.video_walkthrough_url;
 
       banner.hide();
       $('<video class="bannerVideo" autoplay="" loop="" preload><source src="' + url + '" type="video/mp4"></video>').insertAfter(banner);
