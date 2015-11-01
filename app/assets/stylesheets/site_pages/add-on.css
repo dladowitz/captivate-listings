@@ -1,0 +1,83 @@
+* {
+    -webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+}
+
+/*Property*/
+.bed-bath-icon {
+  width: 200px;
+}
+
+/*Only used when using font awesome icons*/
+  .home-icons-row {
+    margin: 20px 0 50px 0px;
+  }
+
+  .home-icon {
+    font-size: 70px;
+    color: #242D2E;
+  }
+
+  .home-icon-text {
+    font-size: 25px;
+  }
+
+  .home-icon-div {
+    width: 13% !important;
+  }
+
+  .highlights-block {
+    padding-left: 0px !important;
+  }
+
+.highlights-column {
+  padding-left: 0px !important;
+}
+
+/*Agent Details*/
+.agent-name {
+  font-size: 1.5em;
+}
+.image-caption-wrapper {
+  margin-top: 5px;
+}
+
+/*Gallery*/
+.gallery-thumb-link {
+  height: 200px;
+  width: 30%;
+  overflow: hidden;
+}
+
+.gallery-row {
+  margin-top: 30px;
+}
+
+.modal-dialog {
+  max-width: 1000px !important;
+}
+
+.modal-dialog * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*Map*/
+#gmap {
+  height: 450px;
+  width: 95%;
+  margin: auto;
+  margin-bottom: 100px;
+}
+
+/*Contact*/
+#contact .name {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#contact .phone {
+  font-size: 40px;
+}
