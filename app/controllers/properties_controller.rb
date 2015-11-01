@@ -22,7 +22,6 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @photo = @property.photos.build
     @photos = @property.photos.order('position')
   end
 
@@ -32,6 +31,8 @@ class PropertiesController < ApplicationController
 
   def edit
     case params[:detail_section]
+    when "address"
+      render :address_details_form
     when "property"
       render :property_details_form
     when "agent"
@@ -44,7 +45,7 @@ class PropertiesController < ApplicationController
   def update
     if @property.update_attributes(property_params)
       flash[:success] = "Awesome, the property has been updated!"
-      render :show
+      redirect_to user_property_path(@user, @property)
     else
       flash[:danger] = "Something has gone all wrong."
       render :update

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get "confirmation", on: :collection
       post "sort",        on: :collection
 
-      resources :photos, only: [:new, :create]
+      resources :photos, only: [:new, :create, :index]
 
     end
   end

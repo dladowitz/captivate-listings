@@ -1,0 +1,44 @@
+-# %button.btn.btn-primary.dim
+-#   %a{href: user_property_path(@user, @property), class: "white"} Back to Property
+-#
+-# %a{href: user_property_path(@user, @property), class: "white"}
+-#   %button.btn.btn-primary.dim Back to Property
+-# %a{href: user_property_path(@user, @property), class: "white"}
+-#   %button.btn.btn-primary.dim.btn-outline Back to Property
+.row
+  = link_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline mb30"
+
+
+.row
+  %h1.m-xs Photos
+  -# .col-md-1.order-guide
+  -#   %h1.first-photo 1st
+  -#   %h1.second-photo 2nd
+  .col-md-12
+    %ul#photos{data: {update_url: sort_user_properties_url}}
+      - if @photos.any?
+        - @photos.each do |photo|
+          = content_tag_for :li, photo do
+            = image_tag photo.url, class: "handle"
+            -# .img-position= photo.position
+
+
+.row
+  .col-md-6.col-md-offset-4.mt20
+    = s3_uploader_form callback_url: user_property_photos_path(@user, @property),
+                      callback_param: "photo[url]",
+                      id: "s3-uploader",
+                      key: "property-photos/#{@property.id}/{timestamp}-${filename}",
+                      key_starts_with: "property-photos/",
+                      acl: "public-read",
+                      max_file_size: 20.megabytes,
+                      class: "upload-form", data: {:key => :val} do
+      = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }, class: "btn btn-primary btn-lg btn-outline"
+
+
+-# Progress Bars are Broken Here
+%script#template-upload{:type => "text/x-tmpl"}
+  <div id="file-{%=o.unique_id%}" class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+  </div>

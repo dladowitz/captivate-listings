@@ -46,7 +46,7 @@
   border-radius: 5px;
 }
 
-// Properties Show Page
+// Photos
 .handle {
   font-size: 30px;
   color: #777;
@@ -54,12 +54,23 @@
 }
 
 img.handle {
-  max-height: 100px;
+  max-width: 100%;
   margin: 10px;
 }
 
 ul#photos {
-  columns: 3;
-  -webkit-columns: 3;
-  -moz-columns:3;
+  columns: 4;
+  -webkit-columns: 4;
+  -moz-columns:4;
+  list-style-type: none;
+}
+
+.order-guide {
+  position: absolute !important;
+}
+
+h1.second-photo {
+  position: absolute;
+  top: 200px;
+  right: 40px;
 }
