@@ -1,1 +1,504 @@
 %h1= "Address: #{@property.full_address}"
+
+%input#mobileNavToggle.mobile-nav-toggle-box.hidden{:name => "mobile-nav-toggle", :type => "checkbox"}/
+%a.body-overlay{:href => "#"}
+.sqs-announcement-bar-dropzone
+/ sidecarNav is probably SquareSpace Edit Controls - Not used anymore
+#sidecarNav
+  #mobileNavWrapper.nav-wrapper{"data-content-field" => "navigation-mobileNav"}
+    %nav#mobileNavigation
+      .index.active.homepage.property
+        %a{:href => "/"}
+          Property
+      .external
+        %a{:href => "#neighborhood"}
+          Neighborhood
+      .external
+        %a{:href => "#contact"}
+          Contact
+#siteWrapper.clearfix
+  .sqs-cart-dropzone
+  / Header
+  %header#header.show-on-scroll{"data-offset-behavior" => "bottom", "data-offset-el" => ".index-section", :role => "banner"}
+    .header-inner
+      #siteTitleWrapper.wrapper{"data-content-field" => "site-title"}
+        %h1#siteTitle.site-title
+          = link_to @property.agent_name, @property.agent_website
+      / comment the linebreak between these two elements because science
+      %label.mobile-nav-toggle-label{:for => "mobileNavToggle"}
+        .top-bar
+        .middle-bar
+        .bottom-bar
+      %label.mobile-nav-toggle-label.fixed-nav-toggle-label{:for => "mobileNavToggle"}
+        .top-bar
+        .middle-bar
+        .bottom-bar
+      / comment the linebreak between these two elements because science
+      #headerNav
+        #mainNavWrapper.nav-wrapper{"data-content-field" => "navigation-mainNav"}
+          %nav#mainNavigation{"data-content-field" => "navigation-mainNav"}
+            .index.active.homepage
+              %a{:href => "{{ site.domain }}"}
+                Property
+            .external
+              %a{:href => "#neighborhood"}
+                Neighborhood
+            .external
+              %a{:href => "#contact"}
+                Contact
+        / style below blocks out the mobile nav toggle only when nav is loaded
+        :css
+          .mobile-nav-toggle-label { display: inline-block !important; }
+  %main#page{:role => "main"}
+    / comment the linebreak between these two elements because science
+    / Main Content Sections
+    #content.main-content{"data-collection-id" => "55f1b5bce4b0cc1b9222509b", "data-content-field" => "main-content"}
+      / Property Section
+      #property.index-section{"data-url-id" => "property"}
+        .promoted-gallery-wrapper
+        / Hero Area
+        .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
+          .color-overlay
+          %figure#thumbnail.loading.content-fill
+            %img{:alt => "header-placeholder.png", "data-image" => "images/header-placeholder.png", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5", "data-src" => "images/header-placeholder.png"}/
+          .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
+            %p
+              %strong= @property.address
+            %p
+              YOU'RE HOME!
+        / Property Info Area
+        .index-section-wrapper.page-content
+          .content-inner.has-content{"data-content-field" => "main-content"}
+            #page-55f1b5e5e4b048de91d5ac0e.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1442001331793"}
+              .row.sqs-row
+                .col.sqs-col-12.span-12
+                  / Matterport Embed Area
+                  #block-yui_3_17_2_10_1441907369577_8038.sqs-block.embed-block.sqs-block-embed{"data-block-json" => "{\"hSize\":null,\"floatDir\":null,\"html\":\"<div id=\\\"my-iframe\\\"><iframe  height=\\\"584\\\" width=\\\"1050\\\" frameborder=\\\"0\\\" allowfullscreen src=\\\"https://my.matterport.com/show/?m=WaRmuinAmY4\\\"></iframe>\\n</div>\",\"resolvedBy\":\"manual\",\"resolved\":true}", "data-block-type" => "22"}
+                    .sqs-block-content
+                      #my-iframe
+                        / Matterport Embed URL
+                        = succeed "src=\"{{" do
+                          %iframe
+                / Agent Detals Area
+                #block-yui_3_17_2_10_1441907369577_13768.sqs-block.image-block.sqs-block-image.sqs-col-3.span-3.float.float-right{"data-block-type" => "5"}
+                  .sqs-block-content
+                    .image-block-outer-wrapper.layout-caption-below
+                      .intrinsic{:style => "max-width:356.0px;"}
+                        .image-block-wrapper.has-aspect-ratio{"data-description" => "<p><strong style=\"color:rgb(31, 37, 38); font-family:europa; font-size:16px; letter-spacing:2px; line-height:1.4em; text-transform:uppercase\">Naomi Lopez</strong></p><p>Coldwell Banker<br />Cell: 415 264 4093</p>", :style => "padding-bottom:121.62921142578125%;"}
+                          / Agent Image
+                          %img{"data-image-dimensions" => "356x433", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f24e20e4b0c0afc4503208", "data-load" => "false", "data-type" => "image", :src => "{{ site.agent-image-url }}"}/
+                        .image-caption-wrapper
+                          .image-caption
+                            {% if site.agent-logo %}
+                            %img.agent-logo{:alt => "", :src => "{{ site.agent-logo }}"}
+                              {% else %}
+                              %p
+                                %strong.agent-name
+                                  {{ site.agent-name }}
+                              {% endif %}
+                              %p.agent-details
+                                {{ site.agent-company }}
+                                %br/
+                                Cell: {{ site.agent-phone }}
+                                {% if site.agent-license %}
+                                = succeed "/" do
+                                  %br/
+                  / Property Details Area
+                  #block-20d2d7d07ef691626788.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                    .sqs-block-content
+                      %h1
+                        {% if site.list-price %}
+                        Purchase Price: {{ site.list-price }}
+                        {% endif %}
+                        %br/
+                        %strong {{ site.sqft }} sqft
+                      / Propery Description
+                      %p {{ site.property-description }}
+                  / Property Beds and Bath Area
+                  / Used when home has garage or garden
+                  {% if site.number-of-cars or site.garden %}
+                  .row.sqs-row.home-icons-row.text-align-center
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper
+                                %i.fa.fa-bed.home-icon
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text {{ site.number-of-beds }}
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>"}
+                                %span.glyphicon.glyphicon-tint.home-icon{"aria-hidden" => "true"}
+                                / <img src="https://cloud.githubusercontent.com/assets/909749/7330732/4c4300a6-eb48-11e4-9232-b29ab2fad800.jpg" data-image="http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/" data-image-dimensions="117x71" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55f2561be4b0f5b52b4a112d" data-type="image" />
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text {{ site.number-of-baths }}
+                    {% if site.number-of-cars %}
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
+                                %i.fa.fa-car.home-icon
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text Garage
+                    {% endif %}
+                    {% if site.garden %}
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
+                                %i.fa.fa-tree.home-icon
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text Garden
+                    {% endif %}
+                    .col.sqs-col-8.span-8
+                  {% else %}
+                  .row.sqs-row
+                    .col.sqs-col-2.span-2
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>", :style => "padding-bottom:60.68376159667969%;"}
+                                %noscript
+                                  %img{:alt => "4 Bed", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
+                                %img.thumb-image{:alt => "4 Bed", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f256f4e4b0f5b52b4a1449", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
+                              .image-caption-wrapper.bed-bath-icon
+                                .image-caption
+                                  %h1
+                                    {{ site.number-of-beds }}
+                    .col.sqs-col-2.span-2
+                      #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>", :style => "padding-bottom:60.68376159667969%;"}
+                                %noscript
+                                  %img{:alt => "   4 Bath", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/"}/
+                                %img{:alt => "   4 Bath", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f2561be4b0f5b52b4a112d", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", :xclass => "thumb-image"}/
+                              .image-caption-wrapper.bed-bath-icon
+                                .image-caption
+                                  %h1 {{ site.number-of-baths }}
+                    .col.sqs-col-8.span-8
+                  {% endif %}
+                  / Highlights Area
+                  {% if site.highlights-1 %}
+                  .col-md-12.highlights-block
+                    .col-md-4.highlights-column
+                      %ul
+                        {% for highlight in site.highlights-1 %}
+                        %li {{ highlight.attribute }}
+                        {% endfor %}
+                    .col-md-4.highlights-column
+                      %ul
+                        {% for highlight in site.highlights-2 %}
+                        %li {{ highlight.attribute }}
+                        {% endfor %}
+                  {% endif %}
+                  / Photo Gallery Section
+                  .sqs-row
+                    .col-md-12
+                      {% if site.gallery-image-01 %}
+                      .row.gallery-row
+                        %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-01 }}"}
+                          %img.img-responsive{:src => "{{ site.gallery-image-01 }}"}
+                          %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-02 }}"}
+                            %img.img-responsive{:src => "{{ site.gallery-image-02 }}"}
+                            %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-03 }}"}
+                              %img.img-responsive{:src => "{{ site.gallery-image-03 }}"}
+                            {% endif %}
+                            {% if site.gallery-image-04 %}
+                            .row.gallery-row
+                              %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-04 }}"}
+                                %img.img-responsive{:src => "{{ site.gallery-image-04 }}"}
+                                %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-05 }}"}
+                                  %img.img-responsive{:src => "{{ site.gallery-image-05 }}"}
+                                  %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-06 }}"}
+                                    %img.img-responsive{:src => "{{ site.gallery-image-06 }}"}
+                                  {% endif %}
+                                  {% if site.gallery-image-07 %}
+                                  .row.gallery-row
+                                    %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-07 }}"}
+                                      %img.img-responsive{:src => "{{ site.gallery-image-07 }}"}
+                                      %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-08 }}"}
+                                        %img.img-responsive{:src => "{{ site.gallery-image-08 }}"}
+                                        %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-09 }}"}
+                                          %img.img-responsive{:src => "{{ site.gallery-image-09 }}"}
+                                        {% endif %}
+                                        {% if site.gallery-image-10 %}
+                                        .row.gallery-row
+                                          %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-10 }}"}
+                                            %img.img-responsive{:src => "{{ site.gallery-image-10 }}"}
+                                            %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-11 }}"}
+                                              %img.img-responsive{:src => "{{ site.gallery-image-11 }}"}
+                                              %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-12 }}"}
+                                                %img.img-responsive{:src => "{{ site.gallery-image-12 }}"}
+                                              {% endif %}
+                                              {% if site.gallery-image-13 %}
+                                              .row.gallery-row
+                                                %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-13 }}"}
+                                                  %img.img-responsive{:src => "{{ site.gallery-image-13 }}"}
+                                                  %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-14 }}"}
+                                                    %img.img-responsive{:src => "{{ site.gallery-image-14 }}"}
+                                                    %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-15 }}"}
+                                                      %img.img-responsive{:src => "{{ site.gallery-image-15 }}"}
+                                                    {% endif %}
+                                                    {% if site.gallery-image-16 %}
+                                                    .row.gallery-row
+                                                      %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-16 }}"}
+                                                        %img.img-responsive{:src => "{{ site.gallery-image-16 }}"}
+                                                        %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-17 }}"}
+                                                          %img.img-responsive{:src => "{{ site.gallery-image-17 }}"}
+                                                          %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-18 }}"}
+                                                            %img.img-responsive{:src => "{{ site.gallery-image-18 }}"}
+                                                          {% endif %}
+                                                          {% if site.gallery-image-19 %}
+                                                          .row.gallery-row
+                                                            %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-19 }}"}
+                                                              %img.img-responsive{:src => "{{ site.gallery-image-19 }}"}
+                                                              %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-20 }}"}
+                                                                %img.img-responsive{:src => "{{ site.gallery-image-20 }}"}
+                                                                %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-21 }}"}
+                                                                  %img.img-responsive{:src => "{{ site.gallery-image-21 }}"}
+                                                                {% endif %}
+                                                                {% if site.gallery-image-22 %}
+                                                                .row.gallery-row
+                                                                  %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-22 }}"}
+                                                                    %img.img-responsive{:src => "{{ site.gallery-image-22 }}"}
+                                                                    %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-23 }}"}
+                                                                      %img.img-responsive{:src => "{{ site.gallery-image-23 }}"}
+                                                                      %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-24 }}"}
+                                                                        %img.img-responsive{:src => "{{ site.gallery-image-24 }}"}
+                                                                      {% endif %}
+                                                                      {% if site.gallery-image-25 %}
+                                                                      .row.gallery-row
+                                                                        %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-25 }}"}
+                                                                          %img.img-responsive{:src => "{{ site.gallery-image-25 }}"}
+                                                                          %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-26 }}"}
+                                                                            %img.img-responsive{:src => "{{ site.gallery-image-26 }}"}
+                                                                            %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-27 }}"}
+                                                                              %img.img-responsive{:src => "{{ site.gallery-image-27 }}"}
+                                                                            {% endif %}
+                                                                            {% if site.gallery-image-28 %}
+                                                                            .row.gallery-row
+                                                                              %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-28 }}"}
+                                                                                %img.img-responsive{:src => "{{ site.gallery-image-28 }}"}
+                                                                                %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-29 }}"}
+                                                                                  %img.img-responsive{:src => "{{ site.gallery-image-29 }}"}
+                                                                                  %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "{{ site.gallery-image-30 }}"}
+                                                                                    %img.img-responsive{:src => "{{ site.gallery-image-30 }}"}
+                                                                                  {% endif %}
+                                                                              / Photo Gallery Section
+                                                                              / Schedule Area
+                                                                              %br
+                                                                                %hr
+                                                                                  .sqs-block-content
+                                                                                    %h1.text-align-center.schedule-header Schedule
+                                                                                    .row.sqs-row
+                                                                                      .col.sqs-col-12.span-12
+                                                                                        #block-yui_3_17_2_1_1410808515393_74279.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                          / Schedule Table
+                                                                                          {% if site.showings %}
+                                                                                          .sqs-block-content
+                                                                                            .text-align-center
+                                                                                              %table.table
+                                                                                                {% for showing in site.showings %}
+                                                                                                %tr
+                                                                                                  %td
+                                                                                                    {{ showing.date }}
+                                                                                                  %td
+                                                                                                    {{ showing.weekday }}
+                                                                                                  %td
+                                                                                                    {{ showing.time }}
+                                                                                                {% endfor %}
+                                                                                          {% endif %}
+                                                                                  / Schedule Area
+                                                                        / Neighborhood Section
+                                                                        #neighborhood.index-section{"data-url-id" => "neighborhood"}
+                                                                          .promoted-gallery-wrapper
+                                                                          / Neighboorhood Background Image
+                                                                          .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
+                                                                            .color-overlay
+                                                                            %figure#thumbnail.loading.content-fill
+                                                                              %img{:alt => "IMG_7954.JPG", "data-image" => "{{ site.neighboorhood-background-image-url}}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "data-src" => "{{ site.neighboorhood-background-image-url }}"}/
+                                                                            .desc-wrapper{"data-collection-id" => "55f250f7e4b0dbda5ff0f2ba"}
+                                                                              %p
+                                                                                %strong Neighborhood
+                                                                          / Neighboorhood Text Area
+                                                                          .index-section-wrapper.page-content
+                                                                            .content-inner.has-content{"data-content-field" => "main-content"}
+                                                                              #page-55f1b5dae4b0efe7c87bb686.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1441905044142"}
+                                                                                .row.sqs-row
+                                                                                  .col.sqs-col-12.span-12
+                                                                                    / Neighborhood Name
+                                                                                    #block-34cb7df891b026cf460e.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                      .sqs-block-content
+                                                                                        %h1.text-align-center {{ site.neighboorhood-name }}
+                                                                                    / Neighboorhood Description
+                                                                                    .row.sqs-row
+                                                                                      .col.sqs-col-12.span-12
+                                                                                        #block-yui_3_17_2_1_1410808515393_74279.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                          .sqs-block-content
+                                                                                            %p {{ site.neighboorhood-description }}
+                                                                                            %p.text-align-center
+                                                                                      .col.sqs-col-0.span-0
+                                                                          / Neighboorhood Google map
+                                                                          .gmap-container
+                                                                            #gmap
+                                                                            %script{:src => "https://maps.googleapis.com/maps/api/js?sensor=false"}
+                                                                            :javascript
+                                                                              $(function() {
+                                                                                new Maplace({
+                                                                                  show_markers: true,
+                                                                                  locations: [{
+                                                                                      lat: {{ site.map-latitude }},
+                                                                                      lon: {{ site.map-longitude }},
+                                                                                      zoom: {{ site.map-zoom-level }},
+                                                                                      icon : "images/map-1.png",
+                                                                                  }],
+                                                                                  styles : {
+                                                                                    // source: https://snazzymaps.com/style/132/light-gray
+                                                                                    'custom' : [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}],
+                                                                                  },
+                                                                                  map_options : {
+                                                                                    scrollwheel : false,
+                                                                                    mapTypeControl : false,
+                                                                                    streetViewControl : true,
+                                                                                    zoomControlOptions : {
+                                                                                      style : google.maps.ZoomControlStyle.SMALL,
+                                                                                    },
+                                                                                  }
+                                                                                }).Load();
+                                                                              });
+                                                                        / Contact Section
+                                                                        #contact.index-section{"data-url-id" => "contact"}
+                                                                          .promoted-gallery-wrapper
+                                                                          .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
+                                                                            .color-overlay
+                                                                            %figure#thumbnail.loading.content-fill
+                                                                              / Contact Us Background Image
+                                                                              %img{:alt => "IMG_8206.JPG", "data-image" => "{{ site.contact-us-background-image-url }}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "data-src" => "{{ site.contact-us-background-image-url }}"}/
+                                                                            .desc-wrapper{"data-collection-id" => "55f250a0e4b071d1ddffe28d"}
+                                                                              %p
+                                                                                %strong Contact Us
+                                                                          .index-section-wrapper.page-content
+                                                                            .content-inner.has-content{"data-content-field" => "main-content"}
+                                                                              #page-55f1c0b3e4b0512272bbdbb2.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1441944877147"}
+                                                                                .row.sqs-row
+                                                                                  .col.sqs-col-12.span-12
+                                                                                    .row.sqs-row
+                                                                                      .col.sqs-col-4.span-4
+                                                                                        #block-dc7a788e4d471a84bd90.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                          .sqs-block-content
+                                                                                            %h1 Let's Talk
+                                                                                            %p Let us know what you are looking for
+                                                                                        #block-yui_3_17_2_1_1410978958748_11721.sqs-block.socialaccountlinks-v2-block.sqs-block-socialaccountlinks-v2{"data-block-type" => "54"}
+                                                                                          .sqs-block-content
+                                                                                            %nav.sqs-svg-icon--list.social-icon-alignment-left.social-icons-color-black.social-icons-size-small.social-icons-shape-circle.social-icons-style-knockout
+                                                                                      .col.sqs-col-8.span-8
+                                                                                        #block-e2c45e2ab7f3bad09d65.sqs-block.form-block.sqs-block-form{"data-block-type" => "9"}
+                                                                                          .sqs-block-content
+                                                                                            %h1
+                                                                                              {{ site.agent-name }}
+                                                                                            %h1
+                                                                                              {{ site.agent-phone }}
+                                                                      / comment the linebreak between these two elements because science
+                                                                    #preFooter
+                                                                      .pre-footer-inner
+                                                                        #preFooterBlocks.sqs-layout.sqs-grid-12.columns-12{"data-layout-label" => "Pre-Footer Content", "data-type" => "block-field", "data-updated-on" => "1441951734649"}
+                                                                          .row.sqs-row
+                                                                            .col.sqs-col-12.span-12
+                                                                              .row.sqs-row
+                                                                                .col.sqs-col-8.span-8
+                                                                                  #block-yui_3_17_2_1_1410979096848_3228.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                    .sqs-block-content
+                                                                                      %h1 Your new home awaits.
+                                                                                .col.sqs-col-4.span-4
+                                                                                  #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button{"data-block-type" => "53"}
+                                                                                    .sqs-block-content
+                                                                                      .sqs-block-button-container--right
+                                                                                        / Agent Button
+                                                                                        %a.sqs-block-button-element--small.sqs-block-button-element{:href => "{{ site.agent-website }}"} {{ site.agent-button-name-phone }}
+                                                                    %footer#footer{:role => "contentinfo"}
+                                                                      .footer-inner
+                                                                        .nav-wrapper.back-to-top-nav
+                                                                          %nav
+                                                                            .back-to-top
+                                                                              %a{:href => "#header"} Back to Top
+                                                                        / Footer Property Address
+                                                                        #siteInfo
+                                                                          %span.site-address {{ site.property-full-address }}
+                                                                        #footerBlocks.sqs-layout.sqs-grid-12.columns-12{"data-layout-label" => "Footer Content", "data-type" => "block-field", "data-updated-on" => "1441904782038"}
+                                                                          .row.sqs-row
+                                                                            .col.sqs-col-12.span-12
+                                                                              #block-713fe491a2c303b33937.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                                                                                .sqs-block-content
+                                                                                  %p.text-align-center
+                                                                                    Powered by
+                                                                                    %a{:href => "http://www.captivaterealestate.com", :target => "_blank"} C
+                                                                                    %a{:href => "http://www.captivaterealestate.com", :target => "_blank"} aptivate Real Estate
+                                                                  / Google Map Script
+                                                                  %script{:src => "js/maplace-0.1.3.min.js"}
+                                                                  %script{"data-sqs-type" => "imageloader-bootstraper", :type => "text/javascript"} (function() {if(window.ImageLoader) { window.ImageLoader.bootstrap(); }})();
+                                                                  :javascript
+                                                                    Squarespace.afterBodyLoad(Y);
+                                                                  %script{:src => "http://code.jquery.com/jquery.js"}
+                                                                  %script{:src => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"}
+                                                                  %script{:src => "js/ekko-lightbox.js"}
+                                                                  :javascript
+                                                                    $(document).ready(function ($) {
+                                                                      // delegate calls to data-toggle="lightbox"
+                                                                      $(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function(event) {
+                                                                        event.preventDefault();
+                                                                        return $(this).ekkoLightbox({
+                                                                          onShown: function() {
+                                                                            if (window.console) {
+                                                                              return console.log('Checking our the events huh?');
+                                                                            }
+                                                                          },
+                                                                          onNavigate: function(direction, itemIndex) {
+                                                                            if (window.console) {
+                                                                              return console.log('Navigating '+direction+'. Current item: '+itemIndex);
+                                                                            }
+                                                                          }
+                                                                        });
+                                                                      });
+
+                                                                      //Programatically call
+                                                                      $('#open-image').click(function (e) {
+                                                                        e.preventDefault();
+                                                                        $(this).ekkoLightbox();
+                                                                      });
+                                                                      $('#open-youtube').click(function (e) {
+                                                                        e.preventDefault();
+                                                                        $(this).ekkoLightbox();
+                                                                      });
+
+                                                                      // navigateTo
+                                                                      $(document).delegate('*[data-gallery="navigateTo"]', 'click', function(event) {
+                                                                        event.preventDefault();
+                                                                        return $(this).ekkoLightbox({
+                                                                          onShown: function() {
+                                                                            var a = this.modal_content.find('.modal-footer a');
+                                                                            if(a.length > 0) {
+                                                                              a.click(function(e) {
+                                                                                e.preventDefault();
+                                                                                this.navigateTo(2);
+                                                                              }.bind(this));
+                                                                            }
+                                                                          }
+                                                                        });
+                                                                      });
+                                                                    });

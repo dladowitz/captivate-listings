@@ -1,3 +1,22 @@
+/*
+ * Manifest for site pages.
+ * Note that 'site_pages/site.css' has been added to Rails.application.config.assets.precompile in assets.rb
+ *
+ *= require_self
+ //= require site_pages/commerce-min
+ //= require site_pages/ekko-lightbox-min
+ //= require site_pages/sspace-theme
+ //= require ../shared/shared
+ */
+
+// drew_theme.css has overidden bootstrap classes.
+// Uncomment next line if need original bootstrap classes.
+// @import "bootstrap";
+
+@import "font-awesome";
+
+//////// Styles limited to sites pages \\\\\\\\\\
+
 * {
     -webkit-box-sizing: initial;
     -moz-box-sizing: initial;
