@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031055239) do
+ActiveRecord::Schema.define(version: 20151101185744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20151031055239) do
 
   add_index "properties", ["details"], name: "index_properties_on_details", using: :gin
 
+  create_table "sites", force: :cascade do |t|
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "sites", ["property_id"], name: "index_sites_on_property_id", using: :btree
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "level"
     t.integer  "user_id"
@@ -71,5 +79,6 @@ ActiveRecord::Schema.define(version: 20151031055239) do
   end
 
   add_foreign_key "photos", "properties"
+  add_foreign_key "sites", "properties"
   add_foreign_key "subscriptions", "users"
 end

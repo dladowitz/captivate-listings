@@ -9,7 +9,8 @@ class PropertiesController < ApplicationController
 
   def create
     @property = @user.properties.build(property_params)
-    if @property.save
+    @site = @property.build_site
+    if @property.save && @site.save
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
       PropertyMailer.new_property_email(@property).deliver
 

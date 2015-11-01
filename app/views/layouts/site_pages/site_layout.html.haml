@@ -1,0 +1,16 @@
+!!! 5
+%html(lang="en-US")
+  %head
+    %title Captivate Listings
+    = stylesheet_link_tag    'site_pages/site', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'site_pages/site', 'data-turbolinks-track' => true
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicons.ico">
+    <link rel="apple-touch-icon" type="image/png" href="/assets/apple-touch-icon.png">
+    = csrf_meta_tags
+
+  %body
+    = render "layouts/site_pages/header"
+
+    = yield
+
+    = render "layouts/site_pages/footer"

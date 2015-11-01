@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
 
   # resource routes
+  resources :sites, only: [:show]
+
   resources :users do
     resources :subscriptions, only: [:new, :create, :edit, :destroy]
 
