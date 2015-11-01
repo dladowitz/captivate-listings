@@ -89,7 +89,7 @@
       banner = $('#page-thumb img').first();
 
       // Walkthrough Video URL
-      // var url = @property.video_walkthrough_url;
+      var url = "#{@property.video_walkthrough_url}";
 
       banner.hide();
       $('<video class="bannerVideo" autoplay="" loop="" preload><source src="' + url + '" type="video/mp4"></video>').insertAfter(banner);
