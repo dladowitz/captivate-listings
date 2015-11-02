@@ -71,10 +71,10 @@ class PropertiesController < ApplicationController
     params.require(:property).permit(
                                       :address, :city, :state, :zip, :domain_type, :domain,
                                       :list_price, :sqfeet, :beds, :baths, :cars, :garden,
-                                      :description, :matterport_url, :highlights, :video_walkthrough_url,
+                                      :description, :matterport_url, :highlights, :showings, :video_walkthrough_url,
                                       :tag_line, :agent_name, :agent_phone, :agent_image_url,
                                       :agent_company, :agent_license, :agent_logo_url, :agent_website,
-                                      :neighborhood_name, :neighboorhood_description, :showings)
+                                      :neighborhood_name, :neighboorhood_description, :neighboorhood_background_image_url)
   end
 
   def set_user
