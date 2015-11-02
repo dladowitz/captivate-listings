@@ -69,15 +69,18 @@ ul#photos {
   position: absolute !important;
 }
 
-h1.second-photo {
-  position: absolute;
-  top: 200px;
-  right: 40px;
-}
-
 .photos-show-page {
   margin-left: -40px;
   margin-right: 20px;
+}
+
+// Property Show Page
+.fixed-width {
+  table-layout: fixed;
+}
+
+.fixed-width td {
+  word-wrap: break-word;
 }
 
 .widget-border {

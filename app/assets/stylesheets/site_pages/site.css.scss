@@ -23,7 +23,15 @@
     box-sizing: initial;
 }
 
+.section-background {
+  max-width: 100%;
+}
+
 /*Property*/
+.highlights-column {
+  padding-left: 0px !important;
+}
+
 .bed-bath-icon {
   width: 200px;
 }
@@ -49,10 +57,6 @@
   .highlights-block {
     padding-left: 0px !important;
   }
-
-.highlights-column {
-  padding-left: 0px !important;
-}
 
 /*Agent Info*/
 .agent-name {
