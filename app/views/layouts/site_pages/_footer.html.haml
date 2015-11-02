@@ -1,0 +1,35 @@
+#preFooter
+  .pre-footer-inner
+    #preFooterBlocks.sqs-layout.sqs-grid-12.columns-12{"data-layout-label" => "Pre-Footer Content", "data-type" => "block-field", "data-updated-on" => "1441951734649"}
+      .row.sqs-row
+        .col.sqs-col-12.span-12
+          .row.sqs-row
+            .col.sqs-col-8.span-8
+              #block-yui_3_17_2_1_1410979096848_3228.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                .sqs-block-content
+                  %h1 Your new home awaits.
+            .col.sqs-col-4.span-4
+              #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button{"data-block-type" => "53"}
+                .sqs-block-content
+                  .sqs-block-button-container--right
+                    / Agent Button
+                    %a.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}= "#{@property.agent_name}: #{@property.agent_phone}"
+
+%footer#footer{:role => "contentinfo"}
+  .footer-inner
+    .nav-wrapper.back-to-top-nav
+      %nav
+        .back-to-top
+          %a{:href => "#header"} Back to Top
+
+    / Footer Property Address
+    #siteInfo
+      %span.site-address= @property.full_address
+    #footerBlocks.sqs-layout.sqs-grid-12.columns-12{"data-layout-label" => "Footer Content", "data-type" => "block-field", "data-updated-on" => "1441904782038"}
+      .row.sqs-row
+        .col.sqs-col-12.span-12
+          #block-713fe491a2c303b33937.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+            .sqs-block-content
+              %p.text-align-center
+                Powered by
+                %a{:href => "http://www.captivatelistings.com", :target => "_blank"} Captivate Real Estate
