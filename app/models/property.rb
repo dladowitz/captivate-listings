@@ -20,6 +20,8 @@
 #
 
 class Property < ActiveRecord::Base
+  include Geokit::Geocoders
+
   has_many :photos
   belongs_to :user
   has_one :site
@@ -46,6 +48,14 @@ class Property < ActiveRecord::Base
 
   def full_address
     "#{address}, #{city}, #{state} #{zip}"
+  end
+
+  def latitude
+    GoogleGeocoder.geocode(full_address).latitude
+  end
+
+  def longitude
+    GoogleGeocoder.geocode(full_address).longitude
   end
 
   # not sure why self is needed here, but domain is nil otherwise

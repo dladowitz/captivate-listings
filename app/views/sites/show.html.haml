@@ -204,6 +204,7 @@
                           %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
                             %img.img-responsive{:src => "#{photo.url}"}
 
+
       / Neighborhood Section
       #neighborhood.index-section{"data-url-id" => "neighborhood"}
         .promoted-gallery-wrapper
@@ -247,10 +248,10 @@
               new Maplace({
                 show_markers: true,
                 locations: [{
-                    lat: 0,
-                    lon: 0,
-                    zoom: 0,
-                    icon : "images/map-1.png",
+                    lat: "#{@property.latitude}",
+                    lon: "#{@property.longitude}",
+                    zoom: 14,
+                    icon : "/assets/map-1.png",
                 }],
                 styles : {
                   // source: https://snazzymaps.com/style/132/light-gray
