@@ -56,13 +56,15 @@ class User < ActiveRecord::Base
   # Not sure how Thread works here, but a guy on the interweb seems to thing its ok:
   # http://clearcove.ca/2008/08/recipe-make-request-environment-available-to-models-in-rails/
   # Used to access current_user in the admin_change method on the model
-  def self.current_user
-    Thread.current[:user]
-  end
 
-  def self.current_user=(user)
-    Thread.current[:user] = user
-  end
+  # This doens't seem to work anymore
+  # def self.current_user
+  #   Thread.current[:user]
+  # end
+  #
+  # def self.current_user=(user)
+  #   Thread.current[:user] = user
+  # end
 
   private
 
