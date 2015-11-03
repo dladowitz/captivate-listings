@@ -25,9 +25,11 @@
               .col-md-12#matterport-url-col{ :style => ("display: none" unless @property.matterport_status == "yes")}
                 = f.input :matterport_url, input_html: {placeholder: 'https://my.matterport.com/models/chQ3jHCT4Hp'}
 
+              .col-md-12
+                %hr
+
               -# Video Walkthrough
               .col-md-4
-                %hr
                 = f.input :video_walkthrough_status, :input_html => {:onchange => "videoWalkthroughURL(this)"}, label: "Show Walkthrough Video", as: :select, selected: @property.video_walkthrough_status, collection: { "no": "no", "yes": "yes" }
               .col-md-12#video-walkthrough-url-col{ :style => ("display: none" unless @property.video_walkthrough_status == "yes")}
                 = f.input :video_walkthrough_url, input_html: {placeholder: 'https://dl.dropboxusercontent.com/s/0jjqtv1hkbncfnn/1394McAllisterWalkthrough.mp4'}
