@@ -6,7 +6,7 @@
   .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
     .color-overlay
     %figure#thumbnail.loading.content-fill
-      %img{"src" => "#{@property.neighboorhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighboorhood_background_image_url}", "data-src" => "#{@property.neighboorhood_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
+      %img{"src" => "#{@property.main_background_image_url}", "class" => "section-background", "data-image" => "#{@property.main_background_image_url}", "data-src" => "#{@property.main_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
     .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
       %p
         %strong= @property.address
@@ -21,11 +21,12 @@
           .col.sqs-col-12.span-12
 
             / Matterport Embed Area
-            #block-yui_3_17_2_10_1441907369577_8038.sqs-block.embed-block.sqs-block-embed{"data-block-json" => "{\"hSize\":null,\"floatDir\":null,\"html\":\"<div id=\\\"my-iframe\\\"><iframe  height=\\\"584\\\" width=\\\"1050\\\" frameborder=\\\"0\\\" allowfullscreen src=\\\"https://my.matterport.com/show/?m=WaRmuinAmY4\\\"></iframe>\\n</div>\",\"resolvedBy\":\"manual\",\"resolved\":true}", "data-block-type" => "22"}
-              .sqs-block-content
-                #my-iframe
-                  / Matterport Embed URL
-                  %iframe{:allowfullscreen => "", "data-embed" => "true", :frameborder => "0", :height => "584", :src => "#{@property.matterport_url}", :width => "1050"}
+            - if @property.matterport_status == "yes" && !@property.matterport_url.blank?
+              #block-yui_3_17_2_10_1441907369577_8038.sqs-block.embed-block.sqs-block-embed{"data-block-json" => "{\"hSize\":null,\"floatDir\":null,\"html\":\"<div id=\\\"my-iframe\\\"><iframe  height=\\\"584\\\" width=\\\"1050\\\" frameborder=\\\"0\\\" allowfullscreen src=\\\"https://my.matterport.com/show/?m=WaRmuinAmY4\\\"></iframe>\\n</div>\",\"resolvedBy\":\"manual\",\"resolved\":true}", "data-block-type" => "22"}
+                .sqs-block-content
+                  #my-iframe
+                    / Matterport Embed URL
+                    %iframe{:allowfullscreen => "", "data-embed" => "true", :frameborder => "0", :height => "584", :src => "#{@property.matterport_url}", :width => "1050"}
 
             / Agent Detals Area
             #block-yui_3_17_2_10_1441907369577_13768.sqs-block.image-block.sqs-block-image.sqs-col-3.span-3.float.float-right{"data-block-type" => "5"}
