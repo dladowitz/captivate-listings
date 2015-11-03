@@ -102,17 +102,17 @@
                         %i.fa.fa-warning
                         Missing URL
 
-              %tr
-                %td.col-md-2
-                  %h3 Primary Background Image:
-                %td
-                  %h3.weight-100
-                    - if @property.main_background_image_url
-                      = @property.main_background_image_url
-                    - else
-                      %span.text-danger
-                        %i.fa.fa-warning
-                        Missing Image
+                %tr
+                  %td.col-md-2
+                    %h3 Primary Background Image:
+                  %td
+                    %h3.weight-100
+                      - if @property.main_background_image_url
+                        = @property.main_background_image_url
+                      - else
+                        %span.text-danger
+                          %i.fa.fa-warning
+                          Missing Image
             -# %tr
             -#   %td.col-md-2
             -#     %h3 Highlights:
