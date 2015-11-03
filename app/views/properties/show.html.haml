@@ -6,7 +6,7 @@
       = link_to "View Live Site", site_path(@property.site.id), target: "_blank", class: "btn btn-warning btn-outline pull-right"
 .row
   .col-lg-8
-    .widget.navy-bg.no-padding
+    .widget.yellow-bg.no-padding
       .p-m
         %h1.m-xs Address
         %hr
@@ -129,7 +129,7 @@
           = link_to "Add Details", edit_user_property_path(@user, @property, detail_section: "property"), class: "btn btn-default mt20 btn-outline"
 .row
   .col-lg-8
-    .widget.navy-bg.no-padding
+    .widget.lazur-bg.no-padding
       .p-m
         %h1.m-xs Agent
         - if @property.details && @property.agent_name
@@ -190,7 +190,7 @@
 
 .row
   .col-lg-8
-    .widget.navy-bg.no-padding
+    .widget.red-bg.no-padding
       .p-m
         %h1.m-xs Neighborhood
         - if @property.details && @property.neighborhood_name
