@@ -14,12 +14,27 @@
                 = f.input :beds, input_html: {type: "number", min: '0', step: '1', placeholder: '3'}
                 = f.input :baths, input_html: {type: "number", min: '0', step: '.5', placeholder: '2.5'}
                 = f.input :cars, input_html: {type: "number", min: '0', step: '1', placeholder: '2'}
-                = f.input :garden, as: :select, selected: "no", collection: { "no": "no", "yes": "yes" }
+                = f.input :garden, as: :select, selected: @property.garden, collection: { "no": "no", "yes": "yes" }
 
               .col-md-12
+                %hr
+
+              -# Matterport
+              .col-md-4
+                = f.input :matterport_status, :input_html => {:onchange => "matterportURL(this)"}, label: "Show Matterport 3D", as: :select, selected: @property.matterport_status, collection: { "no": "no", "yes": "yes" }
+              .col-md-12#matterport-url-col{ :style => ("display: none" unless @property.matterport_status == "yes")}
                 = f.input :matterport_url, input_html: {placeholder: 'https://my.matterport.com/models/chQ3jHCT4Hp'}
+
+              -# Video Walkthrough
+              .col-md-4
+                %hr
+                = f.input :video_walkthrough_status, :input_html => {:onchange => "videoWalkthroughURL(this)"}, label: "Show Walkthrough Video", as: :select, selected: @property.video_walkthrough_status, collection: { "no": "no", "yes": "yes" }
+              .col-md-12#video-walkthrough-url-col{ :style => ("display: none" unless @property.video_walkthrough_status == "yes")}
+                = f.input :video_walkthrough_url, input_html: {placeholder: 'https://dl.dropboxusercontent.com/s/0jjqtv1hkbncfnn/1394McAllisterWalkthrough.mp4'}
+
+              .col-md-12
+                %hr
                 = f.input :description, as: :text, input_html: {rows: 15, placeholder: 'Stunning full floor house-like Victorian condominium bathed in light with 11’ soaring ceilings and a modern open floorplan. This beautiful home in an iconic turreted 1890’s corner building seamlessly blends period details and modern living with 3-4BR/2.5BA and 2,300sq ft of living area, bright open kitchen with downtown views, Viking gas range w/ hood, island w/ breakfast bar seating and Calcutta marble counters, 2.5 renovated bathrooms, in-unit laundry room, rooms, coved ceilings, bay windows, wainscoting, moldings, and two fireplaces. The home is located in the hip Alamo Square neighborhood, just one block from Alamo Square Park, and close to many neighborhood amenities and shuttle stops. Deeded private garage with a separate additional deeded storage/office/exercise room and wine cellar on ground level.'}
-                -# = f.input :video_walkthrough_url, input_html: {placeholder: 'https://dl.dropboxusercontent.com/s/0jjqtv1hkbncfnn/1394McAllisterWalkthrough.mp4'}
                 -# = f.input :tag_line, input_html: {placeholder: "You're Home"}
                 -# = f.input :highlights, as: :text, input_html: { :rows => 5}
 
@@ -40,6 +55,28 @@
               -#   Please ensure the domain is available
               -# <iframe style="width: 336px; height: 142px; overflow: hidden;" frameborder="0" scrolling="no" src="https://instantdomainsearch.com/widget/liquid/"></iframe>
 
+
+
+:javascript
+  // Toggle #video-walkthrough-url-col
+  function videoWalkthroughURL(elem){
+    console.log("video walkthrough status: " + elem.value)
+    if(elem.value == "yes"){
+      document.getElementById("video-walkthrough-url-col").style.display = "block";
+    } else {
+      document.getElementById("video-walkthrough-url-col").style.display = "none";
+    }
+  }
+
+  // Toggle #matterport-url-col
+  function matterportURL(elem){
+    console.log("matterport status: " + elem.value)
+    if(elem.value == "yes"){
+      document.getElementById("matterport-url-col").style.display = "block";
+    } else {
+      document.getElementById("matterport-url-col").style.display = "none";
+    }
+  }
 -# %script
 -#   $('#property_domain_type_custom').click(function() {
 -#   $('.domain-checker').show();

@@ -1,0 +1,47 @@
+/ sidecarNav is probably SquareSpace Edit Controls - Not used anymore
+#sidecarNav
+  #mobileNavWrapper.nav-wrapper{"data-content-field" => "navigation-mobileNav"}
+    %nav#mobileNavigation
+      .index.active.homepage.property
+        %a{:href => "/"}
+          Property
+      .external
+        %a{:href => "#neighborhood"}
+          Neighborhood
+      .external
+        %a{:href => "#contact"}
+          Contact
+#siteWrapper.clearfix
+  .sqs-cart-dropzone
+  / Header
+  %header#header.show-on-scroll{"data-offset-behavior" => "bottom", "data-offset-el" => ".index-section", :role => "banner"}
+    .header-inner
+      #siteTitleWrapper.wrapper{"data-content-field" => "site-title"}
+        %h1#siteTitle.site-title
+          = link_to @property.agent_name, @property.agent_website, target: "_blank"
+      / comment the linebreak between these two elements because science
+      %label.mobile-nav-toggle-label{:for => "mobileNavToggle"}
+        .top-bar
+        .middle-bar
+        .bottom-bar
+      %label.mobile-nav-toggle-label.fixed-nav-toggle-label{:for => "mobileNavToggle"}
+        .top-bar
+        .middle-bar
+        .bottom-bar
+
+      #headerNav
+        #mainNavWrapper.nav-wrapper{"data-content-field" => "navigation-mainNav"}
+          %nav#mainNavigation{"data-content-field" => "navigation-mainNav"}
+            .index.active.homepage
+              %a{:href => "/"}
+                Property
+            .external
+              %a{:href => "#neighborhood"}
+                Neighborhood
+            .external
+              %a{:href => "#contact"}
+                Contact
+
+        / style below blocks out the mobile nav toggle only when nav is loaded
+        :css
+          .mobile-nav-toggle-label { display: inline-block !important; }

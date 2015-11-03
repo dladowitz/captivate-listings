@@ -13,7 +13,9 @@
                 .sqs-block-content
                   .sqs-block-button-container--right
                     / Agent Button
-                    %a.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}= "#{@property.agent_name}: #{@property.agent_phone}"
+                    %a.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}", :target => "_blank"}
+                      -# = "#{@property.agent_name}: #{number_to_phone(@property.agent_phone, area_code: true)}"
+                      = @property.agent_website
 
 %footer#footer{:role => "contentinfo"}
   .footer-inner

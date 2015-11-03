@@ -1,0 +1,61 @@
+#neighborhood.index-section{"data-url-id" => "neighborhood"}
+  .promoted-gallery-wrapper
+
+  / Neighboorhood Background Image
+  .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
+    .color-overlay
+    %figure#thumbnail.loading.content-fill
+      %img{ "src" => "#{@property.neighboorhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighboorhood_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "alt" => "neighboorhood_background_image_url", "data-src" => "#{@property.neighboorhood_background_image_url}"}
+    .desc-wrapper{"data-collection-id" => "55f250f7e4b0dbda5ff0f2ba"}
+      %p
+        %strong Neighborhood
+
+  / Neighboorhood Text Area
+  .index-section-wrapper.page-content
+    .content-inner.has-content{"data-content-field" => "main-content"}
+      #page-55f1b5dae4b0efe7c87bb686.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1441905044142"}
+        .row.sqs-row
+          .col.sqs-col-12.span-12
+
+            / Neighborhood Name
+            #block-34cb7df891b026cf460e.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+              .sqs-block-content
+                %h1.text-align-center= @property.neighborhood_name
+
+            / Neighboorhood Description
+            .row.sqs-row
+              .col.sqs-col-12.span-12
+                #block-yui_3_17_2_1_1410808515393_74279.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+                  .sqs-block-content
+                    %p= @property.neighboorhood_description
+                    %p.text-align-center
+              .col.sqs-col-0.span-0
+
+  / Neighboorhood Google map
+  .gmap-container
+    #gmap
+    %script{:src => "https://maps.googleapis.com/maps/api/js?sensor=false"}
+    :javascript
+      $(function() {
+        new Maplace({
+          show_markers: true,
+          locations: [{
+              lat: "#{@property.latitude}",
+              lon: "#{@property.longitude}",
+              zoom: 14,
+              icon : "/assets/map-1.png",
+          }],
+          styles : {
+            // source: https://snazzymaps.com/style/132/light-gray
+            'custom' : [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}],
+          },
+          map_options : {
+            scrollwheel : false,
+            mapTypeControl : false,
+            streetViewControl : true,
+            zoomControlOptions : {
+              style : google.maps.ZoomControlStyle.SMALL,
+            },
+          }
+        }).Load();
+      });
