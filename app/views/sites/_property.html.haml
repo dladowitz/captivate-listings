@@ -1,0 +1,152 @@
+/ Property Section
+#property.index-section{"data-url-id" => "property"}
+  .promoted-gallery-wrapper
+
+  / Hero Area
+  .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
+    .color-overlay
+    %figure#thumbnail.loading.content-fill
+      %img{"src" => "#{@property.neighboorhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighboorhood_background_image_url}", "data-src" => "#{@property.neighboorhood_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
+    .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
+      %p
+        %strong= @property.address
+      %p
+        YOU'RE HOME!
+
+  / Property Info Area
+  .index-section-wrapper.page-content
+    .content-inner.has-content{"data-content-field" => "main-content"}
+      #page-55f1b5e5e4b048de91d5ac0e.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1442001331793"}
+        .row.sqs-row
+          .col.sqs-col-12.span-12
+
+            / Matterport Embed Area
+            #block-yui_3_17_2_10_1441907369577_8038.sqs-block.embed-block.sqs-block-embed{"data-block-json" => "{\"hSize\":null,\"floatDir\":null,\"html\":\"<div id=\\\"my-iframe\\\"><iframe  height=\\\"584\\\" width=\\\"1050\\\" frameborder=\\\"0\\\" allowfullscreen src=\\\"https://my.matterport.com/show/?m=WaRmuinAmY4\\\"></iframe>\\n</div>\",\"resolvedBy\":\"manual\",\"resolved\":true}", "data-block-type" => "22"}
+              .sqs-block-content
+                #my-iframe
+                  / Matterport Embed URL
+                  %iframe{:allowfullscreen => "", "data-embed" => "true", :frameborder => "0", :height => "584", :src => "#{@property.matterport_url}", :width => "1050"}
+
+            / Agent Detals Area
+            #block-yui_3_17_2_10_1441907369577_13768.sqs-block.image-block.sqs-block-image.sqs-col-3.span-3.float.float-right{"data-block-type" => "5"}
+              .sqs-block-content
+                .image-block-outer-wrapper.layout-caption-below
+                  .intrinsic{:style => "max-width:356.0px;"}
+                    .image-block-wrapper.has-aspect-ratio{"data-description" => "<p><strong style=\"color:rgb(31, 37, 38); font-family:europa; font-size:16px; letter-spacing:2px; line-height:1.4em; text-transform:uppercase\">Naomi Lopez</strong></p><p>Coldwell Banker<br />Cell: 415 264 4093</p>", :style => "padding-bottom:121.62921142578125%;"}
+                      / Agent Image
+                      %img{:src => "#{@property.agent_image_url}", "data-image-dimensions" => "356x433", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f24e20e4b0c0afc4503208", "data-load" => "false", "data-type" => "image"}/
+                    .image-caption-wrapper
+                      .image-caption
+                        - unless @property.agent_logo_url.blank?
+                          %img.agent-logo{:alt => "", :src => @property.agent_logo_url}
+                        - else
+                          %p
+                            %strong.agent-name
+                              = @property.agent_name
+
+                        %p.agent-details
+                          = @property.agent_company
+                          %br
+                          Cell:
+                          = number_to_phone(@property.agent_phone, area_code: true)
+                          %br
+                          = @property.agent_license if @property.agent_license
+                          %br
+
+            / Property Details Area
+            #block-20d2d7d07ef691626788.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
+              .sqs-block-content
+                %h1
+                  - if @property.list_price
+                    Purchase Price:
+                    = number_to_currency(@property.list_price, precision: 0)
+                  %br
+                  %strong= "#{@property.sqfeet} sqft"
+
+                / property Description
+                %p= @property.description
+
+              / Property Beds and Bath Area
+              / Used when home has garage or garden
+              - if @property.cars.to_i > 0 || @property.garden == 'yes'
+                .row.sqs-row.home-icons-row.text-align-center
+                  .col.sqs-col-2.span-2.home-icon-div
+                    #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                      .sqs-block-content
+                        .image-block-outer-wrapper.layout-caption-below
+                          .intrinsic{:style => "max-width:117.0px;"}
+                            .image-block-wrapper
+                              %i.fa.fa-bed.home-icon
+                            .image-caption-wrapper
+                              .image-caption
+                                %h1.home-icon-text= pluralize(@property.beds, 'Bed')
+                  .col.sqs-col-2.span-2.home-icon-div
+                    #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                      .sqs-block-content
+                        .image-block-outer-wrapper.layout-caption-below
+                          .intrinsic{:style => "max-width:117.0px;"}
+                            .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>"}
+                              %span.glyphicon.glyphicon-tint.home-icon{"aria-hidden" => "true"}
+                              / <img src="https://cloud.githubusercontent.com/assets/909749/7330732/4c4300a6-eb48-11e4-9232-b29ab2fad800.jpg" data-image="http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/" data-image-dimensions="117x71" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55f2561be4b0f5b52b4a112d" data-type="image" />
+                            .image-caption-wrapper
+                              .image-caption
+                                %h1.home-icon-text= pluralize(@property.baths, 'Bath')
+                  -if @property.cars.to_i > 0
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
+                                %i.fa.fa-car.home-icon
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text Garage
+
+                  - if @property.garden == "yes"
+                    .col.sqs-col-2.span-2.home-icon-div
+                      #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                        .sqs-block-content
+                          .image-block-outer-wrapper.layout-caption-below
+                            .intrinsic{:style => "max-width:117.0px;"}
+                              .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
+                                %i.fa.fa-tree.home-icon
+                              .image-caption-wrapper
+                                .image-caption
+                                  %h1.home-icon-text Garden
+                    .col.sqs-col-8.span-8
+              - else
+                .row.sqs-row
+                  .col.sqs-col-2.span-2
+                    #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                      .sqs-block-content
+                        .image-block-outer-wrapper.layout-caption-below
+                          .intrinsic{:style => "max-width:117.0px;"}
+                            .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>", :style => "padding-bottom:60.68376159667969%;"}
+                              %noscript
+                                %img{:alt => "4 Bed", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
+                              %img.thumb-image{:alt => "4 Bed", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f256f4e4b0f5b52b4a1449", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
+                            .image-caption-wrapper.bed-bath-icon
+                              .image-caption
+                                %h1= pluralize(@property.beds, 'Bed')
+                  .col.sqs-col-2.span-2
+                    #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
+                      .sqs-block-content
+                        .image-block-outer-wrapper.layout-caption-below
+                          .intrinsic{:style => "max-width:117.0px;"}
+                            .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>", :style => "padding-bottom:60.68376159667969%;"}
+                              %noscript
+                                %img{:alt => "   4 Bath", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/"}/
+                              %img{:alt => "   4 Bath", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f2561be4b0f5b52b4a112d", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", :xclass => "thumb-image"}/
+                            .image-caption-wrapper.bed-bath-icon
+                              .image-caption
+                                %h1= pluralize(@property.baths, 'Bath')
+                  .col.sqs-col-8.span-8
+
+            / Photo Gallery area
+            .sqs-row
+              .col-md-12
+                .row.gallery-row
+                  - @property.photos.each do |photo|
+                    %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
+                      %img.img-responsive{:src => "#{photo.url}"}

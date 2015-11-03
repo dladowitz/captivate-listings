@@ -1,287 +1,30 @@
-%input#mobileNavToggle.mobile-nav-toggle-box.hidden{:name => "mobile-nav-toggle", :type => "checkbox"}/
-%a.body-overlay{:href => "#"}
-.sqs-announcement-bar-dropzone
-/ sidecarNav is probably SquareSpace Edit Controls - Not used anymore
-#sidecarNav
-  #mobileNavWrapper.nav-wrapper{"data-content-field" => "navigation-mobileNav"}
-    %nav#mobileNavigation
-      .index.active.homepage.property
-        %a{:href => "/"}
-          Property
-      .external
-        %a{:href => "#neighborhood"}
-          Neighborhood
-      .external
-        %a{:href => "#contact"}
-          Contact
-#siteWrapper.clearfix
-  .sqs-cart-dropzone
-  / Header
-  %header#header.show-on-scroll{"data-offset-behavior" => "bottom", "data-offset-el" => ".index-section", :role => "banner"}
-    .header-inner
-      #siteTitleWrapper.wrapper{"data-content-field" => "site-title"}
-        %h1#siteTitle.site-title
-          = link_to @property.agent_name, @property.agent_website
-      / comment the linebreak between these two elements because science
-      %label.mobile-nav-toggle-label{:for => "mobileNavToggle"}
-        .top-bar
-        .middle-bar
-        .bottom-bar
-      %label.mobile-nav-toggle-label.fixed-nav-toggle-label{:for => "mobileNavToggle"}
-        .top-bar
-        .middle-bar
-        .bottom-bar
+%main#page{:role => "main"}
 
-      #headerNav
-        #mainNavWrapper.nav-wrapper{"data-content-field" => "navigation-mainNav"}
-          %nav#mainNavigation{"data-content-field" => "navigation-mainNav"}
-            .index.active.homepage
-              %a{:href => "/"}
-                Property
-            .external
-              %a{:href => "#neighborhood"}
-                Neighborhood
-            .external
-              %a{:href => "#contact"}
-                Contact
+  / Main Content Sections
+  #content.main-content{"data-collection-id" => "55f1b5bce4b0cc1b9222509b", "data-content-field" => "main-content"}
+    / Property Section
+    = render "property"
 
-        / style below blocks out the mobile nav toggle only when nav is loaded
-        :css
-          .mobile-nav-toggle-label { display: inline-block !important; }
-  %main#page{:role => "main"}
+    / Neighborhood Section
+    = render "neighborhood"
 
-    / Main Content Sections
-    #content.main-content{"data-collection-id" => "55f1b5bce4b0cc1b9222509b", "data-content-field" => "main-content"}
-
-      / Property Section
-      #property.index-section{"data-url-id" => "property"}
-        .promoted-gallery-wrapper
-
-        / Hero Area
-        .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
-          .color-overlay
-          %figure#thumbnail.loading.content-fill
-            %img{:alt => "header-placeholder.png", "data-image" => "images/header-placeholder.png", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5", "data-src" => "images/header-placeholder.png"}/
-          .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
-            %p
-              %strong= @property.address
-            %p
-              YOU'RE HOME!
-        / Property Info Area
-        .index-section-wrapper.page-content
-          .content-inner.has-content{"data-content-field" => "main-content"}
-            #page-55f1b5e5e4b048de91d5ac0e.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1442001331793"}
-              .row.sqs-row
-                .col.sqs-col-12.span-12
-
-                  / Matterport Embed Area
-                  #block-yui_3_17_2_10_1441907369577_8038.sqs-block.embed-block.sqs-block-embed{"data-block-json" => "{\"hSize\":null,\"floatDir\":null,\"html\":\"<div id=\\\"my-iframe\\\"><iframe  height=\\\"584\\\" width=\\\"1050\\\" frameborder=\\\"0\\\" allowfullscreen src=\\\"https://my.matterport.com/show/?m=WaRmuinAmY4\\\"></iframe>\\n</div>\",\"resolvedBy\":\"manual\",\"resolved\":true}", "data-block-type" => "22"}
-                    .sqs-block-content
-                      #my-iframe
-                        / Matterport Embed URL
-                        %iframe{:allowfullscreen => "", "data-embed" => "true", :frameborder => "0", :height => "584", :src => "#{@property.matterport_url}", :width => "1050"}
-
-                  / Agent Detals Area
-                  #block-yui_3_17_2_10_1441907369577_13768.sqs-block.image-block.sqs-block-image.sqs-col-3.span-3.float.float-right{"data-block-type" => "5"}
-                    .sqs-block-content
-                      .image-block-outer-wrapper.layout-caption-below
-                        .intrinsic{:style => "max-width:356.0px;"}
-                          .image-block-wrapper.has-aspect-ratio{"data-description" => "<p><strong style=\"color:rgb(31, 37, 38); font-family:europa; font-size:16px; letter-spacing:2px; line-height:1.4em; text-transform:uppercase\">Naomi Lopez</strong></p><p>Coldwell Banker<br />Cell: 415 264 4093</p>", :style => "padding-bottom:121.62921142578125%;"}
-                            / Agent Image
-                            %img{:src => "#{@property.agent_image_url}", "data-image-dimensions" => "356x433", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f24e20e4b0c0afc4503208", "data-load" => "false", "data-type" => "image"}/
-                          .image-caption-wrapper
-                            .image-caption
-                              - unless @property.agent_logo_url.blank?
-                                %img.agent-logo{:alt => "", :src => @property.agent_logo_url}
-                              - else
-                                %p
-                                  %strong.agent-name
-                                    = @property.agent_name
-
-                              %p.agent-details
-                                = @property.agent_company
-                                %br
-                                Cell:
-                                = @property.agent_phone
-                                = @property.agent_license if @property.agent_license
-                                %br
-
-                  / Property Details Area
-                  #block-20d2d7d07ef691626788.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
-                    .sqs-block-content
-                      %h1
-                        - if @property.list_price
-                          Purchase Price:
-                          = number_to_currency(@property.list_price, precision: 0)
-                        %br
-                        %strong= "#{@property.sqfeet} sqft"
-
-                      / property Description
-                      %p= @property.description
-
-                    / Property Beds and Bath Area
-                    / Used when home has garage or garden
-                    - if @property.cars.to_i > 0 || @property.garden == 'yes'
-                      .row.sqs-row.home-icons-row.text-align-center
-                        .col.sqs-col-2.span-2.home-icon-div
-                          #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                            .sqs-block-content
-                              .image-block-outer-wrapper.layout-caption-below
-                                .intrinsic{:style => "max-width:117.0px;"}
-                                  .image-block-wrapper
-                                    %i.fa.fa-bed.home-icon
-                                  .image-caption-wrapper
-                                    .image-caption
-                                      %h1.home-icon-text= pluralize(@property.beds, 'Bed')
-                        .col.sqs-col-2.span-2.home-icon-div
-                          #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                            .sqs-block-content
-                              .image-block-outer-wrapper.layout-caption-below
-                                .intrinsic{:style => "max-width:117.0px;"}
-                                  .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>"}
-                                    %span.glyphicon.glyphicon-tint.home-icon{"aria-hidden" => "true"}
-                                    / <img src="https://cloud.githubusercontent.com/assets/909749/7330732/4c4300a6-eb48-11e4-9232-b29ab2fad800.jpg" data-image="http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/" data-image-dimensions="117x71" data-image-focal-point="0.5,0.5" data-load="false" data-image-id="55f2561be4b0f5b52b4a112d" data-type="image" />
-                                  .image-caption-wrapper
-                                    .image-caption
-                                      %h1.home-icon-text= pluralize(@property.baths, 'Bath')
-                        -if @property.cars.to_i > 0
-                          .col.sqs-col-2.span-2.home-icon-div
-                            #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                              .sqs-block-content
-                                .image-block-outer-wrapper.layout-caption-below
-                                  .intrinsic{:style => "max-width:117.0px;"}
-                                    .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
-                                      %i.fa.fa-car.home-icon
-                                    .image-caption-wrapper
-                                      .image-caption
-                                        %h1.home-icon-text Garage
-
-                        - if @property.garden == "yes"
-                          .col.sqs-col-2.span-2.home-icon-div
-                            #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                              .sqs-block-content
-                                .image-block-outer-wrapper.layout-caption-below
-                                  .intrinsic{:style => "max-width:117.0px;"}
-                                    .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>"}
-                                      %i.fa.fa-tree.home-icon
-                                    .image-caption-wrapper
-                                      .image-caption
-                                        %h1.home-icon-text Garden
-                          .col.sqs-col-8.span-8
-                    - else
-                      .row.sqs-row
-                        .col.sqs-col-2.span-2
-                          #block-yui_3_17_2_30_1441942307387_44722.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                            .sqs-block-content
-                              .image-block-outer-wrapper.layout-caption-below
-                                .intrinsic{:style => "max-width:117.0px;"}
-                                  .image-block-wrapper{"data-description" => "<h1>4 Bed</h1>", :style => "padding-bottom:60.68376159667969%;"}
-                                    %noscript
-                                      %img{:alt => "4 Bed", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
-                                    %img.thumb-image{:alt => "4 Bed", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f256f4e4b0f5b52b4a1449", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f256f4e4b0f5b52b4a1449/1441945332772/"}/
-                                  .image-caption-wrapper.bed-bath-icon
-                                    .image-caption
-                                      %h1= pluralize(@property.beds, 'Bed')
-                        .col.sqs-col-2.span-2
-                          #block-yui_3_17_2_10_1441907369577_43072.sqs-block.image-block.sqs-block-image{"data-block-type" => "5"}
-                            .sqs-block-content
-                              .image-block-outer-wrapper.layout-caption-below
-                                .intrinsic{:style => "max-width:117.0px;"}
-                                  .image-block-wrapper.has-aspect-ratio{"data-description" => "<h1>   4 Bath</h1>", :style => "padding-bottom:60.68376159667969%;"}
-                                    %noscript
-                                      %img{:alt => "   4 Bath", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/"}/
-                                    %img{:alt => "   4 Bath", "data-image" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-image-dimensions" => "117x71", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f2561be4b0f5b52b4a112d", "data-load" => "false", "data-src" => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", "data-type" => "image", :src => "http://static1.squarespace.com/static/55f1b3d9e4b018d42078c7ec/t/55f2561be4b0f5b52b4a112d/1441945115601/", :xclass => "thumb-image"}/
-                                  .image-caption-wrapper.bed-bath-icon
-                                    .image-caption
-                                      %h1= pluralize(@property.baths, 'Bath')
-                        .col.sqs-col-8.span-8
-
-                  / Photo Gallery area
-                  .sqs-row
-                    .col-md-12
-                      .row.gallery-row
-                        - @property.photos.each do |photo|
-                          %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
-                            %img.img-responsive{:src => "#{photo.url}"}
-
-
-      / Neighborhood Section
-      #neighborhood.index-section{"data-url-id" => "neighborhood"}
-        .promoted-gallery-wrapper
-
-        / Neighboorhood Background Image
-        .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
-          .color-overlay
-          %figure#thumbnail.loading.content-fill
-            %img{ "src" => "#{@property.neighboorhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighboorhood_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "alt" => "neighboorhood_background_image_url", "data-src" => "#{@property.neighboorhood_background_image_url}"}
-          .desc-wrapper{"data-collection-id" => "55f250f7e4b0dbda5ff0f2ba"}
-            %p
-              %strong Neighborhood
-
-        / Neighboorhood Text Area
-        .index-section-wrapper.page-content
-          .content-inner.has-content{"data-content-field" => "main-content"}
-            #page-55f1b5dae4b0efe7c87bb686.sqs-layout.sqs-grid-12.columns-12{"data-type" => "page", "data-updated-on" => "1441905044142"}
-              .row.sqs-row
-                .col.sqs-col-12.span-12
-
-                  / Neighborhood Name
-                  #block-34cb7df891b026cf460e.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
-                    .sqs-block-content
-                      %h1.text-align-center= @property.neighborhood_name
-
-                  / Neighboorhood Description
-                  .row.sqs-row
-                    .col.sqs-col-12.span-12
-                      #block-yui_3_17_2_1_1410808515393_74279.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}
-                        .sqs-block-content
-                          %p= @property.neighboorhood_description
-                          %p.text-align-center
-                    .col.sqs-col-0.span-0
-
-        / Neighboorhood Google map
-        .gmap-container
-          #gmap
-          %script{:src => "https://maps.googleapis.com/maps/api/js?sensor=false"}
-          :javascript
-            $(function() {
-              new Maplace({
-                show_markers: true,
-                locations: [{
-                    lat: "#{@property.latitude}",
-                    lon: "#{@property.longitude}",
-                    zoom: 14,
-                    icon : "/assets/map-1.png",
-                }],
-                styles : {
-                  // source: https://snazzymaps.com/style/132/light-gray
-                  'custom' : [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}],
-                },
-                map_options : {
-                  scrollwheel : false,
-                  mapTypeControl : false,
-                  streetViewControl : true,
-                  zoomControlOptions : {
-                    style : google.maps.ZoomControlStyle.SMALL,
-                  },
-                }
-              }).Load();
-            });
+    / Contact Section
+    = render "contact"
 
 
 
 
-
-
-
-
+/ Javascript
 %script{:src => "/assets/site_pages/maplace-0.1.3.min.js"}
 %script{"data-sqs-type" => "imageloader-bootstraper", :type => "text/javascript"} (function() {if(window.ImageLoader) { window.ImageLoader.bootstrap(); }})();
+
 :javascript
   Squarespace.afterBodyLoad(Y);
+
 %script{:src => "http://code.jquery.com/jquery.js"}
 %script{:src => "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"}
 %script{:src => "/assets/site_pages/ekko-lightbox.min.js"}
+
 :javascript
   $(document).ready(function ($) {
     // delegate calls to data-toggle="lightbox"
