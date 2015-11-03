@@ -18,7 +18,9 @@
     .header-inner
       #siteTitleWrapper.wrapper{"data-content-field" => "site-title"}
         %h1#siteTitle.site-title
-          = link_to @property.agent_name, @property.agent_website, target: "_blank"
+          - if @property.agent_name
+            = link_to @property.agent_name, @property.agent_website, target: "_blank"
+          - else @property.address
       / comment the linebreak between these two elements because science
       %label.mobile-nav-toggle-label{:for => "mobileNavToggle"}
         .top-bar
