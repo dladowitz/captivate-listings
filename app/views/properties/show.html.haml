@@ -234,6 +234,4 @@
               = content_tag_for :li, photo do
                 = image_tag photo.url, class: "handle"
                 -# = photo.position
-          = link_to "Add Photos", user_property_photos_path(@user, @property), class: "btn btn-default mt20 btn-outline"
-        - else
-          = link_to "Add Photos", user_property_photos_path(@user, @property), class: "btn btn-default mt20 btn-outline"
+          = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

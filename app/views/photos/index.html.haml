@@ -6,7 +6,7 @@
 -# %a{href: user_property_path(@user, @property), class: "white"}
 -#   %button.btn.btn-primary.dim.btn-outline Back to Property
 .row
-  = link_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline mb30"
+  = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline mb30", method: :get
 
 
 .row
@@ -15,7 +15,7 @@
   -#   %h1.first-photo 1st
   -#   %h1.second-photo 2nd
   .col-md-12
-    %ul#photos{class: "ui-sortable", data: {update_url: sort_user_properties_url}}
+    %ul#photos{data: {update_url: sort_user_properties_url}}
       - if @photos
         - @photos.each do |photo|
           = content_tag_for :li, photo do
