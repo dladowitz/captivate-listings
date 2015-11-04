@@ -6,6 +6,7 @@
 -# %a{href: user_property_path(@user, @property), class: "white"}
 -#   %button.btn.btn-primary.dim.btn-outline Back to Property
 .row
+  -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works      
   = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline mb30", method: :get
 
 
