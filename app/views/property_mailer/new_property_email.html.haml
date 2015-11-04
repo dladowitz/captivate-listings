@@ -1,141 +1,29 @@
 .container
-  = image_tag attachments["logo_handwriting.png"].url, style: "width: 700px; margin-left: 25%;"
+  = image_tag attachments["captivatelogo.png"].url, style: "width: 250; margin-left: 39%;"
 
   -#Css classes are not being loaded. Premailer gem is supposed to handle
   .col-md-8.col-md-offset-2.mt50
     .panel.panel-success
-      .panel-heading{style: "background-color: yellowgreen !important"}
+      .panel-heading{style: "background-color: #2E2E3F !important; color: #999999"}
         .panel-title
-          %h2.text-center Someone just paid us money. Time to get to work.
+          %h2.text-center Woot, someone just created a new property.
       .panel-body
-        %h3.text-center We have 24hrs to create their new property
-        %p
-          Lets get to work
+        %h3.text-center Lets make sure it looks ok.
+        = link_to site_url(@property), site_url(@property)
 
-        %h3 Proprty Details
-        %h4
+        %h3= "Thats #{Property.count} properties so far. Awesome!"
         %p
-          %strong _config.yml:
+          %strong User:
+          = @property.user.full_name
           %br
-          \# Domain
+          %strong Agent:
+          = @property.agent_name
           %br
-          = "domain_type: #{@property.domain_type}"
+          %strong Address:
+          = @property.full_address
           %br
-          = "domain: http://#{@property.domain}"
-          %br
-          %br
-          \# Property Info
-          %br
-          = "property-address: #{@property.address}"
-          %br
-          = "property-full-address: #{@property.address}, #{@property.state}, #{@property.zip}, United States"
-          %br
-          -# = "list-price: #{@property.details["list_price"]}"
-          -# %br
-          -# = "sqft: #{@property.details["sqfeet"]}"
-          -# %br
-          -# = "number-of-beds: #{@property.details["beds"]}"
-          -# %br
-          -# = "number-of-baths: #{@property.details["baths"]}"
-          -# %br
-          -# = "number-of-cars: #{@property.details["cars"]}"
-          -# %br
-          -# = "garden: #{@property.details["garden"]}"
-          -# %br
-          -# = "property-description: #{@property.details["description"]}"
-          -# %br
-          -# = "matterport-embed-url: #{@property.details["matterport_url"]}"
-          -# %br
-          -# = "video-walkthrough-url: #{@property.details["video_walkthrough_url"]}"
-          -# %br
-          -# = "property-tag-line: #{@property.details["tag_line"]}"
-          -# %br
-          -# = "property-highlights: #{@property.details["highlights"]}" #TODO Convert this into two Arrays for eash addition to _config.yml
-          -# %br
-          -# %br
-          -# \# Agent Info
-          -# %br
-          -# = "agent-name: #{@property.details["agent_name"]}"
-          -# %br
-          -# = "agent-phone: #{@property.details["agent_phone"]}"
-          -# %br
-          -# = "agent-image-url: #{@property.details["agent_image_url"]}"
-          -# %br
-          -# = "agent-company: #{@property.details["agent_company"]}"
-          -# %br
-          -# = "agent-license: #{@property.details["agent_license"]}"
-          -# %br
-          -# = "agent-website: #{@property.details["agent_website"]}"
-          -# %br
-          -# = "agent-logo-url: #{@property.details["agent_logo_url"]}"
-          -# %br
-          -# %br
-          -# \# Neighborhood Info
-          -# %br
-          -# = "neighborhood-name: #{@property.details["neighborhood_name"]}"
-          -# %br
-          -# = "neighborhood-description: #{@property.details["neighborhood_description"]}"
-          -# %br
-          -# = "neighborhood-background-image: ???????" # Use one of the photos
-          -# %br
-          -# = "map-zoom: 14"
-          -# %br
-          -# \# Get GPS Coordinates from http://www.gps-coordinates.net/
-          -# %br
-          -# = "map-longitude: ?????"
-          -# %br
-          -# = "map-latitude ??????"
-          -# %br
-          -# %br
-          -# \# Showings
-          -# %br
-          -# = "showings: #{@property.details["showings"]}" #TODO Convert this to an Array of hashes for easy addition to _config.yml template
-          %br
-          %br
-          \# Contact Section
-          %br
-          = "contact-us-background-image-url: ???????"# Use one of the photos
+
 
       .panel-footer
         %h5
         = link_to "Captivate Listings", "#", class: "blue underline text-center"
-
-
-
--# TODO Automate the process for exporting showings and highlights
--# # Showings
--# showings: [
--#   {
--#     weekday: Saturday,
--#     date: October 24,
--#     time: "2:00-4:00PM"
--#   },
--#   { weekday: Sunday,
--#     date: October 25,
--#     time: "2:00-4:00PM"
--#   },
--#   {
--#     weekday: Tuesday,
--#     date:    October 27,
--#     time:    "11:00-12:30PM"
--#   },
--#   {
--#     weekday: Thursday,
--#     date:    October 29,
--#     time:    "5:30-6:30PM"
--#   }
--# ]
--#
--# # Highlight TODO figure out a way to do two lists side by side with only one highlight collection. Add Columns to Highlights
--# highlights-1: [
--#   attribute: Incredible Light & Views,
--#   attribute: Luxury Renovation,
--#   attribute: Open Floor Plan,
--#   attribute: 3-4BR/2.5BA,
--# ]
--# highlights-2: [
--#   attribute: 11 Ft Ceilings,
--#   attribute: Independent Garage,
--#   attribute: "HOA Dues: $550/month",
--#   attribute: "Sq Ft: 2300 per tax records",
--# ]

@@ -4,9 +4,9 @@ class PropertyMailer < ApplicationMailer
   def new_property_email(property)
     # TODO change out image
     @property = property
-    attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
+    attachments.inline['captivatelogo.png'] = File.read('app/assets/images/captivatelogo.png')
 
-    mail(to: "david@tradecrafted.com", subject: "New Property Request - Captivate Listings")
+    mail(to: "david@tradecrafted.com", subject: "New Property Created - Captivate Listings")
   end
 
   # def registration_email(registration)
