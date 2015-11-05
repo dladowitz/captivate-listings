@@ -1,6 +1,6 @@
 class PasswordResetsController < ApplicationController
   layout "guest_pages/guest_layout"
-  
+
   def request_password
     @password_reset = PasswordReset.new
   end
@@ -44,7 +44,7 @@ class PasswordResetsController < ApplicationController
       @user.update_attributes user_params
 
       if @user.save
-        flash[:success] = "Password updated. Try it out by signing in."
+        flash[:success] = "Password updated. Try signing in."
         @password_reset.update used: Time.now
         redirect_to signin_path
       else
