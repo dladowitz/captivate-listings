@@ -8,4 +8,4 @@
       - if @subscription
         Silver
         %br
-        = button_to "Delete", user_subscription_path(@user, @subscription), :method => :delete, class: "btn btn-danger mt10", data: { confirm: "Are you sure?" }
+        = button_to "Cancel", user_subscription_path(@user, @subscription), :method => :delete, class: "btn btn-danger mt10", data: { confirm: "Are you sure?" }

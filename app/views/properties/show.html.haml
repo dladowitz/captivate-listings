@@ -102,17 +102,17 @@
                         %i.fa.fa-warning
                         Missing URL
 
-                %tr
-                  %td.col-md-2
-                    %h3 Primary Background Image:
-                  %td
-                    %h3.weight-100
-                      - if @property.main_background_image_url
-                        = @property.main_background_image_url
-                      - else
-                        %span.text-danger
-                          %i.fa.fa-warning
-                          Missing Image
+            %tr
+              %td.col-md-2
+                %h3 Primary Background Image:
+              %td
+                %h3.weight-100
+                  - if @property.main_background_image_url
+                    = @property.main_background_image_url
+                  - else
+                    %span.text-danger
+                      %i.fa.fa-warning
+                      Missing Image
             -# %tr
             -#   %td.col-md-2
             -#     %h3 Highlights:
@@ -235,5 +235,5 @@
                 = image_tag photo.url, class: "handle"
                 -# = photo.position
 
-          -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works      
+          -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
           = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
