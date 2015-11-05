@@ -2,9 +2,9 @@
 
 .col-md-4
   = simple_form_for [@user, @subscription] do |f|
-    = f.input :level, as: :select, selected: "Silver $9.99", disabled: [2, 3], collection: { "Silver - $9.99": 1, "Gold": 2, "Platinum": 3 }
+    = f.input :level, as: :select, selected: "Silver $9.99", disabled: [2, 3], collection: { "Silver - $9.99": 1, "Gold - Coming Soon": 2, "Platinum - Coming Soon": 3 }
     .actions
       %script.stripe-button{ src: "https://checkout.stripe.com/checkout.js",
-        data: {amount: 1000, description: "Website Hosting", key: ENV["STRIPE_PUBLISHABLE_KEY"]}}
+        data: {amount: 999, description: "Card Info", key: ENV["STRIPE_PUBLISHABLE_KEY"]}}
 
     -# = f.button :submit
