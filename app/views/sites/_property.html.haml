@@ -33,7 +33,7 @@
               .sqs-block-content
                 .image-block-outer-wrapper.layout-caption-below
                   .intrinsic{:style => "max-width:356.0px;"}
-                    .image-block-wrapper.has-aspect-ratio{"data-description" => "<p><strong style=\"color:rgb(31, 37, 38); font-family:europa; font-size:16px; letter-spacing:2px; line-height:1.4em; text-transform:uppercase\">Naomi Lopez</strong></p><p>Coldwell Banker<br />Cell: 415 264 4093</p>", :style => "padding-bottom:121.62921142578125%;"}
+                    .image-block-wrapper.has-aspect-ratio{ :style => "padding-bottom:121.62921142578125%;" }
                       / Agent Image
                       %img{:src => "#{@property.agent_image_url}", "data-image-dimensions" => "356x433", "data-image-focal-point" => "0.5,0.5", "data-image-id" => "55f24e20e4b0c0afc4503208", "data-load" => "false", "data-type" => "image"}/
                     .image-caption-wrapper
@@ -48,8 +48,8 @@
                         %p.agent-details
                           = @property.agent_company
                           %br
-                          Cell:
-                          = number_to_phone(@property.agent_phone, area_code: true)
+
+                          = "Cell: #{number_to_phone(@property.agent_phone, area_code: true)}" if @property.agent_phone
                           %br
                           = @property.agent_license if @property.agent_license
                           %br
