@@ -227,7 +227,7 @@
   .col-lg-8
     .widget.widget-border
       .p-m
-        %h1.m-xs Photos
+        %h1.m-xs Property Photos
         - if @photos
           %ul#photos.photos-show-page{data: {update_url: sort_user_properties_url}}
             - @photos.each do |photo|
@@ -236,4 +236,38 @@
                 -# = photo.position
 
           -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
+          - if @photos
+            = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+          - else
+            = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+.row
+  .col-lg-8#background-images-container
+    .widget.widget-border
+      .p-m
+        .col-md-12
+          %h1.m-xs.mb20 Background Photos
+        .col-md-12
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Header Background Image
+              .panel-body
+                = image_tag @property.main_background_image_url
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Header Background Image
+              .panel-body
+                = image_tag @property.neighborhood_background_image_url
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Header Background Image
+              .panel-body
+                = image_tag @property.contact_background_image_url
+
+        -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
+        - if @property.main_background_image_url.blank? || @property.neighborhood_background_image_url.blank? || @property.contact_background_image_url.blank?
           = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+        - else
+          = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
