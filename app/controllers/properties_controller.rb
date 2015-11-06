@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   before_action :set_user, except: :sort
-  before_action :set_property, only: [:show, :edit, :update]
+  before_action :set_property, only: [:show, :edit, :update, :update_images]
 
   def new
     @property = @user.properties.build
@@ -52,6 +52,24 @@ class PropertiesController < ApplicationController
       render :update
     end
   end
+
+  def update_images
+    if @property.update_attributes(property_params)
+      case params[:update_section]
+      when "agent_image"
+        render :file => "/properties/update_agent_image.js.erb"
+      when "property"
+        render :property_details_form
+      when "agent"
+        render :agent_details_form
+      when "neighborhood"
+        render :neighborhood_details_form
+      end
+    else
+
+    end
+  end
+
 
   # Sorts the photos on a property by position
   def sort
