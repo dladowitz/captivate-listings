@@ -143,7 +143,7 @@
               %td.col-md-2
                 %h3 Phone:
               %td
-                %h3.weight-100= @property.agent_phone
+                %h3.weight-100= number_to_phone(@property.agent_phone, area_code: true)
             %tr
               %td.col-md-2
                 %h3 Company:
@@ -159,11 +159,11 @@
                 %h3 Website:
               %td
                 %h3.weight-100= @property.agent_website
-            %tr
-              %td.col-md-2
-                %h3 Logo URL:
-              %td
-                %h3.weight-100= @property.agent_logo_url
+            -# %tr
+            -#   %td.col-md-2
+            -#     %h3 Logo URL:
+            -#   %td
+            -#     %h3.weight-100= @property.agent_logo_url
             %tr
               %td.col-md-2
                 %h3 Headshot URL:
