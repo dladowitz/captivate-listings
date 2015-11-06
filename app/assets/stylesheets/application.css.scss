@@ -65,6 +65,19 @@ ul#photos {
   list-style-type: none;
 }
 
+.file-btn-parent {
+  position: relative
+}
+
+.file-btn-overlay {
+  position: absolute;
+}
+
+.file-btn {
+  position: absolute;
+  z-index: 2;
+}
+
 .order-guide {
   position: absolute !important;
 }
