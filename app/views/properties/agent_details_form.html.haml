@@ -1,3 +1,6 @@
+.col-md-12.mb40
+  = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
+
 .row
   .col-lg-10
     .ibox.float-e-margins
@@ -9,12 +12,12 @@
           .col-md-8
             = simple_form_for [@user, @property] do |f|
               = f.input :agent_name, input_html: {placeholder: 'Tony Stark'}
-              = f.input :agent_phone, input_html: {placeholder: '415-666-4411'}
-              = f.input :agent_image_url, input_html: {placeholder: 'http://www.your-image-on-the-internet.jpg'}
+              = f.input :agent_phone, input_html: {placeholder: '(415)-666-4411', value: number_to_phone(@property.agent_phone, area_code: true)}
+              -# = f.input :agent_image_url, input_html: {placeholder: 'http://www.your-image-on-the-internet.jpg'}
               = f.input :agent_company, input_html: {placeholder: 'Coldwell Banker'}
               = f.input :agent_license, input_html: {placeholder: 'BRE #01271232'}
               = f.input :agent_website, input_html: {placeholder: 'http://www.agent-website.com'}
-              = f.input :agent_logo_url, input_html: {placeholder: 'http://www.agent-logo-url.jpg'}
+              -# = f.input :agent_logo_url, input_html: {placeholder: 'http://www.agent-logo-url.jpg'}
               = f.input :contact_background_image_url, input_html: {placeholder: 'http://www.neighborhood-photo.jpg'}
               = f.button :submit, "Update Agent"
 
@@ -37,4 +40,4 @@
                   .file-btn-parent{ style: "position: relative;" }
                     -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
                     = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
-                    = submit_tag "Choose Image", class: "btn btn-primary btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
+                    = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
