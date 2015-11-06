@@ -87,6 +87,10 @@ ul#photos {
   border: 1px solid black;
 }
 
+#background-images-container img {
+  max-width: 100%;
+}
+
 // Agent Details
 img#agent-image {
   max-width: 100%;
