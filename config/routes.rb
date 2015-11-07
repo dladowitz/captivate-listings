@@ -23,8 +23,9 @@ Rails.application.routes.draw do
       post "sort",           on: :collection
       patch "update_images", on: :member
 
-      resources :photos, only: [:new, :create, :index]
-
+      resources :photos, only: [:new, :create, :index] do
+        get "backgrounds", on: :collection
+      end
     end
   end
 
