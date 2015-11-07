@@ -60,9 +60,9 @@ class PropertiesController < ApplicationController
         render :file => "/properties/update_agent_image.js.erb"
       when "main_background_image"
         render :file => "/properties/update_main_background_image.js.erb"
-      when "neighborhood_background_image_url"
+      when "neighborhood_background_image"
         render :file => "/properties/update_neighborhood_background_image.js.erb"
-      when "contact_background_image_url"
+      when "contact_us_background_image"
         render :file => "/properties/update_contact_background_image.js.erb"
       end
     else
