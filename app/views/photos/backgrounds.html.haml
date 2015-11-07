@@ -1,0 +1,43 @@
+.col-md-12.mb40
+  = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
+
+.row
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Agent Details
+      .ibox-content
+        .row
+          .col-md-8
+            = simple_form_for [@user, @property] do |f|
+              = f.input :agent_name, input_html: {placeholder: 'Tony Stark'}
+              = f.input :agent_phone, input_html: {placeholder: '(415)-666-4411', value: number_to_phone(@property.agent_phone, area_code: true)}
+              -# = f.input :agent_image_url, input_html: {placeholder: 'http://www.your-image-on-the-internet.jpg'}
+              = f.input :agent_company, input_html: {placeholder: 'Coldwell Banker'}
+              = f.input :agent_license, input_html: {placeholder: 'BRE #01271232'}
+              = f.input :agent_website, input_html: {placeholder: 'http://www.agent-website.com'}
+              -# = f.input :agent_logo_url, input_html: {placeholder: 'http://www.agent-logo-url.jpg'}
+              = f.input :contact_background_image_url, input_html: {placeholder: 'http://www.neighborhood-photo.jpg'}
+              = f.button :submit, "Update Agent"
+
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Agent Photo
+              .panel-body
+                = image_tag @property.agent_image_url, id: "agent-image"
+              .panel-footer.upload-panel-footer
+                = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "agent_image"),
+                                  callback_param: "property[agent_image_url]",
+                                  callback_method: "patch",
+                                  id: "s3-uploader",
+                                  key: "property-photos/#{@property.id}/agent-image-{timestamp}-${filename}",
+                                  key_starts_with: "property-photos/",
+                                  acl: "public-read",
+                                  max_file_size: 20.megabytes,
+                                  class: "upload-form", data: {:key => :val} do
+                  .file-btn-parent{ style: "position: relative;" }
+                    -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
+                    = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
+                    = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
