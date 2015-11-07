@@ -101,18 +101,6 @@
                       %span.text-danger
                         %i.fa.fa-warning
                         Missing URL
-
-            %tr
-              %td.col-md-2
-                %h3 Primary Background Image:
-              %td
-                %h3.weight-100
-                  - if @property.main_background_image_url
-                    = @property.main_background_image_url
-                  - else
-                    %span.text-danger
-                      %i.fa.fa-warning
-                      Missing Image
             -# %tr
             -#   %td.col-md-2
             -#     %h3 Highlights:
@@ -164,25 +152,6 @@
             -#     %h3 Logo URL:
             -#   %td
             -#     %h3.weight-100= @property.agent_logo_url
-            %tr
-              %td.col-md-2
-                %h3 Headshot URL:
-              %td
-                %h3.weight-100= @property.agent_image_url
-            %tr
-              %td.col-md-2
-                %h3 Contact Background Image
-              %td
-                %h3.weight-100
-                  -# TODO Create helper method for this. It's being used a lot
-                  - if @property.contact_background_image_url
-                    = @property.contact_background_image_url
-                  - else
-                    %span.text-danger
-                      %i.fa.fa-warning
-                      Missing Image
-
-
 
           = link_to "Update Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline"
         - else
@@ -205,19 +174,6 @@
                 %h3 Description:
               %td
                 %h3.weight-100.lheight-23= @property.neighborhood_description
-            %tr
-              %td.col-md-2
-                %h3 Background Image:
-              %td
-                %h3.weight-100
-                  -# TODO Create helper method for this. It's being used a lot
-                  - if @property.neighborhood_background_image_url
-                    = @property.neighborhood_background_image_url
-                  - else
-                    %span.text-danger
-                      %i.fa.fa-warning
-                      Missing Image
-
 
           = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
         - else
