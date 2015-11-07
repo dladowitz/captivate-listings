@@ -58,15 +58,15 @@ class PropertiesController < ApplicationController
       case params[:update_section]
       when "agent_image"
         render :file => "/properties/update_agent_image.js.erb"
-      when "property"
-        render :property_details_form
-      when "agent"
-        render :agent_details_form
-      when "neighborhood"
-        render :neighborhood_details_form
+      when "main_background_image"
+        render :file => "/properties/update_main_background_image.js.erb"
+      when "neighborhood_background_image_url"
+        render :file => "/properties/update_neighborhood_background_image.js.erb"
+      when "contact_background_image_url"
+        render :file => "/properties/update_contact_background_image.js.erb"
       end
     else
-
+      flash[:danger] = "Something has gone wrong"
     end
   end
 

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:new, :create, :edit, :destroy]
 
     resources :properties, only: [:new, :create, :show, :edit, :update] do
-      get "confirmation",    on: :collection
+      # get "confirmation",    on: :collection
       post "sort",           on: :collection
       patch "update_images", on: :member
 
