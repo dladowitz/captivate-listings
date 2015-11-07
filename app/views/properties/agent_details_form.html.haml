@@ -26,7 +26,7 @@
               .panel-heading
                 Agent Photo
               .panel-body
-                = image_tag @property.agent_image_url, id: "agent-image"
+                = image_tag @property.agent_image_url, class: "image-upload-panel", id: "agent-image"
               .panel-footer.upload-panel-footer
                 = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "agent_image"),
                                   callback_param: "property[agent_image_url]",
