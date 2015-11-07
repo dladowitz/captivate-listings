@@ -19,7 +19,7 @@
                 = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "main_background_image"),
                                   callback_param: "property[main_background_image_url]",
                                   callback_method: "patch",
-                                  id: "s3-uploader",
+                                  id: "s3-uploader-main-background",
                                   key: "property-photos/#{@property.id}/main-background-image-{timestamp}-${filename}",
                                   key_starts_with: "property-photos/",
                                   acl: "public-read",
@@ -30,44 +30,44 @@
                     = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
                     = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
 
-          -# .col-md-4
-          -#   .panel.panel-default
-          -#     .panel-heading
-          -#       Neighborhood Background Image
-          -#     .panel-body
-          -#       = image_tag @property.neighborhood_background_image_url, class: "image-upload-panel"
-          -#     .panel-footer.upload-panel-footer
-          -#       = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "neighborhood_background_image"),
-          -#                         callback_param: "property[neighborhood_background_image_url]",
-          -#                         callback_method: "patch",
-          -#                         id: "s3-uploader",
-          -#                         key: "property-photos/#{@property.id}/neighborhood-background-image-{timestamp}-${filename}",
-          -#                         key_starts_with: "property-photos/",
-          -#                         acl: "public-read",
-          -#                         max_file_size: 20.megabytes,
-          -#                         class: "upload-form", data: {:key => :val} do
-          -#         .file-btn-parent{ style: "position: relative;" }
-          -#           -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
-          -#           = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
-          -#           = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
-          -#
-          -# .col-md-4
-          -#   .panel.panel-default
-          -#     .panel-heading
-          -#       Contact Us Background Image
-          -#     .panel-body
-          -#       = image_tag @property.contact_background_image_url, class: "image-upload-panel"
-          -#     .panel-footer.upload-panel-footer
-          -#       = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "contact_us_backound_image"),
-          -#                         callback_param: "property[contact_background_image_url]",
-          -#                         callback_method: "patch",
-          -#                         id: "s3-uploader",
-          -#                         key: "property-photos/#{@property.id}/contact-background-image-{timestamp}-${filename}",
-          -#                         key_starts_with: "property-photos/",
-          -#                         acl: "public-read",
-          -#                         max_file_size: 20.megabytes,
-          -#                         class: "upload-form", data: {:key => :val} do
-          -#         .file-btn-parent{ style: "position: relative;" }
-          -#           -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
-          -#           = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
-          -#           = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Neighborhood Background Image
+              .panel-body
+                = image_tag @property.neighborhood_background_image_url, class: "image-upload-panel", id: "neighborhood-background-image"
+              .panel-footer.upload-panel-footer
+                = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "neighborhood_background_image"),
+                                  callback_param: "property[neighborhood_background_image_url]",
+                                  callback_method: "patch",
+                                  id: "s3-uploader-neighborhood-background",
+                                  key: "property-photos/#{@property.id}/neighborhood-background-image-{timestamp}-${filename}",
+                                  key_starts_with: "property-photos/",
+                                  acl: "public-read",
+                                  max_file_size: 20.megabytes,
+                                  class: "upload-form", data: {:key => :val} do
+                  .file-btn-parent{ style: "position: relative;" }
+                    -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
+                    = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
+                    = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
+
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                Contact Us Background Image
+              .panel-body
+                = image_tag @property.contact_background_image_url, class: "image-upload-panel", id: "contact-background-image"
+              .panel-footer.upload-panel-footer
+                = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "contact_us_background_image"),
+                                  callback_param: "property[contact_background_image_url]",
+                                  callback_method: "patch",
+                                  id: "s3-uploader-contact-background",
+                                  key: "property-photos/#{@property.id}/contact-background-image-{timestamp}-${filename}",
+                                  key_starts_with: "property-photos/",
+                                  acl: "public-read",
+                                  max_file_size: 20.megabytes,
+                                  class: "upload-form", data: {:key => :val} do
+                  .file-btn-parent{ style: "position: relative;" }
+                    -# the file button is hidden because it cannot be styled. The button below does nothing but show through.
+                    = file_field_tag :file, data: { url: "http://www.someplace.com" }, class: "file-btn", style: "z-index: 2; opacity: 0; position: absolute;"
+                    = submit_tag "Choose Image", class: "btn btn-primary btn-outline btn-sm file-button-overlay", style: "position: absolute; height: 20px; line-height: 10px"
