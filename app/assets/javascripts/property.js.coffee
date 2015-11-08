@@ -8,7 +8,24 @@ jQuery ->
   );
 
   # S3 Uploader - Used when only a single uploader is on the page
-  $("#s3-uploader").S3Uploader()
+  # $("#s3-uploader").S3Uploader()
+
+  $("#s3-uploader").S3Uploader
+    before_add: (file) ->
+      if(file.size > 21857600) ##100 megabytes
+        alert("Upload Error: File Over 20MB")
+        false
+      else
+        if(file.type == "image/jpeg")
+          true
+        else if((file.type == "image/png"))
+          true
+        else
+          alert("Upload Error: " + file.type + " unsupported.\nPlease upload a JPG or PNG.")
+          false
+
+
+
 
   # $('#s3-uploader').bind "s3_upload_complete", (e, content) ->
     # alert("#{content.filename} Successfully Uploaded")
@@ -34,3 +51,7 @@ jQuery ->
 
   $('#s3-uploader-contact-background').bind "s3_upload_failed", (e, content) ->
     alert("#{content.filename} failed to upload : #{content.error_thrown}")
+
+checkWidth = (file) ->
+  alert 'Checking: ' + file.size
+  true
