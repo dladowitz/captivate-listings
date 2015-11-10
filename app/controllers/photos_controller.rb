@@ -17,6 +17,13 @@ class PhotosController < ApplicationController
     @photos = @property.photos.order('position')
   end
 
+  def destroy
+    photo = Photo.find params[:id]
+    photo.delete
+    # TODO Use AWS gem to delete out of s3. Currently the photos are being orphaned. 
+    redirect_to user_property_photos_path(@user, @property)
+  end
+
   private
 
   def photo_params
