@@ -4,7 +4,7 @@
     .color-overlay
     %figure#thumbnail.loading.content-fill
       / Contact Us Background Image
-      %img{"src" => "#{@property.contact_background_image_url}", "class" => "section-background", "alt" => "contact_background_image", "data-image" => "#{@property.contact_background_image_url}", "data-src" => "#{@property.contact_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5"}
+      %img{"id" => "contact-background", "src" => "#{@property.contact_background_image_url}", "class" => "section-background", "alt" => "contact_background_image", "data-image" => "#{@property.contact_background_image_url}", "data-src" => "#{@property.contact_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5"}
     .desc-wrapper{"data-collection-id" => "55f250a0e4b071d1ddffe28d"}
       %p
         %strong Contact Us
@@ -29,3 +29,17 @@
                       = @property.agent_name
                     %h1
                       = number_to_phone(@property.agent_phone, area_code: true)
+
+:javascript
+  var imageWidth = document.getElementById('contact-background').naturalWidth;
+  var divWidth = $('#contact #thumbnail').width();
+
+    if (imageWidth < divWidth) {
+      console.log("image is narrower than div!")
+      $('#contact-background').css('width', "100%");
+      $('#contact-background').css('position', "relative");
+      $('#contact-background').css('bottom', "150px");
+    } else if(imageWidth > divWidth) {
+      console.log("image is wider than div!")
+      $('#contact-background').css('width', "100%");
+    }
