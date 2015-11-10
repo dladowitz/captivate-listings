@@ -6,7 +6,7 @@
   .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
     .color-overlay
     %figure#thumbnail.loading.content-fill
-      %img{"src" => "#{@property.main_background_image_url}", "class" => "section-background", "data-image" => "#{@property.main_background_image_url}", "data-src" => "#{@property.main_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
+      %img{"id" => "main-background", "src" => "#{@property.main_background_image_url}", "class" => "section-background", "data-image" => "#{@property.main_background_image_url}", "data-src" => "#{@property.main_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
     .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
       %p
         %strong= @property.address
@@ -150,3 +150,18 @@
                   - @property.photos.each do |photo|
                     %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
                       %img.img-responsive{:src => "#{photo.url}"}
+
+
+:javascript
+  var imageWidth = document.getElementById('main-background').naturalWidth;
+  var divWidth = $('#property #thumbnail').width();
+
+    if (imageWidth < divWidth) {
+      console.log("image is narrower than div!")
+      $('#main-background').css('width', "100%");
+      $('#main-background').css('position', "relative");
+      $('#main-background').css('bottom', "150px");
+    } else if(imageWidth > divWidth) {
+      console.log("image is wider than div!")
+      $('#main-background').css('width', "100%");
+    }

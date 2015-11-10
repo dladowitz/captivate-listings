@@ -5,7 +5,7 @@
   .banner-thumbnail-wrapper.has-description{"data-content-field" => "main-image"}
     .color-overlay
     %figure#thumbnail.loading.content-fill
-      %img{"src" => "#{@property.neighborhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighborhood_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "alt" => "neighborhood_background_image_url", "data-src" => "#{@property.neighborhood_background_image_url}"}
+      %img{"id" => "neighborhood-background", "src" => "#{@property.neighborhood_background_image_url}", "class" => "section-background", "data-image" => "#{@property.neighborhood_background_image_url}", "data-image-dimensions" => "5616x3744", "data-image-focal-point" => "0.5,0.5", "alt" => "neighborhood_background_image_url", "data-src" => "#{@property.neighborhood_background_image_url}"}
     .desc-wrapper{"data-collection-id" => "55f250f7e4b0dbda5ff0f2ba"}
       %p
         %strong Neighborhood
@@ -59,3 +59,17 @@
           }
         }).Load();
       });
+
+:javascript
+  var imageWidth = document.getElementById('neighborhood-background').naturalWidth;
+  var divWidth = $('#neighborhood #thumbnail').width();
+
+    if (imageWidth < divWidth) {
+      console.log("image is narrower than div!")
+      $('#neighborhood-background').css('width', "100%");
+      $('#neighborhood-background').css('position', "relative");
+      $('#neighborhood-background').css('bottom', "150px");
+    } else if(imageWidth > divWidth) {
+      console.log("image is wider than div!")
+      $('#neighborhood-background').css('width', "100%");
+    }
