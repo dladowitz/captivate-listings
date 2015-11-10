@@ -1,2 +1,3 @@
 // alert("Agent Image Updated")
+$(".panel-body").prepend("<%= j button_to 'Delete', user_property_path(@user, @property, property: {agent_image_url: ''}), class: 'btn btn-danger btn-xs', method: :patch, style: 'position: absolute; top: 60px; left: 35px;' %>")
 $("#agent-image").attr('src', "<%= @property.agent_image_url %>")

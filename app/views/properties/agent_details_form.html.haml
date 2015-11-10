@@ -21,10 +21,12 @@
               = f.button :submit, "Update Agent"
 
           .col-md-4
-            .panel.panel-default
+            .panel.panel-default#agent-image-panel
               .panel-heading
                 Agent Photo
               .panel-body
+                - if @property.agent_image_url.present?
+                  = button_to "Delete", user_property_path(@user, @property, { update_image: "yes", property: {agent_image_url: ""}}), class: "btn btn-danger btn-xs", method: :patch, id: "agent-image-delete"
                 = image_tag @property.agent_image_url, class: "image-upload-panel", id: "agent-image"
               .panel-footer.upload-panel-footer
                 = s3_uploader_form callback_url: update_images_user_property_path(@user, @property, update_section: "agent_image"),
