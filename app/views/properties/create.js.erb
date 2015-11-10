@@ -2,6 +2,8 @@
   alert("Failed to upload model: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
   // alert("created Photo")
-  $("#photos").append("<%= j button_to "Delete", user_property_photo_path(@user, @property, @photo), class: "btn btn-danger btn-xs btn-outline", method: :delete, style: "position: relative; top: 37px; left: 15px; z-index: 2" %>");
-  $("#photos").append("<%= j render(@photo) %>");
+  $("#photos").append("<li></li>")
+  $("li:last").append("<%= j button_to 'Delete', user_property_photo_path(@user, @property, @photo), class: 'btn btn-danger btn-xs btn-outline', method: :delete, style: 'position: relative; top: 37px; left: 15px; z-index: 2' %>")
+  // Not sure why this is creating a second li element
+  $("li:last").append("<%= j render(@photo) %>")
 <% end %>
