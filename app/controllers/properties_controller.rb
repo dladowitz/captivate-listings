@@ -46,7 +46,12 @@ class PropertiesController < ApplicationController
   def update
     if @property.update_attributes(property_params)
       flash[:success] = "Awesome, the property has been updated!"
-      redirect_to user_property_path(@user, @property)
+
+      if params[:update_image] == "yes"
+        redirect_to edit_user_property_path(@user, @property, detail_section: "agent")
+      else
+        redirect_to user_property_path(@user, @property)
+      end
     else
       flash[:danger] = "Something has gone all wrong."
       render :update
