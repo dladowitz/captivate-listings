@@ -65,6 +65,16 @@ ul#photos {
   list-style-type: none;
 }
 
+ul#photos li {
+  position: relative;
+}
+
+ul#photos li form {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
 .order-guide {
   position: absolute !important;
 }

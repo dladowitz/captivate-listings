@@ -21,6 +21,7 @@
       - if @photos
         - @photos.each do |photo|
           = content_tag_for :li, photo do
+            = button_to "Delete", user_property_photo_path(@user, @property, photo), class: "btn btn-danger btn-xs btn-outline", method: :delete
             = image_tag photo.url, class: "handle"
             -# .img-position= photo.position
 
