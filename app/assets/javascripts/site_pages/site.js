@@ -11,6 +11,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require google_analytics
 //= require site_pages/ekko-lightbox.min
 //= require site_pages/maplace-0.1.3.min
 //= require site_pages/site.js&helpers.js&sticky

@@ -1,3 +1,7 @@
+// This seems to be breaking things. looks like Rails can't handle the @ sign
+
+
+
 // /*{"c":"2015-09-28T07:37:06Z","s":"prod-origin-24f8368f","v":"d2ddb2"}*/
 // /*
 //  * The Typekit service used to deliver this font or fonts for use on websites
