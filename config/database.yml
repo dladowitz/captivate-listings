@@ -14,7 +14,13 @@ test:
   username: david
   password:
 
-
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: captivate_lisitngs_production
+  username: david
+  password:
 
 
 
