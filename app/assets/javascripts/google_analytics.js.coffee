@@ -1,7 +1,7 @@
 # railsapps.github.io/rails-google-analytics.html
 
-#Deploy
-#If you wish to deploy to Heroku, you must precompile assets and commit to the Git repo:
+# Deploy
+# If you wish to deploy to Heroku, you must precompile assets and commit to the Git repo:
 #
 # RAILS_ENV=production rake assets:precompile
 # git add -A
