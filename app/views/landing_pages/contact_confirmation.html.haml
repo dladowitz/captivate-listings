@@ -16,7 +16,9 @@
               .col-md-12
                 .hero-heading{"data-animation" => "fadeIn"}
                   %h1.hero-subtitle Awesome, we got your message
-                  %p.hero-tagline We'll have someone get right back to you
-
+                  - if @first_name.present?
+                    %p.hero-tagline= "Thanks, #{@first_name}, we'll have someone get back to you right away"
+                  - else
+                    %p.hero-tagline= "Thanks, we'll have someone get back to you right away"
                 %p.hero-buttons
                   %a.btn.btn-lg.btn-primary{:href => "/"} Back

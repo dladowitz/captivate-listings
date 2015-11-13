@@ -11,11 +11,14 @@ class LandingPagesController < ApplicationController
     @message = {name: params[:name], email: params[:email], body: params[:body]}
     ContactMailer.contact_us_email(@message).deliver
 
-    render :contact_confirmation
+    if params[:name].present?
+      first_name = params[:name].split.first.capitalize
+    end
+    
+    redirect_to "/contact_confirmation?first_name=#{first_name}"
   end
 
   def contact_confirmation
-
+    @first_name = params[:first_name]
   end
-
 end
