@@ -1,0 +1,25 @@
+.container
+  = image_tag attachments["captivatelogo.png"].url, style: "width: 250; margin-left: 39%;"
+
+  -#Css classes are not being loaded. Premailer gem is supposed to handle
+  .col-md-8.col-md-offset-2.mt50
+    .panel.panel-success
+      .panel-heading{style: "background-color: #2E2E3F !important; color: #999999; padding: 5px 5px 5px 10px"}
+        .panel-title
+          %h2.text-center Someone is trying to get in touch with us!
+      .panel-body
+        %h3.text-center Lets get back to them quick style.
+
+        %h3= "Name: #{@message[:name]}"
+        %p
+          %strong Email:
+          = @message[:email]
+          %br
+          %strong Body:
+          = @message[:body]
+          %br
+
+
+      .panel-footer
+        %h5
+        = link_to "Captivate Listings", "#", class: "blue underline text-center"
