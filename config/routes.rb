@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   root to: "landing_pages#landing"
 
   # custom routes
-  get    :landing,      to: "landing_pages#landing",              as: :landing
-  post   :contact,      to: "landing_pages#contact_form",         as: :contact
-  get    :confirmation, to: "landing_pages#contact_confirmation", as: :confirmation
-  get    :signin,       to: "sessions#new",                       as: :signin
-  get    :signup,       to: "users#new",                          as: :signup
+  get    :landing,              to: "landing_pages#landing",              as: :landing
+  post   :contact,              to: "landing_pages#contact_form",         as: :contact
+  get    :contact_confirmation, to: "landing_pages#contact_confirmation", as: :confirmation
+  get    :signin,               to: "sessions#new",                       as: :signin
+  get    :signup,               to: "users#new",                          as: :signup
 
   # maybe make into a named resource
   get    :request_password,        to: "password_resets#request_password", as: :request_password
