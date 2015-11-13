@@ -17,7 +17,7 @@
 //= require guest_pages/jquery.inview.min
 //= require guest_pages/jquery.counterup.min
 //= require guest_pages/jquery.stellar.min
-//= require guest_pages/maplace-0.1.3.min
+
 //= require guest_pages/responsiveslides.min
 //= require guest_pages/script
 //= require google_analytics
