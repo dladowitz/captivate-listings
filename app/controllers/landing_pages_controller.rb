@@ -11,7 +11,7 @@ class LandingPagesController < ApplicationController
     @message = {name: params[:name], email: params[:email], body: params[:body]}
     ContactMailer.contact_us_email(@message).deliver
 
-    render: contact_confirmation
+    render :contact_confirmation
   end
 
   def contact_confirmation

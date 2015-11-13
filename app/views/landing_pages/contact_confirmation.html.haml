@@ -1,1 +1,22 @@
-%h1 Thanks, well get righ back to you. 
+/
+  HERO
+  \=================================
+%section#hero.hero-section.hero-layout-simple.hero-fullscreen.hero-slider.section.section-dark
+  %ul.section-slider.parallax
+    / SECTION SLIDE 1
+    %li.section-slide
+      .section-background
+        / IMAGE BACKGROUND
+        .section-background-image.parallax{"data-stellar-ratio" => "0.4"}
+          %img{:alt => "", :src => "/assets/background/beach-home.jpg", :style => "opacity: 0.5;"}/
+      .container
+        .hero-content.parallax
+          .hero-content-inner
+            .row
+              .col-md-12
+                .hero-heading{"data-animation" => "fadeIn"}
+                  %h1.hero-subtitle Awesome, we got your message
+                  %p.hero-tagline We'll have someone get right back to you
+
+                %p.hero-buttons
+                  %a.btn.btn-lg.btn-primary{:href => "/"} Back
