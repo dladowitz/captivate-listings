@@ -30,7 +30,7 @@
           .col-md-6
             %h1
               %strong Properties
-            - if @user.valid_subscription?
+            - if @user.valid_subscription? || @user.admin?
               %h2
                 - if @user.properties.any?
                   %table.table
