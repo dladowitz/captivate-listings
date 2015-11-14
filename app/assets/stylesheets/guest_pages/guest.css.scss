@@ -17,10 +17,10 @@
 
 @import "font-awesome";
 
-//////// Styles limited to the landing page \\\\\\\\\\
+//////// Styles limited to the landing page. \\\\\\\\\\
+// TODO change these to be called landing pages, not guest pages, since site pages are also viewed by guest
 
 // Property Pages
-// New Page
 .hero-fullscreen-new-property-page {
   // TODO need to make this variable height
   height: 3000px !important;
@@ -53,6 +53,31 @@
 
 .domain-checker-text {
   font-size: 21px;
+}
+
+// Two Column Description Section
+.two-cols-description-section {
+  height: 75%;
+}
+.two-cols-description-image {
+  height: 110%;
+  overflow: visible !important;
+}
+
+.example-image-header {
+  height: 105% !important;
+  min-width: auto !important;
+  width: auto !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  left: 60px;
+  top: -5px;
+  // padding-bottom: 40px;
+  box-shadow: -5px 8px 20px rgba(0, 0, 0, .5);
+}
+
+.live-site-link {
+  float: right;
 }
 
 // Signup & Signin
