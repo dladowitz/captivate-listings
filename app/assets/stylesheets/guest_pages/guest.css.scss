@@ -56,13 +56,20 @@
 }
 
 // Two Column Description Section
+#two-cols-description {
+  height: 100%;
+}
 
+#two-cols-description-non-primary {
+  height: 85% !important;
+  padding-top: 20px;
+}
 .two-cols-description-section .section-heading {
   margin-top: 50px;
 }
 
 .two-cols-description-section {
-  height: 75%;
+  // height: 75%;
 }
 .two-cols-description-image {
   height: 110%;
