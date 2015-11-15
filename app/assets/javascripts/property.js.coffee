@@ -25,8 +25,6 @@ jQuery ->
           false
 
 
-
-
   $('#s3-uploader').bind "s3_upload_complete", (e, content) ->
     alert("#{content.filename} Successfully Uploaded")
     $('#someHiddenField').val(content.url)
@@ -51,6 +49,7 @@ jQuery ->
 
   $('#s3-uploader-contact-background').bind "s3_upload_failed", (e, content) ->
     alert("#{content.filename} failed to upload : #{content.error_thrown}")
+
 
 checkWidth = (file) ->
   alert 'Checking: ' + file.size

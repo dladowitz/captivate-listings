@@ -24,8 +24,3 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-
-// This is weird, seems like it should be in appplication.js, but brea
-// #= require s3_direct_upload
-#= require jquery-fileupload/basic
-#= require jquery-fileupload/vendor/tmpl
