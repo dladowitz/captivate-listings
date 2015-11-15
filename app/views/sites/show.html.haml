@@ -2,14 +2,19 @@
 
   / Main Content Sections
   #content.main-content{"data-collection-id" => "55f1b5bce4b0cc1b9222509b", "data-content-field" => "main-content"}
-    / Property Section
-    = render "property"
 
-    / Neighborhood Section
-    = render "neighborhood"
+    - if @property.disabled?
+      = render "disabled"
 
-    / Contact Section
-    = render "contact"
+    - else  
+      / Property Section
+      = render "property"
+
+      / Neighborhood Section
+      = render "neighborhood"
+
+      / Contact Section
+      = render "contact"
 
 
 
