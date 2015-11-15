@@ -30,6 +30,13 @@
           .col-md-6
             %h1
               %strong Properties
+              - if @user.can_add_properties?
+                = link_to "Add Property", "#", class: "btn btn-primary btn-outline pull-right"
+              - else
+                <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Over Limit on Properties. Disable Property or Upgrade Subscription" data-original-title="" title="" aria-describedby="popover847651">Add Property</button>
+                -# %button "Add Property", "#", class: "btn btn-default btn-outline pull-right", "data-toggle": "tooltip", "data-placement":"top", "data-original-title": "Over Limit on Properties. Disable Property or Upgrade Subscription"
+              %br
+              %br
             - if @user.valid_subscription? || @user.admin?
               %h2
                 - if @user.properties.any?

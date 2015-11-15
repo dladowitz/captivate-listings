@@ -50,6 +50,34 @@ class User < ActiveRecord::Base
     subscription && subscription.level >= 1
   end
 
+  def active_properties
+    properties.where(enabled: true).count
+  end
+
+  def can_add_properties?
+    if subscription.level <= 1
+      active_properties < 1
+    else
+      active_properties < 3
+    end
+  end
+
+  def at_subscription_limit?
+    if subscription.level <= 1
+      active_properties == 1
+    else
+      active_properties == 3
+    end
+  end
+
+  def over_subcription_limit?
+    if subscription.level <= 1
+      active_properties > 1
+    else
+      active_properties > 3
+    end
+  end
+
 
   ### Class Methods
 
