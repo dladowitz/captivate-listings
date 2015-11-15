@@ -20,6 +20,18 @@
 //////// Styles limited to the landing page. \\\\\\\\\\
 // TODO change these to be called landing pages, not guest pages, since site pages are also viewed by guest
 
+// Header
+a.navbar-logo.navbar-brand {
+  font-family: oswald;
+  letter-spacing: 5px;
+}
+
+// Footer
+.footer-logo {
+  font-family: oswald;
+  letter-spacing: 6px;
+}
+
 // Property Pages
 .hero-fullscreen-new-property-page {
   // TODO need to make this variable height

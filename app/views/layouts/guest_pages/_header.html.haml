@@ -8,40 +8,40 @@
         %span.icon-bar
         %span.icon-bar
       / HEADER LOGO
-      %a.navbar-logo.navbar-brand{:href => "/"}
+      %a.navbar-logo.navbar-brand{:href => "/#hero"}
         / <img src="images/logos/header-logo.png" srcset="images/logos/header-logo@2x.png 2x" alt="Drew">
-        Captivate Listings
+        CAPTIVATE LISTINGS
     %nav#navigation.navigation.navbar-collapse.collapse.navbar-right
       / NAVIGATION LINKS
       %ul#header-nav.nav.navbar-nav
         %li
-          %a.hidden{:href => "/#hero"} Top
-        %li
-          %a{:href => "/#about"} View Live Example
-        %li
-          %a{:href => "/#benefits"} Benefits
+          %a{:href => "/#hero"} Top
+
         %li
           %a{:href => "/#how-it-works"} How it Works
         %li
-          %a{:href => "/#team"} The Team
-        %li
           %a{:href => "/#pricing"} Pricing
+        %li
+          %a{:href => "/#two-cols-description"} Design
+        %li
+          %a{:href => "/#about"} View Live Example          
+
         / DROPDOWN MENU
         %li.dropdown.dropdown-hover
           %a.dropdown-toggle.external{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             More
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
+            -# %li
+            -#   %a.anchor-link.external{:href => "/#video"} Watch the Video
+            -# %li
+            -#   %a.anchor-link.external{:href => "/#portfolio"} Portfolio
+            -# %li
+            -#   %a.anchor-link.external{:href => "/#testimonial"} Testimonial
+            -# %li
+            -#   %a.anchor-link.external{:href => "/#faq"} FAQ
             %li
-              %a.anchor-link.external{:href => "/#video"} Watch the Video
-            %li
-              %a.anchor-link.external{:href => "/#portfolio"} Portfolio
-            %li
-              %a.anchor-link.external{:href => "/#testimonial"} Testimonial
-            %li
-              %a.anchor-link.external{:href => "/#faq"} FAQ
-            %li
-              %a.anchor-link.external{:href => "/#maps"} Contact Us
+              %a.anchor-link.external{:href => "/#contact-maps"} Contact Us
         / HEADER ACTION BUTTON
         %li.header-action-button
           %a.btn.btn-primary{:href => "/signup"} Sign Up
