@@ -43,12 +43,23 @@ class PropertiesController < ApplicationController
     end
   end
 
+  #TODO Should probably break this up. Maybe make a status method
   def update
-    if @property.update_attributes(property_params)
-      flash[:success] = "Awesome, the property has been updated!"
+    if params[:property][:enabled] == "false"
+      @property.update_attributes(enabled: false)
+      flash[:success] = "Property has been disabled!"
+      redirect_to user_path(@user)
+    elsif params[:property][:enabled] == "true"
+      @property.update_attributes(enabled: true)
+      flash[:success] = "Property has been enabled!"
+      redirect_to user_path(@user)
 
+    elsif @property.update_attributes(property_params)
+      flash[:success] = "Awesome, the property has been updated!"
       if params[:update_image] == "yes"
         redirect_to edit_user_property_path(@user, @property, detail_section: "agent")
+      elsif params[:property][:enabled] == false
+        redirect_to user_path(@user)
       else
         redirect_to user_property_path(@user, @property)
       end

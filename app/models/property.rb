@@ -117,4 +117,8 @@ class Property < ActiveRecord::Base
   def longitude
     GoogleGeocoder.geocode(full_address).longitude
   end
+
+  def disabled?
+    !enabled
+  end
 end
