@@ -17,8 +17,19 @@
             %h2
               %strong Level:
               - if @user.valid_subscription?
-                Silver
+                - if @user.subscription.level == 0
+                  Bronze
+                - elsif @user.subscription.level == 1
+                  Silver
+                - else
+                  Gold
                 %br
+                %h3
+                  %strong Property Limit:
+                  = @user.subscription.level
+                %h3
+                  %strong Active Properties:
+                  = @user.active_properties
                 = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10"
               - else
                 None

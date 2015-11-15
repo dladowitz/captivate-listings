@@ -48,7 +48,7 @@ class PropertiesController < ApplicationController
   def update
     if params[:property][:enabled] == "false"
       @property.update_attributes(enabled: false)
-      flash[:success] = "Property has been disabled!"
+      flash[:danger] = "Property has been disabled!"
       redirect_to user_path(@user)
     elsif params[:property][:enabled] == "true"
       if @user.can_add_or_enable_properties?
