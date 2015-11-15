@@ -17,8 +17,8 @@
 //= require turbolinks
 //= require google_analytics
 //= require property
-//= require jquery.metisMenu
-//= require inspinia.js
+// require jquery.metisMenu
+// require inspinia.js
 
 // Overiding default. I forget why, probably trying to get upload bars working.
 // #= require s3_direct_upload

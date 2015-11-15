@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # TODO Think about giving all users a subscription level of bronze on creation
     @user = User.new user_params
 
     if @user.save
