@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id          :integer          not null, primary key
+#  address     :string
+#  city        :string
+#  state       :string
+#  zip         :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  domain_type :string
+#  domain      :string
+#  details     :hstore
+#  user_id     :integer
+#  enabled     :boolean          default(TRUE), not null
+#
+# Indexes
+#
+#  index_properties_on_details  (details)
+#
+
   # == Schema Information
 #
 # Table name: properties
