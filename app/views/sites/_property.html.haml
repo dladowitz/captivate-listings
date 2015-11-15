@@ -147,7 +147,7 @@
             .sqs-row
               .col-md-12
                 .row.gallery-row
-                  - @property.photos.each do |photo|
+                  - @photos.each do |photo|
                     %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
                       %img.img-responsive{:src => "#{photo.url}"}
 
