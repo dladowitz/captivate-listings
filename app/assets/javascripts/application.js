@@ -18,7 +18,7 @@
 //= require google_analytics
 //= require property
 
-// This is weird, seems like it should be in appplication.js, but brea
+// Overiding default. I forget why, probably trying to get upload bars working. 
 // #= require s3_direct_upload
 #= require jquery-fileupload/basic
 #= require jquery-fileupload/vendor/tmpl
