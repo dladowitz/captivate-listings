@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
-    flash[:danger] = "That's not a thing in the database"
+    flash[:danger] = "That's not a thing in the database. Exception: #{exception}"
     redirect_to user_path(current_user)
   end
 
