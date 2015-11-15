@@ -34,10 +34,30 @@
               %h2
                 - if @user.properties.any?
                   %table.table
+                    %tr
+                      %td
+                        Status
+                      %td
+                        Address
+                      %td
+                        Action
                     - @user.properties.each do |property|
                       %tr
-                        %td
-                          = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
+                        - if property.enabled?
+                          %td{style: "color: #1ab394"}
+                            Enabled
+                          %td
+                            = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
+                          %td
+                            = button_to "disable", user_property_path(@user, property, property: { enabled: false } ), class: "btn btn-danger btn-lg btn-outline", method: :patch
+                        - else
+                          %td.text-danger
+                            Disabled
+                          %td
+                            = link_to property.address, user_property_path(@user, property), class: "btn btn-danger btn-lg btn-outline btn-block"
+                          %td
+                            = button_to "enable", user_property_path(@user, property, property: { enabled: true } ), class: "btn btn-primary btn-lg btn-outline", method: :patch
+
                 - else
                   You don't have any properties yet. Go add one!
                   %br

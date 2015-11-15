@@ -2,8 +2,10 @@
 .row
   .col-md-8
     %h1
+      - if @property.disabled?
+        %span.text-danger.fa.fa-warning.m-l-m Disabled
       %strong= @property.address
-      = link_to "View Live Site", site_path(@property.site.id), target: "_blank", class: "btn btn-warning btn-outline pull-right"
+      = link_to "View Live Site", site_path(@property.site.id), target: "_blank", class: "btn btn-warning btn-lg btn-outline pull-right"
 .row
   .col-lg-8
     .widget.yellow-bg.no-padding
