@@ -55,7 +55,9 @@ class User < ActiveRecord::Base
   end
 
   def can_add_or_enable_properties?
-    if subscription.level <= 1
+    if !subscription
+      active_properties < 1
+    elsif subscription.level <= 1
       active_properties < 1
     else
       active_properties < 3

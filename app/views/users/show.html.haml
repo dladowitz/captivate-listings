@@ -16,10 +16,8 @@
 
             %h2
               %strong Level:
-              - if @user.valid_subscription?
-                - if @user.subscription.level == 0
-                  Bronze
-                - elsif @user.subscription.level == 1
+              - if @user.subscription && @user.subscription.level > 0
+                - if @user.subscription.level == 1
                   Silver
                 - else
                   Gold
@@ -32,9 +30,9 @@
                   = @user.active_properties
                 = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10"
               - else
-                None
+                Bronze
                 %br
-                = link_to "Sign Up to Create Properties", new_user_subscription_path(@user), class: "btn btn-primary mt10"
+                = link_to "Sign Up For Premium Features", new_user_subscription_path(@user), class: "btn btn-primary mt10"
 
         %hr
         .row
@@ -50,40 +48,34 @@
                 <button type="button" class="btn btn-default pull-right btn-outline" data-container="body" data-toggle="popover" data-placement="top" data-content="Over Limit on Properties. Disable Property or Upgrade Subscription" data-original-title="" title="" aria-describedby="popover847651">Add Property</button>
                 -# %button "Add Property", "#", class: "btn btn-default btn-outline pull-right", "data-toggle": "tooltip", "data-placement":"top", "data-original-title": "Over Limit on Properties. Disable Property or Upgrade Subscription"
               %br
-              %br
-            - if @user.valid_subscription? || @user.admin?
-              %h2
-                - if @user.properties.any?
-                  %table.table
+            %h2
+              - if @user.properties.any?
+                %table.table
+                  %tr
+                    %td
+                      Status
+                    %td
+                      Address
+                    %td
+                      Action
+                  - @user.properties.each do |property|
                     %tr
-                      %td
-                        Status
-                      %td
-                        Address
-                      %td
-                        Action
-                    - @user.properties.each do |property|
-                      %tr
-                        - if property.enabled?
-                          %td{style: "color: #1ab394"}
-                            Enabled
-                          %td
-                            = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
-                          %td
-                            = button_to "disable", user_property_path(@user, property, property: { enabled: false } ), class: "btn btn-danger btn-lg btn-outline", method: :patch
-                        - else
-                          %td.text-danger
-                            Disabled
-                          %td
-                            = link_to property.address, user_property_path(@user, property), class: "btn btn-danger btn-lg btn-outline btn-block"
-                          %td
-                            = button_to "enable", user_property_path(@user, property, property: { enabled: true } ), class: "btn btn-primary btn-lg btn-outline", method: :patch
+                      - if property.enabled?
+                        %td{style: "color: #1ab394"}
+                          Enabled
+                        %td
+                          = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
+                        %td
+                          = button_to "disable", user_property_path(@user, property, property: { enabled: false } ), class: "btn btn-danger btn-lg btn-outline", method: :patch
+                      - else
+                        %td.text-danger
+                          Disabled
+                        %td
+                          = link_to property.address, user_property_path(@user, property), class: "btn btn-danger btn-lg btn-outline btn-block"
+                        %td
+                          = button_to "enable", user_property_path(@user, property, property: { enabled: true } ), class: "btn btn-primary btn-lg btn-outline", method: :patch
 
-                - else
-                  You don't have any properties yet. Go add one!
-                  %br
-                  = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10"
-            - else
-              %h2
-                %i.fa.fa-warning
-                You needs to sign up for a subscription first
+              - else
+                You don't have any properties yet. Go add one!
+                %br
+                = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10"
