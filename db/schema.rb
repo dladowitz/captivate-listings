@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101185744) do
+ActiveRecord::Schema.define(version: 20151115084351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,13 @@ ActiveRecord::Schema.define(version: 20151101185744) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "domain_type"
     t.string   "domain"
     t.hstore   "details"
     t.integer  "user_id"
+    t.boolean  "enabled",     default: true, null: false
   end
 
   add_index "properties", ["details"], name: "index_properties_on_details", using: :gin
