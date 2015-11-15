@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
     properties.where(enabled: true).count
   end
 
-  def can_add_properties?
+  def can_add_or_enable_properties?
     if subscription.level <= 1
       active_properties < 1
     else

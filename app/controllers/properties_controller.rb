@@ -44,16 +44,20 @@ class PropertiesController < ApplicationController
   end
 
   #TODO Should probably break this up. Maybe make a status method
+  # It's getting, its getting, it's getting kinda hectic. (I've got the powwa)
   def update
     if params[:property][:enabled] == "false"
       @property.update_attributes(enabled: false)
       flash[:success] = "Property has been disabled!"
       redirect_to user_path(@user)
     elsif params[:property][:enabled] == "true"
-      @property.update_attributes(enabled: true)
-      flash[:success] = "Property has been enabled!"
+      if @user.can_add_or_enable_properties?
+        @property.update_attributes(enabled: true)
+        flash[:success] = "Property has been enabled!"
+      else
+        flash[:danger] = "Over Subscription Limit. Upgrade your subscription or disable a property"
+      end
       redirect_to user_path(@user)
-
     elsif @property.update_attributes(property_params)
       flash[:success] = "Awesome, the property has been updated!"
       if params[:update_image] == "yes"
