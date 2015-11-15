@@ -3,5 +3,9 @@ S3DirectUpload.config do |c|
   c.secret_access_key = ENV["AWS_SECRET_ACCESS_KEY"]   # your secret access key
   c.bucket = ENV["AWS_S3_BUCKET"]              # your bucket name
   c.region = "s3-us-west-1"             # region prefix of your bucket url. This is _required_ for the non-default AWS region, eg. "s3-eu-west-1"
-  c.url = "https://s3-us-west-1.amazonaws.com/captivate-listings-development"                # S3 API endpoint (optional), eg. "https://#{c.bucket}.s3.amazonaws.com/"
+  if Rails.env.production?
+    c.url = "https://s3-us-west-1.amazonaws.com/captivate-listings-production"
+  else
+    c.url = "https://s3-us-west-1.amazonaws.com/captivate-listings-development"                # S3 API endpoint (optional), eg. "https://#{c.bucket}.s3.amazonaws.com/"
+  end
 end
