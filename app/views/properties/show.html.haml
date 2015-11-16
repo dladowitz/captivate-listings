@@ -1,4 +1,3 @@
-
 .row
   .col-md-8
     %h1
@@ -191,9 +190,11 @@
           %ul#photos.photos-show-page{data: {update_url: sort_user_properties_url}}
             - @photos.each do |photo|
               = content_tag_for :li, photo do
-                = image_tag photo.url, class: "handle"
-                -# = photo.position
+                = image_tag photo.url, class: "handle", alt: "property photo"
 
+        - if !@user.subscription || @user.subscription.level == 0
+          %p
+            Bronze plans have a 5 photo limit. Upgrade now to include unlimited photos.
           -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
           - if @photos.any?
             = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

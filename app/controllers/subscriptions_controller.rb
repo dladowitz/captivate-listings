@@ -1,12 +1,11 @@
 class SubscriptionsController < ApplicationController
+  before_action :set_user
 
   def new
-    @user = User.find params[:user_id]
     @subscription = @user.build_subscription
   end
 
   def create
-    @user = User.find params[:user_id]
     @subscription = @user.build_subscription subscription_params
 
     begin
@@ -24,12 +23,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def edit
-    @user = User.find params[:user_id]
     @subscription = @user.subscription
   end
 
   def destroy
-    @user = User.find params[:user_id]
     @subscription = @user.subscription
 
     # Stripe.api_key = ENV["STRIPE_TEST_SECRET_KEY"]
@@ -47,4 +44,7 @@ class SubscriptionsController < ApplicationController
     params.require(:subscription).permit(:level)
   end
 
+  def set_user
+    @user = User.find params[:user_id]
+  end
 end

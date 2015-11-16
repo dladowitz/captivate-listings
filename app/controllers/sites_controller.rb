@@ -4,7 +4,11 @@ class SitesController < ApplicationController
   def show
     @site = Site.find params[:id]
     @property = @site.property
-    @photos = @property.photos.order('position')
+    @user = @property.user
+
+    if !@user.subscription || @user.subscription.level == 0
+      @photos = @photos.limit(5)
+    end
   end
 
 
