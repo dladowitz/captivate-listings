@@ -30,10 +30,6 @@ class PropertiesController < ApplicationController
     end
   end
 
-  # def confirmation
-  #
-  # end
-
   def edit
     case params[:detail_section]
     when "address"
