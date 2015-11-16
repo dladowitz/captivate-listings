@@ -39,7 +39,7 @@
                     .image-caption-wrapper
                       .image-caption
                         - unless @property.agent_logo_url.blank?
-                          %img.agent-logo{:alt => "", :src => @property.agent_logo_url}
+                          %img.agent-logo{:alt => "agent profile photo", :src => @property.agent_logo_url}
                         - else
                           %p
                             %strong.agent-name
@@ -149,7 +149,7 @@
                 .row.gallery-row
                   - @photos.each do |photo|
                     %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
-                      %img.img-responsive{:src => "#{photo.url}"}
+                      %img.img-responsive{:src => "#{photo.url}", :alt => "property photo"}
 
 
 -# Best attempt to manage section background
