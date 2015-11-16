@@ -1,0 +1,15 @@
+.col-md-12.mb40
+  = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
+
+.row
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Custom Domain
+      .ibox-content
+        .row
+          .col-md-8
+            = simple_form_for [@user, @property] do |f|
+              = f.input :custom_domain, input_html: {placeholder: 'www.sanfranciscocondo.com'}
+              = f.button :submit, "Update Custom Domain"
