@@ -161,7 +161,7 @@
 
 .row
   .col-lg-8
-    .widget.red-bg.no-padding
+    .widget.yellow-bg.no-padding
       .p-m
         %h1.m-xs Neighborhood
         - if @property.details && @property.neighborhood_name
@@ -180,6 +180,19 @@
           = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
         - else
           = link_to "Add Neighborhood", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
+
+.row
+  .col-lg-8
+    .widget.navy-bg.no-padding
+      .p-m
+        %h1.m-xs Custom Domain
+        %table.table.fixed-width
+          %tr
+            %td.col-md-2
+              %h3 URL:
+            %td
+              %h3.weight-100= @property.custom_domain ? @property.custom_domain : "None"
+        = link_to "Update URL", edit_user_property_path(@user, @property, detail_section: "custom_domain"), class: "btn btn-default mt20 btn-outline"
 
 .row
   .col-lg-8
@@ -225,6 +238,7 @@
                 Contact Us Section Background
               .panel-body
                 = image_tag @property.contact_background_image_url
+
 
         -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
         - if @property.main_background_image_url.blank? || @property.neighborhood_background_image_url.blank? || @property.contact_background_image_url.blank?

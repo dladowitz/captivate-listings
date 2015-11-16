@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   # custom url routing
   # Need to find a way to catch root domains
-  get "/noevalleycondo", to: "custom_domains#router", as: :domain_domains
+  get "someplaceelse.com", to: "custom_domains#router", as: :domain_domains
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

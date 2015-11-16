@@ -40,6 +40,8 @@ class PropertiesController < ApplicationController
       render :agent_details_form
     when "neighborhood"
       render :neighborhood_details_form
+    when "custom_domain"
+      render :custom_domain_details_form
     end
   end
 
@@ -112,7 +114,8 @@ class PropertiesController < ApplicationController
                                       :description, :matterport_status, :matterport_url, :highlights, :showings, :video_walkthrough_url,
                                       :video_walkthrough_status, :tag_line, :agent_name, :agent_phone, :agent_image_url,
                                       :agent_company, :agent_license, :agent_logo_url, :agent_website,
-                                      :neighborhood_name, :neighborhood_description, :main_background_image_url, :neighborhood_background_image_url, :contact_background_image_url)
+                                      :neighborhood_name, :neighborhood_description, :main_background_image_url, :neighborhood_background_image_url, :contact_background_image_url,
+                                      :custom_domain)
   end
 
   def set_user

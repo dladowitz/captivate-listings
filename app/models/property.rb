@@ -9,8 +9,6 @@
 #  zip           :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
-#  domain_type   :string
-#  domain        :string
 #  details       :hstore
 #  user_id       :integer
 #  enabled       :boolean          default(TRUE), not null
@@ -68,19 +66,6 @@ class Property < ActiveRecord::Base
 
     photo_links.each do |link|
       self.photos.create(url: link)
-    end
-
-    self.save
-  end
-
-  # not sure why self is needed here, but domain is nil otherwise
-  def add_domain_suffix
-    if domain_type && domain_type == "generic"
-      self.domain = self.domain + ".captivatelistings.com"
-    elsif domain_type == "custom"
-      self.domain = "www." + self.domain + ".com"
-    else
-      self.domain = self.domain + ".something-is-wrong.com"
     end
 
     self.save

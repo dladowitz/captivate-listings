@@ -1,6 +1,9 @@
 class CustomDomainsController < ApplicationController
   def router
-      property = Property.find_by_custom_domain(self.env["REQUEST_PATH"])
+    # remove the leading "/" which breaks things
+    self.env["REQUEST_PATH"].slice!(0)
+    property = Property.find_by_custom_domain(self.env["REQUEST_PATH"])
+
     if property
       redirect_to property.site
     else
