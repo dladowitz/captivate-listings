@@ -7,7 +7,7 @@ class CustomDomainsController < ApplicationController
     if property
       redirect_to property.site
     else
-      flash[:danger] = "That custom domain is not registered in our system"
+      flash[:danger] = "That custom domain is not registered in our system."
       redirect_to root_path
     end
   end
