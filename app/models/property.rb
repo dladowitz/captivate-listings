@@ -29,10 +29,7 @@ class Property < ActiveRecord::Base
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true, length: { is: 2 }
-  # validates :domain_type, presence: true
-  # validates :domain, presence: true
 
-  # after_create :add_domain_suffix
   after_create :add_default_details
 
   # hstore attribute - Property Details - may become very large
