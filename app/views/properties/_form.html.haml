@@ -12,4 +12,4 @@
               = f.input :city#, input_html: {placeholder: 'San Francisco'}
               = f.input :state#, input_html: {placeholder: 'CA'}
               = f.input :zip#, input_html: {placeholder: '94111'}
-              = f.button :submit
+              = f.button :submit, onclick: "ga('send', 'event', 'form', 'submited', 'new or updated property', '6')"

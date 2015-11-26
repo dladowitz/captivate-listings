@@ -5,7 +5,7 @@
         %i.text-danger.fa.fa-warning.m-l-m
         Disabled
       %strong= @property.address
-      = link_to "View Live Site", site_path(@property.site.id), target: "_blank", class: "btn btn-warning btn-lg btn-outline pull-right"
+      = link_to "View Live Site", site_path(@property.site.id), target: "_blank", class: "btn btn-warning btn-lg btn-outline pull-right", onclick: "ga('send', 'event', 'link', 'clicked', 'view live site button', '4')"
 .row
   .col-lg-8
     .widget.yellow-bg.no-padding
@@ -15,7 +15,7 @@
         %h3.font-bold.no-margins
           = @property.full_address
 
-        = link_to "Update Address", edit_user_property_path(@user, @property, detail_section: "address"), class: "btn btn-default mt20 btn-outline"
+        = link_to "Update Address", edit_user_property_path(@user, @property, detail_section: "address"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update property address button', '4')"
 
 .row
   .col-lg-8
@@ -114,9 +114,9 @@
             -#   %td
             -#     %h3.weight-100= @property.details["showings"]
 
-          = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "property"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "property"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update property details button', '4')"
         - else
-          = link_to "Add Details", edit_user_property_path(@user, @property, detail_section: "property"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Add Details", edit_user_property_path(@user, @property, detail_section: "property"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'add property details button', '5')"
 .row
   .col-lg-8
     .widget.lazur-bg.no-padding
@@ -155,9 +155,9 @@
             -#   %td
             -#     %h3.weight-100= @property.agent_logo_url
 
-          = link_to "Update Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Update Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update agent details button', '4')"
         - else
-          = link_to "Add Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Add Agent", edit_user_property_path(@user, @property, detail_section: "agent"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'add agent details button', '5')"
 
 .row
   .col-lg-8
@@ -177,9 +177,9 @@
               %td
                 %h3.weight-100.lheight-23= @property.neighborhood_description
 
-          = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update neighborhood details button', '4')"
         - else
-          = link_to "Add Neighborhood", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline"
+          = link_to "Add Neighborhood", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update neighborhood details button', '5')"
 
 .row
   .col-lg-8
@@ -192,7 +192,7 @@
               %h3 URL:
             %td
               %h3.weight-100= @property.custom_domain ? @property.custom_domain : "None"
-        = link_to "Update URL", edit_user_property_path(@user, @property, detail_section: "custom_domain"), class: "btn btn-default mt20 btn-outline"
+        = link_to "Update URL", edit_user_property_path(@user, @property, detail_section: "custom_domain"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'add url info button', '5')"
 
 .row
   .col-lg-8
