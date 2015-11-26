@@ -28,7 +28,7 @@
                 = f.label :password_confirmation, class: "label-control"
                 = f.password_field :password_confirmation, class: "form-control"
               .form-group
-                = f.submit "Sign Up", class: "btn btn-success"
+                = f.submit "Sign Up", class: "btn btn-success", onclick: "ga('send', 'event', 'form', 'submited', 'user signup', '6')"
                 #password_links.pull-right
                   = link_to "Sign In", signin_path, id: "signin"
                   |

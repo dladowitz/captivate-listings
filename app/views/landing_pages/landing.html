@@ -24,7 +24,7 @@
 									<p class="hero-tagline">Beautifully crafted property sites in under 10 min.</p>
 								</div>
 								<p class="hero-buttons">
-									<a href="/signup" class="btn btn-lg btn-primary" onClick="console.log('clicked start link'); ga('send', 'event', 'button', 'click', 'start', '5'); console.log('clicked start link')">Start Now</a>
+									<a href="/signup" class="btn btn-lg btn-primary" onClick="ga('send', 'event', 'link', 'clicked', 'first start button', '5'); console.log('clicked start link')">Start Now</a>
 								</p>
 							</div>
 						</div>
@@ -54,7 +54,7 @@
 								</div>
 
 								<p class="hero-buttons">
-									<a href="/signup" class="btn btn-lg btn-primary">Start Now</a>
+									<a href="/signup" class="btn btn-lg btn-primary" onClick="ga('send', 'event', 'link', 'clicked', 'second start button', '5')">Start Now</a>
 								</p>
 							</div>
 						</div>
@@ -212,7 +212,7 @@
 					<h3 class="section-heading text-left">
 						<span>
 							Property Details
-							<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link">View Live Example</a>
+							<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link" onClick="ga('send', 'event', 'link', 'clicked', 'property details example button', '5')">View Live Example</a>
 						</span>
 					</h3>
 
@@ -245,7 +245,7 @@
 				<h2 class="section-heading text-left">
 					<span>
 					  Photos
-						<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link">View Live Example</a>
+						<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link" onClick="ga('send', 'event', 'link', 'clicked', 'photos example button', '5')">View Live Example</a>
 					</span>
 				</h2>
 
@@ -277,7 +277,7 @@
 				<h2 class="section-heading text-left">
 					<span>
 						Neighborhood Details
-						<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link">View Live Example</a>
+						<a href="http://www.captivatelistings.com/sites/3" target="_blank" class="btn btn-default live-site-link" onClick="ga('send', 'event', 'link', 'clicked', 'neighborhood example button', '5')">View Live Example</a>
 					</span>
 				</h2>
 
@@ -475,7 +475,7 @@
 							<textarea name="body" class="form-control" placeholder="Message" rows="5"></textarea>
 						</div>
 						<div class="form-group">
-							<button class="btn btn-primary btn-lg btn-block">Send Message</button>
+							<button class="btn btn-primary btn-lg btn-block" onclick="ga('send', 'event', 'form', 'submited', 'contact us', '3')">Send Message</button>
 						</div>
 					</form>
 
@@ -503,7 +503,7 @@
 
 		<h3 class="closing-shout">Ready to start? Let's Go!</h3>
 
-		<div class="closing-buttons" data-animation="fadeInUp"><a href="/signup" class="btn btn-lg btn-primary">Sign Up Now</a></div>
+		<div class="closing-buttons" data-animation="fadeInUp"><a href="/signup" class="btn btn-lg btn-primary" onClick="ga('send', 'event', 'link', 'clicked', 'ready to go signup button', '5')">Sign Up Now</a></div>
 
 	</div>
 

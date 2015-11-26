@@ -8,27 +8,27 @@
         %span.icon-bar
         %span.icon-bar
       / HEADER LOGO
-      %a.navbar-logo.navbar-brand{:href => "/#hero"}
+      %a.navbar-logo.navbar-brand{:href => "/#hero", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar logo', '5')"}
         / <img src="images/logos/header-logo.png" srcset="images/logos/header-logo@2x.png 2x" alt="Drew">
         CAPTIVATE LISTINGS
     %nav#navigation.navigation.navbar-collapse.collapse.navbar-right
       / NAVIGATION LINKS
       %ul#header-nav.nav.navbar-nav
         %li
-          %a{:href => "/#hero"} Top
+          %a{:href => "/#hero", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar top link', '5')"} Top
 
         %li
-          %a{:href => "/#how-it-works"} How it Works
+          %a{:href => "/#how-it-works", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar how-it-works link', '5')"} How it Works
         %li
-          %a{:href => "/#pricing"} Pricing
+          %a{:href => "/#pricing", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar pricing link', '5')"} Pricing
         %li
-          %a{:href => "/#two-cols-description"} Design
+          %a{:href => "/#two-cols-description", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar design link', '5')"} Design
         %li
-          %a{:href => "http://www.captivatelistings.com/sites/3", :target => "_blank"} View Live Example
+          %a{:href => "http://www.captivatelistings.com/sites/3", :target => "_blank", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar example link', '5')"} View Live Example
 
         / DROPDOWN MENU
         %li.dropdown.dropdown-hover
-          %a.dropdown-toggle.external{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          %a.dropdown-toggle.external{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar more link', '5')"}
             More
             %span.caret
           %ul.dropdown-menu{:role => "menu"}
@@ -41,13 +41,13 @@
             -# %li
             -#   %a.anchor-link.external{:href => "/#faq"} FAQ
             %li
-              %a.anchor-link.external{:href => "/#contact-maps"} Contact Us
+              %a.anchor-link.external{:href => "/#contact-maps", :onClick => "ga('send', 'event', 'link', 'clicked', 'navbar contact link', '5')"} Contact Us
         / HEADER ACTION BUTTON
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', 'navbar', 'click', 'sign up', '5')"}Sign Up
+          %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', 'link', 'clicked', 'sign up navbar button', '5')"}Sign Up
 
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signin", :onClick => "ga('send', 'event', 'navbar', 'click', 'sign in', '5')"} Sign In
+          %a.btn.btn-primary{:href => "/signin", :onClick => "ga('send', 'event', 'link', 'clicked', 'sign in navbar button', '5')"} Sign In
   - flash.each do |name, message|
     %strong
       %div{:id => "flash", :class => "alert alert-#{name}", :role => "alert"}
