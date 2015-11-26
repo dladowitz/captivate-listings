@@ -17,7 +17,7 @@
               .form-group
                 = label_tag :password
                 = password_field_tag :password, nil, class: "form-control"
-              = submit_tag "Sign In", class: "btn btn-primary btn-lg"
+              = submit_tag "Sign In", class: "btn btn-primary btn-lg", onclick: "ga('send', 'event', 'form', 'submited', 'user signin', '6')"
 
               #password_links.pull-right
                 = link_to "Sign Up", signup_path, id: "signup"
