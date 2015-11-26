@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require google_analytics
+//= require analytics
 //= require property
 //= require jquery.metisMenu
 //= require inspinia.js
