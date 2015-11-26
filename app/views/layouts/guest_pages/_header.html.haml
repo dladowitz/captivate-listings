@@ -47,7 +47,7 @@
           %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', { eventCategory: 'Sign Up', eventAction: 'Click Button'})"}Sign Up
 
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signin"} Sign In
+          %a.btn.btn-primary{:href => "/signin", :onClick => "ga('send', 'event', 'SignIn', 'click', 'Landing Pages')"} Sign In
   - flash.each do |name, message|
     %strong
       %div{:id => "flash", :class => "alert alert-#{name}", :role => "alert"}
