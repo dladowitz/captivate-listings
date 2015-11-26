@@ -6,7 +6,7 @@
           Account Info
       .ibox-content
         .row
-          = link_to "Update Account", edit_user_path(@user), class: "btn btn-primary ml10"
+          = link_to "Update Account", edit_user_path(@user), class: "btn btn-primary ml10", onclick: "ga('send', 'event', 'link', 'clicked', 'update account button', '4')"
 
         %hr
         .row
@@ -28,11 +28,11 @@
                 %h3
                   %strong Active Properties:
                   = @user.active_properties
-                = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10"
+                = link_to "Change", edit_user_subscription_path(@user, @subscription), class: "btn btn-primary mt10", onclick: "ga('send', 'event', 'link', 'clicked', 'subscription change button', '4')"
               - else
                 Bronze
                 %br
-                = link_to "Sign Up For Premium Features", new_user_subscription_path(@user), class: "btn btn-primary mt10"
+                = link_to "Sign Up For Premium Features", new_user_subscription_path(@user), class: "btn btn-primary mt10", onclick: "ga('send', 'event', 'link', 'clicked', 'subscription signup button', '7')"
 
         %hr
         .row
@@ -40,7 +40,7 @@
             %h1
               %strong Properties
               - if @user.can_add_or_enable_properties?
-                = link_to "Add Property", new_user_property_path(@user), class: "btn btn-primary btn-outline pull-right"
+                = link_to "Add Property", new_user_property_path(@user), class: "btn btn-primary btn-outline pull-right", onclick: "ga('send', 'event', 'link', 'clicked', 'add property button', '6')"
                 -# = link_to "Add Property", "", class: "btn btn-primary btn-outline pull-right"
               - else
                 -# TODO Think about doing this another way. Had to add inspinia.js & jquery.metisMenu.js to make it work
@@ -66,16 +66,16 @@
                         %td
                           = link_to property.address, user_property_path(@user, property), class: "btn btn-primary btn-lg btn-outline btn-block"
                         %td
-                          = button_to "disable", user_property_path(@user, property, property: { enabled: false } ), class: "btn btn-danger btn-lg btn-outline", method: :patch
+                          = button_to "disable", user_property_path(@user, property, property: { enabled: false } ), class: "btn btn-danger btn-lg btn-outline", method: :patch, onclick: "ga('send', 'event', 'link', 'clicked', 'disable property button', '5')"
                       - else
                         %td.text-danger
                           Disabled
                         %td
                           = link_to property.address, user_property_path(@user, property), class: "btn btn-danger btn-lg btn-outline btn-block"
                         %td
-                          = button_to "enable", user_property_path(@user, property, property: { enabled: true } ), class: "btn btn-primary btn-lg btn-outline", method: :patch
+                          = button_to "enable", user_property_path(@user, property, property: { enabled: true } ), class: "btn btn-primary btn-lg btn-outline", method: :patch, onclick: "ga('send', 'event', 'link', 'clicked', 'enable property button', '5')"
 
               - else
                 You don't have any properties yet. Go add one!
                 %br
-                = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10"
+                = link_to "Add a Property", new_user_property_path(@user), class: "btn btn-success mt10", onclick: "ga('send', 'event', 'link', 'clicked', 'first property button', '7')"
