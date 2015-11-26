@@ -20,7 +20,8 @@
 
 //= require guest_pages/responsiveslides.min
 //= require guest_pages/script
-//= require google_analytics
+// require google_analytics TODO Remove
+//= require analytics
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs

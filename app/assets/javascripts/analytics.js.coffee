@@ -3,6 +3,8 @@
 # It would be nice to not send development page views to google.
 # Look here for inspiration: http://reed.github.io/turbolinks-compatibility/google_analytics.html
 
+# Probably need to precompile for production if changed
+
 $(document).on 'page:change', ->
  if window._gaq?
   _gaq.push ['_trackPageview']

@@ -15,7 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require google_analytics
+// require google_analytics TODO Remove
 //= require analytics
 //= require property
 //= require jquery.metisMenu
