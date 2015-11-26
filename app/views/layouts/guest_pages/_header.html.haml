@@ -44,10 +44,10 @@
               %a.anchor-link.external{:href => "/#contact-maps"} Contact Us
         / HEADER ACTION BUTTON
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', { eventCategory: 'navbar', eventAction: 'click'})"}Sign Up
+          %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', 'navbar', 'click', 'sign up', '5')"}Sign Up
 
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signin", :onClick => "ga('send', 'event', 'navbar', 'click', 'signin', '5')"} Sign In
+          %a.btn.btn-primary{:href => "/signin", :onClick => "ga('send', 'event', 'navbar', 'click', 'sign in', '5')"} Sign In
   - flash.each do |name, message|
     %strong
       %div{:id => "flash", :class => "alert alert-#{name}", :role => "alert"}
