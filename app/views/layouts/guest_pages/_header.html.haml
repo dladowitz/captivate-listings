@@ -24,7 +24,7 @@
         %li
           %a{:href => "/#two-cols-description"} Design
         %li
-          %a{:href => "http://www.captivatelistings.com/sites/3", :target => "_blank"} View Live Example          
+          %a{:href => "http://www.captivatelistings.com/sites/3", :target => "_blank"} View Live Example
 
         / DROPDOWN MENU
         %li.dropdown.dropdown-hover
@@ -44,7 +44,7 @@
               %a.anchor-link.external{:href => "/#contact-maps"} Contact Us
         / HEADER ACTION BUTTON
         %li.header-action-button
-          %a.btn.btn-primary{:href => "/signup"} Sign Up
+          %a.btn.btn-primary{:href => "/signup", :onClick => "ga('send', 'event', { eventCategory: 'Sign Up', eventAction: 'Click Button'})"}Sign Up
 
         %li.header-action-button
           %a.btn.btn-primary{:href => "/signin"} Sign In
