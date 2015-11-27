@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "landing_pages#landing"
+  root to: "domains#index"
 
   # custom routes
   get    :landing,              to: "landing_pages#landing",              as: :landing

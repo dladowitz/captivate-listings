@@ -31,6 +31,7 @@ class Property < ActiveRecord::Base
   validates :state, presence: true, length: { is: 2 }
 
   after_create :add_default_details
+  before_save :normalize_custom_domain, if: :custom_domain_changed?
 
   # hstore attribute - Property Details - may become very large
   store_accessor :details,
@@ -82,5 +83,15 @@ class Property < ActiveRecord::Base
 
   def disabled?
     !enabled
+  end
+
+  def normalize_custom_domain
+    # downcasing and removing any trailing forward slashes
+    self.custom_domain = self.custom_domain.downcase.chomp('/')
+
+    # add 'http://' is not present
+    unless self.custom_domain.index 'http://'
+      self.custom_domain = 'http://' + self.custom_domain
+    end
   end
 end
