@@ -2,7 +2,6 @@ class DomainsController < ApplicationController
 
   def index
     domain = request.base_url
-    binding.pry
 
     # Checks for captivate listins domain
     if domain == "http://localhost:3000" || domain == "http://www.captivatelistings.com"
