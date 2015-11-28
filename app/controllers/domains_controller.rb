@@ -2,9 +2,10 @@ class DomainsController < ApplicationController
 
   def index
     domain = request.base_url
+    binding.pry
 
     # Checks for captivate listins domain
-    if domain == "http://localhost:300" || domain == "http://www.captivatelistings.com/"
+    if domain == "http://localhost:3000" || domain == "http://www.captivatelistings.com"
       redirect_to landing_path
 
     # Checking to see if there is the request url matches a custom domain on a site
