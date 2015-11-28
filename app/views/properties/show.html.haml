@@ -192,7 +192,7 @@
               %h3 URL:
             %td
               %h3.weight-100= @property.custom_domain ? @property.custom_domain : "None"
-        = link_to "Update URL", edit_user_property_path(@user, @property, detail_section: "custom_domain"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'add url info button', '5')"
+        = link_to "Update URL", edit_user_property_path(@user, @property, detail_section: "custom_domain"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'edit custom domain button', '5')"
 
 .row
   .col-lg-8
