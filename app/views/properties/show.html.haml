@@ -15,7 +15,7 @@
         %h3.font-bold.no-margins
           = @property.full_address
 
-        = link_to "Update Address", edit_user_property_path(@user, @property, detail_section: "address"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update property address button', '4')"
+        = link_to "Update", edit_user_property_path(@user, @property, detail_section: "address"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update property address button', '4')"
 
 .row
   .col-lg-8
