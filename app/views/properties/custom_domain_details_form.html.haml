@@ -10,6 +10,29 @@
       .ibox-content
         .row
           .col-md-8
+            %strong Instructions:
+            %p
+              If you have a custom domain (one that you've previously purchased elsewhere) and want to use here you'll need to edit the DNS setting with your Domain Registrar.
+            %p
+              Point your
+              %span.text-navy CNAME
+              record for
+              %span.text-navy www
+              to 'www.captivatelistings.com'
+
+            %p Then save your custom domain below.
+
+            %p.mt40
+              %strong
+                We know dealing with Domains, DNS and Routing can all be hard.
+                %br
+                If you need any help just
+                =link_to "contact support here.", root_path + "#contact-maps",  target: "_blank"
+                %br
+                We are happy to help.
+
+        .row.mt30
+          .col-md-8
             = simple_form_for [@user, @property] do |f|
               = f.input :custom_domain, input_html: {placeholder: 'www.sanfranciscocondo.com'}
               = f.button :submit, "Update Custom Domain"
