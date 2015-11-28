@@ -5,7 +5,7 @@ class DomainsController < ApplicationController
 
     # Checks for captivate listins domain
     if domain == "http://localhost:3000" || domain == "http://www.captivatelistings.com"
-      redirect_to landing_path
+      render "landing_pages/landing", layout: "guest_pages/guest_layout"
 
     # Checking to see if there is the request url matches a custom domain on a site
     else
@@ -26,7 +26,7 @@ class DomainsController < ApplicationController
         redirect_to site_path(site)
       else
         flash[:danger] = "Can't find a site with that domain"
-        redirect_to landing_path
+        render "landing_pages/landing", layout: "guest_pages/guest_layout"
       end
     end
   end
