@@ -13,3 +13,7 @@
             = simple_form_for [@user, @property] do |f|
               = f.input :custom_domain, input_html: {placeholder: 'www.sanfranciscocondo.com'}
               = f.button :submit, "Update Custom Domain"
+.row
+  .col-lg-10
+    %h2.text-warning
+      Adding or updating custom domains takes 12-24 hrs to be processed by our system.

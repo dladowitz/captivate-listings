@@ -1,0 +1,33 @@
+.container
+  = image_tag attachments["captivatelogo.png"].url, style: "width: 250; margin-left: 39%;"
+
+  -#Css classes are not being loaded. Premailer gem is supposed to handle
+  .col-md-8.col-md-offset-2.mt50
+    .panel.panel-success
+      .panel-heading{style: "background-color: #2E2E3F !important; color: #999999; padding: 5px 5px 5px 10px"}
+        .panel-title
+          %h2.text-center Custom Domain Changed
+      .panel-body
+        %h3.text-center Let's go update the custom domain in Heroku
+        = link_to "https://dashboard.heroku.com/apps/captivatelistings/settings", "https://dashboard.heroku.com/apps/captivatelistings/settings"
+
+        %br
+
+        %p
+          %strong Property:
+          = link_to user_property_path(@property.user, @property), user_property_path(@property.user, @property)
+          %br
+          %br
+          %strong Address:
+          = @property.full_address
+          %br
+          %br
+          %strong Custom Domain:
+          = link_to @property.custom_domain, @property.custom_domain
+
+
+      .panel-footer
+        %h5
+        = link_to "Captivate Listings", "#", class: "blue underline text-center"
+
+  %h2 Remember ZeroDNS charges for extra domains. Need to figure something else out.

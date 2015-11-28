@@ -93,5 +93,7 @@ class Property < ActiveRecord::Base
     unless self.custom_domain.index 'http://'
       self.custom_domain = 'http://' + self.custom_domain
     end
+
+    PropertyMailer.custom_domain_change_email(self).deliver
   end
 end

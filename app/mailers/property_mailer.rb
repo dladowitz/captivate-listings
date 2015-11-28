@@ -2,11 +2,17 @@ class PropertyMailer < ApplicationMailer
   # layout "user_mailer"  # css is not showing up properly when using a layout
 
   def new_property_email(property)
-    # TODO change out image
     @property = property
     attachments.inline['captivatelogo.png'] = File.read('app/assets/images/captivatelogo.png')
 
     mail(to: "david@tradecrafted.com", subject: "New Property Created - Captivate Listings")
+  end
+
+  def custom_domain_change_email(property)
+    @property = property
+    attachments.inline['captivatelogo.png'] = File.read('app/assets/images/captivatelogo.png')
+
+    mail(to: "david@tradecrafted.com", subject: "Custom Domain Change - Captivate Listings")
   end
 
   # def registration_email(registration)
