@@ -24,7 +24,13 @@
                 %br
                 %h3
                   %strong Property Limit:
-                  = @user.subscription.level
+                  - if @user.subscription.level == 1
+                    1
+                  - elsif @user.subscription.level == 2
+                    4
+                  - else
+                    Error:
+                    = link_to "Does Not Compute", "https://media.giphy.com/media/5xaOcLCJCLiMAPtgxPO/giphy.gif"
                 %h3
                   %strong Active Properties:
                   = @user.active_properties
