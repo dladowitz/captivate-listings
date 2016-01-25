@@ -5,7 +5,13 @@
 
     %h2
       %strong Level:
-      - if @subscription
+      - if @subscription.level == 1
         Silver
-        %br
-        = button_to "Cancel", user_subscription_path(@user, @subscription), :method => :delete, class: "btn btn-danger mt10", data: { confirm: "Are you sure?" }
+      - elsif @subscription.level == 2
+        Gold
+      - else
+        Error:
+        = link_to "Does Not Compute", "https://media.giphy.com/media/5xaOcLCJCLiMAPtgxPO/giphy.gif"
+
+      %br
+      = button_to "Cancel", user_subscription_path(@user, @subscription), :method => :delete, class: "btn btn-danger mt10", data: { confirm: "Are you sure?" }
