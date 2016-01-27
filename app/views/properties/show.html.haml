@@ -245,3 +245,36 @@
           = button_to "Add Photos", backgrounds_user_property_photos_path(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
         - else
           = button_to "Edit Photos", backgrounds_user_property_photos_path(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+
+.row
+  .col-lg-8#background-images-container
+    .widget.widget-border
+      .p-m
+        .col-md-12
+          %h1.m-xs.mb20 Disclosures
+        .col-md-12
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                File One Name
+              .panel-body
+                File One Here
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                File Two Name
+              .panel-body
+                File Two Here
+          .col-md-4
+            .panel.panel-default
+              .panel-heading
+                File Three Name
+              .panel-body
+                File Three Here
+
+
+        -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
+        -# - if No Disclosures Present
+        = button_to "Add Disclosures", "#", method: :get, class: "btn btn-default mt20 btn-outline"
+        -# - else
+        -#   = button_to "Edit Photos", backgrounds_user_property_photos_path(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

@@ -1,4 +1,4 @@
-srequire 'rails_helper'
+require 'rails_helper'
 
 describe SitesController do
   describe "GET show" do
