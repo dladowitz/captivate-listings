@@ -1,0 +1,3 @@
+class DisclosuresController < ApplicationController
+
+end
