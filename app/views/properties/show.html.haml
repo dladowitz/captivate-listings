@@ -274,7 +274,7 @@
 
 
         -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
-        -# - if No Disclosures Present
-        = button_to "Add Disclosures", "#", method: :get, class: "btn btn-default mt20 btn-outline"
+        -# - if @discosures.any?
+        -#   = button_to "Edit Disclosures", user_property_disclosures_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
         -# - else
-        -#   = button_to "Edit Photos", backgrounds_user_property_photos_path(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+        = button_to "Add Disclosures", user_property_disclosures_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       resources :photos, only: [:new, :create, :index, :destroy] do
         get "backgrounds", on: :collection
       end
+
+      resources :disclosures, only: [:new, :create, :index, :destroy]
     end
   end
 
