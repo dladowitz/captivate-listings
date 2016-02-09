@@ -159,8 +159,8 @@
                     #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button{"data-block-type" => "53"}
                       .sqs-block-content
                         .sqs-block-button-container--right{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-                          / Agent Button
-                          %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}", :target => "_blank"}
+                          / Disclosures Button
+                          %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}
                             -# = "#{@property.agent_name}: #{number_to_phone(@property.agent_phone, area_code: true)}"
                             Download Disclosures
 
@@ -172,27 +172,34 @@
                           %button.close{"data-dismiss" => "modal", :type => "button"}
                             %span{"aria-hidden" => "true"} ×
                             %span.sr-only Close
-                          %i.fa.fa-laptop.modal-icon
-                          %h4.modal-title Disclosures
-                          %small.font-bold Click on each file to download
+                          %h4.modal-title
+                            #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button
+                              .sqs-block-content
+                                .sqs-block-button-container--left
+                                  / Disclosures Button
+                                  %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#"}
+                                    Download All Disclosures
                         .modal-body
-                          %p
-                            %strong The story so far....
                           #disclosures
                             - if @disclosures
                               - @disclosures.each do |disclosure|
-                                .col-md-4.col-sm-6.disclosure.well
-                                  .widget.style1.navy-bg
-                                    .row
-                                      .col-xs-2
-                                        = link_to disclosure.url do
-                                          %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-40 file-icon"}
-                                      .col-xs-10.text-right
-                                        %span= link_to disclosure.title, disclosure.url
+                                .col-md-4.col-sm-6.disclosure
+                                  .well
+                                    .widget.style1.navy-bg
+                                      .row
+                                        .col-xs-2
+                                          = link_to disclosure.url, :target => "_blank" do
+                                            %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-40 file-icon"}
+                                        .col-xs-10.text-right
+                                          %span= link_to disclosure.title, disclosure.url, :target => "_blank"
 
                         .modal-footer
-                          %button.btn.btn-white{"data-dismiss" => "modal", :type => "button"} Close
-                          %button.btn.btn-primary{:type => "button"} Save changes
+                          #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button
+                            .sqs-block-content
+                              .sqs-block-button-container--left
+                                / Disclosures Button
+                                %button.sqs-block-button-element--small.sqs-block-button-element.close-button{"data-dismiss" => "modal", :type => "button"} Close
+
 
 -# Best attempt to manage section background
 :javascript
