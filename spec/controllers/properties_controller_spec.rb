@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe PropertiesController do
   describe "GET new" do
-    subject { get :new }
+    let(:user) { create :user, password: "asdfasdf"}
+    subject { get :new, user_id: user.id }
     before { subject }
 
     it "renders the new template" do
@@ -15,8 +16,9 @@ describe PropertiesController do
   end
 
   describe "POST create" do
+    let(:user) { create :user, password: "asdfasdf"}
     context "with valid params" do
-      subject { post :create, property: { address: "855 Front st", city: "San Francisco", state: "CA", zip: 94111, domain_type: "generic", domain: "http://www.somewhere.captivatelistings.com", sqfeet: 1000, beds: 3, baths: 1.5 } }
+      subject { post :create, user_id: user.id, property: { address: "855 Front st", city: "San Francisco", state: "CA", zip: 94111, sqfeet: 1000, beds: 3, baths: 1.5 } }
 
       it "create a new record in the database" do
         expect{ subject }.to change{ Property.count}.by 1
@@ -26,19 +28,12 @@ describe PropertiesController do
 
   describe "GET show" do
     let(:property) { create :property }
-    subject { get :show, id: property.id }
+    let(:user2) {create :user, email: "jackburly@gmail.com", password: "asdfasdf"}
+    subject { get :show, id: property.id, user_id: user2.id }
 
     it "finds the correct property in the db" do
       subject
       expect(assigns(:property)).to eq property
-    end
-  end
-
-  describe "GET confirmation" do
-    subject { get :confirmation }
-
-    skip "renders the confirmation template" do
-      expect(response).to render_template :confirmation
     end
   end
 end
