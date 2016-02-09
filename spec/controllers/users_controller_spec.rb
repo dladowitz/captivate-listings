@@ -1,4 +1,4 @@
-# Cancacncan is currently not available in the test environment. Not sure what is happening. 
+# Cancacncan is currently not available in the test environment. Not sure what is happening.
 # http://stackoverflow.com/questions/33322566/cancancan-not-working-in-rspec
 
 # require 'rails_helper'

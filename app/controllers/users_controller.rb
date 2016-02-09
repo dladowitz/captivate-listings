@@ -32,9 +32,9 @@ class UsersController < ApplicationController
   def show
     @page_name = "Dashboard"
 
-
     if @user
       @subscription = @user.subscription if @user.subscription
+      @properties = @user.properties.order(:id).reverse
       render :show
     else
       redirect_to root_path

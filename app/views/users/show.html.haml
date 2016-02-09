@@ -55,7 +55,7 @@
                 -# %button "Add Property", "#", class: "btn btn-default btn-outline pull-right", "data-toggle": "tooltip", "data-placement":"top", "data-original-title": "Over Limit on Properties. Disable Property or Upgrade Subscription"
               %br
             %h2
-              - if @user.properties.any?
+              - if @properties.any?
                 %table.table
                   %tr
                     %td
@@ -64,7 +64,7 @@
                       Address
                     %td
                       Action
-                  - @user.properties.each do |property|
+                  - @properties.each do |property|
                     %tr
                       - if property.enabled?
                         %td{style: "color: #1ab394"}
