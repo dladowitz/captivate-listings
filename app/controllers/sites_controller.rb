@@ -5,6 +5,7 @@ class SitesController < ApplicationController
     @site = Site.find params[:id]
     @property = @site.property
     @photos = @property.photos.order('position')
+    @disclosures = @property.disclosures
     @user = @property.user
 
     if !@user.subscription || @user.subscription.level == 0
