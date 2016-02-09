@@ -104,6 +104,25 @@
   box-sizing: border-box;
 }
 
+
+// Disclosures
+.modal-title {
+  font-family: "PT Sans";
+  font-weight: bold;
+}
+
+.disclosures-modal {
+  width: 150%;
+}
+
+.disclosures-modal .well {
+  min-height: 95px;
+  // width: 90%;
+}
+
+.close-button {
+  background: #324544 !important;
+}
 /*Map*/
 #gmap {
   height: 450px;

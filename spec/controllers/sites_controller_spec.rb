@@ -15,6 +15,12 @@ describe SitesController do
         subject
         expect(assigns(:property)).to eq site.property
       end
+
+      it "finds the properties disclosures" do
+        disclosure = site.property.disclosures.create(title: "TDS.pdf", url: "www.aws.com/tds.pdf")
+        subject
+        expect(assigns(:property).disclosures).to include disclosure
+      end
     end
   end
 end

@@ -151,6 +151,55 @@
                     %a.col-sm-4.gallery-thumb-link{"data-gallery" => "multiimages", "data-toggle" => "lightbox", :href => "#{photo.url}"}
                       %img.img-responsive{:src => "#{photo.url}", :alt => "property photo"}
 
+            / Disclosures Gallery area
+            .sqs-row
+              .col-md-12
+                .row.gallery-row.mt50
+                  .col.sqs-col-4.span-4.col-sm-offset-4
+                    #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button{"data-block-type" => "53"}
+                      .sqs-block-content
+                        .sqs-block-button-container--right{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                          / Disclosures Button
+                          %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}
+                            -# = "#{@property.agent_name}: #{number_to_phone(@property.agent_phone, area_code: true)}"
+                            Download Disclosures
+
+                  -# Modal content: Only shown on modal popup
+                  #myModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+                    .modal-dialog.disclosures-modal
+                      .modal-content.animated.bounceInRight
+                        .modal-header
+                          %button.close{"data-dismiss" => "modal", :type => "button"}
+                            %span{"aria-hidden" => "true"} ×
+                            %span.sr-only Close
+                          %h4.modal-title
+                            #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button
+                              .sqs-block-content
+                                .sqs-block-button-container--left
+                                  / Disclosures Button
+                                  %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#"}
+                                    Download All Disclosures
+                        .modal-body
+                          #disclosures
+                            - if @disclosures
+                              - @disclosures.each do |disclosure|
+                                .col-md-4.col-sm-6.disclosure
+                                  .well
+                                    .widget.style1.navy-bg
+                                      .row
+                                        .col-xs-2
+                                          = link_to disclosure.url, :target => "_blank" do
+                                            %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-40 file-icon"}
+                                        .col-xs-10.text-right
+                                          %span= link_to disclosure.title, disclosure.url, :target => "_blank"
+
+                        .modal-footer
+                          #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button
+                            .sqs-block-content
+                              .sqs-block-button-container--left
+                                / Disclosures Button
+                                %button.sqs-block-button-element--small.sqs-block-button-element.close-button{"data-dismiss" => "modal", :type => "button"} Close
+
 
 -# Best attempt to manage section background
 :javascript
