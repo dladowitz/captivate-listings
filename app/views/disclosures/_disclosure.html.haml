@@ -1,9 +1,10 @@
 .widget.style1.navy-bg
   .row
     .col-xs-2
-      %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85"}
+      = link_to disclosure.url do
+        %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85 file-icon"}
     .col-xs-10.text-right
-      %span= disclosure.title
+      %span= link_to disclosure.title, disclosure.url
       %br
       %br
-      = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn btn-xs btn-outline", method: :delete
+      = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn-default btn btn-xs btn-outline", method: :delete

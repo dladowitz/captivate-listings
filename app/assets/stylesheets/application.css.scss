@@ -89,6 +89,18 @@ ul#photos li form {
   // height: 100px;
 }
 
+.disclosure a{
+  color: white;
+}
+
+.disclosure a:hover {
+  color: #233646;
+}
+
+.disclosure-delete:hover {
+  color: red !important;
+}
+
 // Property Show Page
 .fixed-width {
   table-layout: fixed;
