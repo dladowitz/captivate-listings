@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :disclosure do
-    title "MyString"
-    url "MyString"
-    property_id 1
+    association :property
+    title "Real Estate Transfer Disclosure Statement"
+    url "http://www.aws.com/mytds.pdf"
   end
 end

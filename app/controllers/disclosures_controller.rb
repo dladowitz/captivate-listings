@@ -16,7 +16,7 @@ class DisclosuresController < ApplicationController
   end
 
   def index
-    @disclosure = @property.disclosures
+    @disclosures = @property.disclosures
   end
 
   # def destroy
