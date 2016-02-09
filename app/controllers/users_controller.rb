@@ -30,6 +30,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    if session[:previous_site_url]
+      previous_site_url = session[:previous_site_url]
+      session[:previous_site_url] = nil
+      return redirect_to previous_site_url
+    end
+
     @page_name = "Dashboard"
 
     if @user

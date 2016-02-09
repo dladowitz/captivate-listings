@@ -159,16 +159,22 @@
                     .col.sqs-col-4.span-4.col-sm-offset-4
                       #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button{"data-block-type" => "53"}
                         .sqs-block-content
-                          .sqs-block-button-container--right{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                          - if current_user
                             / Disclosures Button
-                            %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}
-                              -# = "#{@property.agent_name}: #{number_to_phone(@property.agent_phone, area_code: true)}"
-                              Download Disclosures
+                            .sqs-block-button-container--right{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                              %button.sqs-block-button-element--small.sqs-block-button-element{:href => "#{@property.agent_website}"}
+                                Download Disclosures
+                          - else
+                            / Login Button
+                            .sqs-block-button-container--right{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+                              %a.sqs-block-button-element--small.sqs-block-button-element{:href => "/signin"}
+                                Sign in to view disclosures
 
                     -# Modal content: Only shown on modal popup
                     #myModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
                       .modal-dialog.disclosures-modal
                         .modal-content.animated.bounceInRight
+                          -# TODO figure out how to download all documents at once
                           -# .modal-header
                           -#   %button.close{"data-dismiss" => "modal", :type => "button"}
                           -#     %span{"aria-hidden" => "true"} ×

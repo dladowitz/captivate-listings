@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   layout "site_pages/site_layout"
+  before_filter :store_location
 
   def show
     @site = Site.find params[:id]
@@ -13,10 +14,13 @@ class SitesController < ApplicationController
     end
   end
 
-
   private
 
-  # def site_params
-    # params.require(:site).permit(:id)
-  # end
+  def store_location
+    # store last url - Use this to redirect users back to a site after they log in. 
+    return unless request.get?
+    return if current_user
+
+    session[:previous_site_url] = request.fullpath
+  end
 end

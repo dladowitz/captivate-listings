@@ -35,8 +35,16 @@
       #headerNav
         #mainNavWrapper.nav-wrapper{"data-content-field" => "navigation-mainNav"}
           %nav#mainNavigation{"data-content-field" => "navigation-mainNav"}
-            .index.active.homepage
-              %a{:href => "/"}
+            -# .index.active.homepage
+            .external
+              - if current_user
+                %a{:href => "/users/#{current_user.id}"}
+                  = current_user.first_name
+              - else
+                %a{:href => "/signin"}
+                  Sign In
+            .external
+              %a{:href => "#property"}
                 Property
             .external
               %a{:href => "#neighborhood"}
