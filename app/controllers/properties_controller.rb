@@ -24,6 +24,7 @@ class PropertiesController < ApplicationController
 
   def show
     @photos = @property.photos.order('position')
+    @disclosures = @property.disclosures
 
     if !@user.subscription || @user.subscription.level == 0
       @photos = @photos.limit(5)
