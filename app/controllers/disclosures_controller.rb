@@ -5,13 +5,17 @@ class DisclosuresController < ApplicationController
   before_action :set_property_and_user
 
   def create
-    @photo = @property.photos.build photo_params
-    if @photo.save
-      flash[:success] = "Nice one, photo created!"
-      render :file => "/properties/create.js.erb"
+    @disclosure = @property.disclosures.build disclosure_params
+    @disclosure.title = params[:filename]
+
+    if @disclosure.save
+      puts "<<<<<<<<<<<<<<<<< Saving Disclosure"
+      flash[:success] = "Nice one, file(s) uploaded!"
+      render :file => "disclosures/create.js.erb"
     else
+      puts ">>>>>>>>>>>>>>>>>> Broken Disclosure"
       flash[:danger] = "Damn Gina, something went wrong."
-      render :file => "/properties/create.js.erb"
+      render :file => "/disclosures/create.js.erb"
     end
   end
 
@@ -19,12 +23,12 @@ class DisclosuresController < ApplicationController
     @disclosures = @property.disclosures
   end
 
-  # def destroy
-  #   photo = Photo.find params[:id]
-  #   photo.delete
-  #   # TODO Use AWS gem to delete out of s3. Currently the photos are being orphaned.
-  #   redirect_to user_property_photos_path(@user, @property)
-  # end
+  def destroy
+    disclosure = Disclosure.find params[:id]
+    disclosure.delete
+    # TODO Use AWS gem to delete out of s3. Currently the disclosures are being orphaned.
+    redirect_to user_property_disclosures_path(@user, @property)
+  end
 
   private
 

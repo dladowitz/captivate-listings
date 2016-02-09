@@ -209,10 +209,10 @@
           %p
             Bronze plans have a 5 photo limit. Upgrade now to include unlimited photos.
           -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
-          - if @photos.any?
-            = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
-          - else
-            = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+        - if @photos.any?
+          = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+        - else
+          = button_to "Add Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
 .row
   .col-lg-8#background-images-container
     .widget.widget-border

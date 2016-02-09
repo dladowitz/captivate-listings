@@ -20,4 +20,22 @@ class Disclosure < ActiveRecord::Base
 
   validates :url, :title, presence: true
 
+  def file_type
+    extension = self.url.last(4).downcase
+    if extension.include? "pdf"
+      "pdf"
+    elsif extension.include? "docx" or extension.include? "doc"
+      "word"
+    elsif (extension.include? "ppt" or extension.include? "pptx")
+      "powerpoint"
+    elsif (extension.include? "xls" or extension.include? "xlsx")
+      "excel"
+    elsif (extension.include? "zip" or extension.include? "rar")
+      "archive"
+    elsif (extension.include? "jpg" or extension.include? "jpeg" or extension.include? "png" or extension.include? "gif")
+      "image"
+    else
+      "text"
+    end
+  end
 end

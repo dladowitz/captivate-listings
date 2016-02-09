@@ -3,31 +3,47 @@
     -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
     = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
   .col-md-12
-    %h1 Gallery Photos
+    %h1 Disclosures
 
--#   .col-md-12
--#     %ul#photos{data: {update_url: sort_user_properties_url}}
--#       - if @photos
--#         - @photos.each do |photo|
--#           = content_tag_for :li, photo do
--#             = button_to "Delete", user_property_photo_path(@user, @property, photo), class: "btn btn-danger btn-xs btn-outline", method: :delete
--#             = image_tag photo.url, class: "handle"
--#             -# .img-position= photo.position
--#
--#
--# .row
--#   .col-md-6.col-md-offset-4.mt20
--#     = s3_uploader_form callback_url: user_property_photos_path(@user, @property),
--#                       callback_param: "photo[url]",
--#                       id: "s3-uploader",
--#                       key: "property-photos/#{@property.id}/{timestamp}-${filename}",
--#                       key_starts_with: "property-photos/",
--#                       acl: "public-read",
--#                       max_file_size: 20.megabytes,
--#                       class: "upload-form", data: {:key => :val} do
--#       = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }, class: "btn btn-primary btn-lg btn-outline"
--#
--#
+  .col-md-12
+    -# %ul#disclosures
+    -#   - if @disclosures
+    -#     - @disclosures.each do |disclosure|
+    -#       = content_tag_for :li, disclosure do
+    -#         %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85"}
+    -#         %br
+    -#         = disclosure.title
+    -#         %br
+    -#         = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn btn-danger btn-xs btn-outline", method: :delete
+            -# .img-position= photo.position
+    #disclosures
+      - if @disclosures
+        - @disclosures.each do |disclosure|
+          .col-md-3.col-sm-6.disclosure
+            .widget.style1.navy-bg
+              .row
+                .col-xs-2
+                  %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85"}
+                .col-xs-10.text-right
+                  %span= disclosure.title
+                  %br
+                  %br
+                  = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn btn-xs btn-outline", method: :delete
+
+
+.row
+  .col-md-6.col-md-offset-4.mt20
+    = s3_uploader_form callback_url: user_property_disclosures_path(@user, @property),
+                      callback_param: "disclosure[url]",
+                      id: "disclosures-s3-uploader",
+                      key: "property-disclosures/#{@property.id}/{timestamp}-${filename}",
+                      key_starts_with: "property-disclosures/",
+                      acl: "public-read",
+                      max_file_size: 20.megabytes,
+                      class: "upload-form", data: {:key => :val} do
+      = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }, class: "btn btn-primary btn-lg btn-outline"
+
+
 -# -# Progress Bars are Broken Here
 -# %script#template-upload{:type => "text/x-tmpl"}
 -#   <div id="file-{%=o.unique_id%}" class="upload">

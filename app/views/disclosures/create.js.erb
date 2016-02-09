@@ -1,0 +1,7 @@
+<% if @disclosure.new_record? %>
+  alert("Failed to upload model: <%= j @disclosure.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  // alert("created disclosure")
+  $("#disclosures").append("<div class='col-md-3 col-sm-6 disclosure'></div>")
+  $(".disclosure:last").append("<%= j render(@disclosure) %>")
+<% end %>
