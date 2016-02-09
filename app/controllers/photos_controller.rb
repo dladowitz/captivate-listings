@@ -1,3 +1,5 @@
+# https://github.com/waynehoover/s3_direct_upload
+
 class PhotosController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   before_action :set_property_and_user
@@ -20,7 +22,7 @@ class PhotosController < ApplicationController
   def destroy
     photo = Photo.find params[:id]
     photo.delete
-    # TODO Use AWS gem to delete out of s3. Currently the photos are being orphaned. 
+    # TODO Use AWS gem to delete out of s3. Currently the photos are being orphaned.
     redirect_to user_property_photos_path(@user, @property)
   end
 
