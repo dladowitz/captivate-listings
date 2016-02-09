@@ -6,16 +6,6 @@
     %h1 Disclosures
 
   .col-md-12
-    -# %ul#disclosures
-    -#   - if @disclosures
-    -#     - @disclosures.each do |disclosure|
-    -#       = content_tag_for :li, disclosure do
-    -#         %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85"}
-    -#         %br
-    -#         = disclosure.title
-    -#         %br
-    -#         = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn btn-danger btn-xs btn-outline", method: :delete
-            -# .img-position= photo.position
     #disclosures
       - if @disclosures
         - @disclosures.each do |disclosure|
