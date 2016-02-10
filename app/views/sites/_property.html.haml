@@ -198,7 +198,7 @@
                                             = link_to disclosure.url, :target => "_blank" do
                                               %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-40 file-icon"}
                                           .col-xs-10.text-right
-                                            %span= link_to disclosure.title, disclosure.url, :target => "_blank"
+                                            %span= link_to disclosure.title, disclosure.url, :target => "_blank", :class => "reposal"
 
                           .modal-footer
                             #block-yui_3_17_2_1_1410979096848_6610.sqs-block.button-block.sqs-block-button
@@ -210,6 +210,10 @@
 
 -# Best attempt to manage section background
 :javascript
+
+  $(".reposal").click(function(){
+    console.log("#{current_user.email} is downloading: " + this.innerHTML)
+  })
   var imageWidth = document.getElementById('main-background').naturalWidth;
   var divWidth = $('#property #thumbnail').width();
 
