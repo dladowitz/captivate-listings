@@ -3363,7 +3363,7 @@
 
 /* line 97, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 .modal-dialog {
-  max-width: 1000px !important;
+  width: 90% !important;
 }
 
 /* line 101, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
@@ -3380,22 +3380,17 @@
 }
 
 /* line 114, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
-.disclosures-modal {
-  width: 150%;
-}
-
-/* line 118, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 .disclosures-modal .well {
   min-height: 95px;
 }
 
-/* line 123, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
+/* line 119, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 .close-button {
   background: #324544 !important;
 }
 
 /*Map*/
-/* line 127, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
+/* line 123, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 #gmap {
   height: 450px;
   width: 95%;
@@ -3404,13 +3399,13 @@
 }
 
 /*Contact*/
-/* line 135, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
+/* line 131, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 #contact .name {
   font-size: 40px;
   margin-bottom: 20px;
 }
 
-/* line 140, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
+/* line 136, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/site_pages/site.css.scss */
 #contact .phone {
   font-size: 40px;
 }
