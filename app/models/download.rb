@@ -17,4 +17,8 @@
 #
 
 class Download < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :property
+
+  validates :user_id, :property_id, :title, :url, presence: true
 end

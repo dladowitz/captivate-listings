@@ -24,6 +24,7 @@ class Property < ActiveRecord::Base
 
   has_many :photos
   has_many :disclosures
+  has_many :downloads
   belongs_to :user
   has_one :site
 

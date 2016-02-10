@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :download do
-    title "MyString"
-    url "MyString"
-    user_id 1
+    association :user
+    association :property
+    title "855-Front-St-TDS.pdf"
+    url "http://aws.com/855-Front-St-TDS.pdf"
   end
 end

@@ -29,6 +29,8 @@ Rails.application.routes.draw do
         get "backgrounds", on: :collection
       end
 
+      resources :downloads, only: [:index, :create]
+
       resources :disclosures, only: [:new, :create, :index, :destroy]
     end
   end
