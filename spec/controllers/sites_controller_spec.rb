@@ -21,6 +21,11 @@ describe SitesController do
         subject
         expect(assigns(:property).disclosures).to include disclosure
       end
+
+      it "sets the session[:previous_site_url] properly" do
+        subject
+        expect(session[:previous_site_url]).not_to be_nil
+      end
     end
   end
 end
