@@ -1,4 +1,10 @@
 class DownloadsController < ApplicationController
+  def index
+    @property = Property.find params[:property_id]
+    @user = @property.user
+    @downloads = @property.downloads
+  end
+
   def create
     property = Property.find params[:property_id]
     disclosure = Disclosure.find params[:disclosure_id]
