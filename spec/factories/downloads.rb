@@ -4,7 +4,6 @@ FactoryGirl.define do
   factory :download do
     association :user
     association :property
-    title "855-Front-St-TDS.pdf"
-    url "http://aws.com/855-Front-St-TDS.pdf"
+    association :disclosure
   end
 end

@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20160210212132) do
   add_index "disclosures", ["property_id"], name: "index_disclosures_on_property_id", using: :btree
 
   create_table "downloads", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
     t.integer  "property_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "disclosure_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
+  add_index "downloads", ["disclosure_id"], name: "index_downloads_on_disclosure_id", using: :btree
   add_index "downloads", ["property_id"], name: "index_downloads_on_property_id", using: :btree
   add_index "downloads", ["user_id"], name: "index_downloads_on_user_id", using: :btree
 
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160210212132) do
   end
 
   add_foreign_key "disclosures", "properties"
+  add_foreign_key "downloads", "disclosures"
   add_foreign_key "downloads", "properties"
   add_foreign_key "downloads", "users"
   add_foreign_key "photos", "properties"

@@ -17,6 +17,7 @@
 
 class Disclosure < ActiveRecord::Base
   belongs_to :property
+  has_many :downloads
 
   validates :url, :title, presence: true
 
