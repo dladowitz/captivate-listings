@@ -95,7 +95,7 @@
 }
 
 .modal-dialog {
-  max-width: 1000px !important;
+  width: 90% !important;
 }
 
 .modal-dialog * {
@@ -109,10 +109,6 @@
 .modal-title {
   font-family: "PT Sans";
   font-weight: bold;
-}
-
-.disclosures-modal {
-  width: 150%;
 }
 
 .disclosures-modal .well {
