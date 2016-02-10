@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :downloads
 
   validates :first_name, presence: true
+  validates :last_name,  presence: true, on: :create
   validates :email,      presence: true, uniqueness: true
   validates :password,   presence: { on: create }, length: { minimum: 6 }, if: :password_digest_changed?
 

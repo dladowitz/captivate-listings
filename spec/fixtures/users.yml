@@ -1,31 +1,31 @@
 ---
 volta:
-  id: 10
+  id: 108
   first_name: Alessandro
   last_name: Volta
   email: avolta@gmail.com
-  password_digest: "$2a$04$IfIconr1PE1I3J2unxfs8e7ZdHyOFgThAPdEZxuhNnaGnC4./qHji"
+  password_digest: "$2a$04$76Eau6C/bVlbQY.nV1M8Re7aROPDGAs.aKL2tFFzvmG6TnNucrDJe"
   admin: 
-  created_at: 2016-02-10 22:51:13.345825000 Z
-  updated_at: 2016-02-10 22:51:13.345825000 Z
+  created_at: 2016-02-10 23:54:22.961379000 Z
+  updated_at: 2016-02-10 23:54:22.961379000 Z
   stripe_id: 
 ampere:
-  id: 11
+  id: 109
   first_name: Andre
   last_name: Ampere
   email: aampere@gmail.com
-  password_digest: "$2a$04$Xhw6i9Iz/J/3mX6HrDqqeONvdMKMJZ30lLpWyCDrHL.FkEEd/N8La"
+  password_digest: "$2a$04$T7CbyGgsmNDXc8dUdEu2OODs2hGWQali1N8jqMGc6R99G10qF9ZVK"
   admin: 
-  created_at: 2016-02-10 22:51:13.351647000 Z
-  updated_at: 2016-02-10 22:51:13.351647000 Z
+  created_at: 2016-02-10 23:54:22.976864000 Z
+  updated_at: 2016-02-10 23:54:22.976864000 Z
   stripe_id: 
 ohm:
-  id: 12
+  id: 110
   first_name: Georg
   last_name: Ohm
   email: gohm@gmail.com
-  password_digest: "$2a$04$C0NWkl7Wdhwq3n58zartHewegzDiOEcjP8MKu3s/qDUeui59MF8Ti"
+  password_digest: "$2a$04$qlHZ0jxSNZrL7fVRehe99uff2obLtZbLRhpOM0UV1a57.Yc5RJ9cS"
   admin: 
-  created_at: 2016-02-10 22:51:13.357213000 Z
-  updated_at: 2016-02-10 22:51:13.357213000 Z
+  created_at: 2016-02-10 23:54:22.982845000 Z
+  updated_at: 2016-02-10 23:54:22.982845000 Z
   stripe_id: 
