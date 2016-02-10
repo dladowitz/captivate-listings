@@ -9,11 +9,9 @@ class DisclosuresController < ApplicationController
     @disclosure.title = params[:filename]
 
     if @disclosure.save
-      puts "<<<<<<<<<<<<<<<<< Saving Disclosure"
       flash[:success] = "Nice one, file(s) uploaded!"
       render :file => "disclosures/create.js.erb"
     else
-      puts ">>>>>>>>>>>>>>>>>> Broken Disclosure"
       flash[:danger] = "Damn Gina, something went wrong."
       render :file => "/disclosures/create.js.erb"
     end
