@@ -255,7 +255,7 @@
         .col-md-12
           - if @disclosures
             - @disclosures.first(8).each do |disclosure|
-              .col-md-4.col-sm-6.disclosure
+              .col-sm-6.disclosure
                 .widget.style1.navy-bg
                   .row
                     .col-xs-2
@@ -292,9 +292,9 @@
             %table.table
               %thead
                 %tr
-                  %td File name
-                  %td Name
-                  %td Email Address
+                  %th File Name
+                  %th Name
+                  %th Email Address
               %tbody
                 - @downloads.first(8).each do |download|
                   %tr
@@ -302,27 +302,6 @@
                     %td= "#{download.user.first_name} #{download.user.last_name}"
                     %td= link_to download.user.email, "mailto:#{download.user.email}"
 
-            -#   .col-md-4.col-sm-6.disclosure
-            -#     .widget.style1.lazur-bg
-            -#       .row
-            -#         .col-xs-2
-            -#           = download.disclosure.title
-            -#           %i{:class => "fa fa-file-#{download.disclosure.file_type}-o fsize-85 file-icon"}
-            -#         .col-xs-10.text-right
-            -#           %span= download.user.first_name
-            -#           -# %span= link_to download.user.email
-            -# - if @downloads.count > 8
-            -#   .col-md-4.col-sm-6.disclosure
-            -#     .widget.style1.navy-bg
-            -#       .row
-            -#         .col-xs-2
-            -#           %i{:class => "fa fa-file-text-o fsize-85 file-icon"}
-            -#         .col-xs-10.text-right
-            -#           %span= "All Downloads"
-            -#           %br
-            -#           = link_to user_property_downloads_url(@user, @property) do
-            -#             %i.fa.fa-arrow-right.fsize-40
-
         -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
         - if @downloads.any?
-          = button_to "All Downloads", user_property_downloads_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+          = button_to "View All Downloads", user_property_downloads_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

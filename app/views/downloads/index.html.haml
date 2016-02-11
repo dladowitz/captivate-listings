@@ -1,31 +1,25 @@
 .row
   .col-md-12.mb40
-    -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
     = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
-  .col-md-12
-    %h1 Disclosures
-
 
 .row
-  .col-lg-8#background-images-container
-    .widget
-      .p-m
-        .col-md-12
-          %h1.m-xs.mb20 Downloads
-        .col-md-12
-          - if @downloads
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Downloads
+      .ibox-content
+        .row
+          .col-md-8
             %table.table
               %thead
                 %tr
-                  %td File name
-                  %td Name
-                  %td Email Address
+                  %th File name
+                  %th Name
+                  %th Email Address
               %tbody
                 - @downloads.each do |download|
                   %tr
                     %td= download.disclosure.title
                     %td= "#{download.user.first_name} #{download.user.last_name}"
                     %td= link_to download.user.email, "mailto:#{download.user.email}"
-  -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
-  - if @downloads.any?
-    -# = button_to "All Downloads", user_property_downloads_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"

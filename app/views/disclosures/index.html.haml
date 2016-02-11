@@ -1,43 +1,41 @@
 .row
   .col-md-12.mb40
-    -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
     = button_to "Back to Property", user_property_path(@user, @property), class: "btn btn-primary btn-outline", method: :get
-  .col-md-12
-    %h1 Disclosures
-
-  .col-md-12
-    #disclosures
-      - if @disclosures
-        - @disclosures.each do |disclosure|
-          .col-md-3.col-sm-6.disclosure
-            .widget.style1.navy-bg
-              .row
-                .col-xs-2
-                  = link_to disclosure.url do
-                    %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85 file-icon"}
-                .col-xs-10.text-right
-                  %span= link_to disclosure.title, disclosure.url
-                  %br
-                  %br
-                  = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn-default btn btn-xs btn-outline disclosure-delete", method: :delete
 
 
 .row
-  .col-md-6.col-md-offset-4.mt20
-    = s3_uploader_form callback_url: user_property_disclosures_path(@user, @property),
-                      callback_param: "disclosure[url]",
-                      id: "disclosures-s3-uploader",
-                      key: "property-disclosures/#{@property.id}/{timestamp}-${filename}",
-                      key_starts_with: "property-disclosures/",
-                      acl: "public-read",
-                      max_file_size: 20.megabytes,
-                      class: "upload-form", data: {:key => :val} do
-      = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }, class: "btn btn-primary btn-lg btn-outline"
+  .col-lg-10
+    .ibox.float-e-margins
+      .ibox-title
+        %h2
+          Downloads
+      .ibox-content
+        .row
+          .col-md-12
+            #disclosures
+              - if @disclosures
+                - @disclosures.each do |disclosure|
+                  .col-sm-6.disclosure
+                    .widget.style1.navy-bg
+                      .row
+                        .col-xs-2
+                          = link_to disclosure.url do
+                            %i{:class => "fa fa-file-#{disclosure.file_type}-o fsize-85 file-icon"}
+                        .col-xs-10.text-right
+                          %span.title= link_to disclosure.title, disclosure.url
+                          %br
+                          %br
+                          = button_to "Delete", user_property_disclosure_path(@user, @property, disclosure), class: "btn-default btn btn-xs btn-outline disclosure-delete", method: :delete
 
 
--# -# Progress Bars are Broken Here
--# %script#template-upload{:type => "text/x-tmpl"}
--#   <div id="file-{%=o.unique_id%}" class="upload">
--#   {%=o.name%}
--#   <div class="progress"><div class="bar" style="width: 0%"></div></div>
--#   </div>
+        .row
+          .col-md-6.col-md-offset-4.mt20
+            = s3_uploader_form callback_url: user_property_disclosures_path(@user, @property),
+                              callback_param: "disclosure[url]",
+                              id: "disclosures-s3-uploader",
+                              key: "property-disclosures/#{@property.id}/{timestamp}-${filename}",
+                              key_starts_with: "property-disclosures/",
+                              acl: "public-read",
+                              max_file_size: 20.megabytes,
+                              class: "upload-form", data: {:key => :val} do
+              = file_field_tag :file, multiple: true, data: { url: "http://www.someplace.com" }, class: "btn btn-primary btn-lg btn-outline"
