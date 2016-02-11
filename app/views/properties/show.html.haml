@@ -208,7 +208,6 @@
         - if !@user.subscription || @user.subscription.level == 0
           %p
             Bronze plans have a 5 photo limit. Upgrade now to include unlimited photos.
-          -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
         - if @photos.any?
           = button_to "Edit Photos", user_property_photos_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
         - else
@@ -240,7 +239,6 @@
                 = image_tag @property.contact_background_image_url
 
 
-        -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
         - if @property.main_background_image_url.blank? || @property.neighborhood_background_image_url.blank? || @property.contact_background_image_url.blank?
           = button_to "Add Photos", backgrounds_user_property_photos_path(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
         - else
@@ -275,7 +273,6 @@
                       = link_to user_property_disclosures_url(@user, @property) do
                         %i.fa.fa-arrow-right.fsize-40
 
-        -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
         - if @disclosures.any?
           = button_to "Edit Disclosures", user_property_disclosures_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
         - else
@@ -302,6 +299,4 @@
                     %td= "#{download.user.first_name} #{download.user.last_name}"
                     %td= link_to download.user.email, "mailto:#{download.user.email}"
 
-        -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
-        - if @downloads.any?
-          = button_to "View All Downloads", user_property_downloads_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
+        = button_to "View All Downloads", user_property_downloads_url(@user, @property), method: :get, class: "btn btn-default mt20 btn-outline"
