@@ -208,12 +208,18 @@
                                   %button.sqs-block-button-element--small.sqs-block-button-element.close-button{"data-dismiss" => "modal", :type => "button"} Close
 
 
+  -# Trying to fool javascript. I'm sure there is a better way.
+  - unless current_user
+    current_user = User.first
+
+
 -# Best attempt to manage section background
 :javascript
+  // Need to find a way to not call current_user when there is no user
+
   // Creating a download record in the database
   $(".reposal").click(function(){
     var disclosureId = $(this).attr("data-disclosure-id")
-    console.log("#{current_user.email} is downloading: " + disclosureId)
     $.ajax({
       type: "POST",
       beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

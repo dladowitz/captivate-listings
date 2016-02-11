@@ -17,6 +17,11 @@
   color: darkorange;
 }
 
+.validation-block {
+  background: rgba(0, 0, 0, 0.5);
+  right: 36px;
+}
+
 
 /******** Colors ********/
 .inherit-color {
@@ -37,6 +42,10 @@
 
 .white {
   color: white;
+}
+
+.black {
+  color: black;
 }
 
 

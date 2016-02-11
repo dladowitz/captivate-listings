@@ -18,13 +18,13 @@
               %thead
                 %tr
                   %td File name
-                  %td First Name
+                  %td Name
                   %td Email Address
               %tbody
                 - @downloads.each do |download|
                   %tr
                     %td= download.disclosure.title
-                    %td= download.user.first_name
+                    %td= "#{download.user.first_name} #{download.user.last_name}"
                     %td= link_to download.user.email, "mailto:#{download.user.email}"
   -# TODO For some reason the s3_direct_upload is blocked when this is a regular link. But as a form it works
   - if @downloads.any?

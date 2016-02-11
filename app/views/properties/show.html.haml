@@ -293,13 +293,13 @@
               %thead
                 %tr
                   %td File name
-                  %td First Name
+                  %td Name
                   %td Email Address
               %tbody
                 - @downloads.first(8).each do |download|
                   %tr
                     %td= download.disclosure.title
-                    %td= download.user.first_name
+                    %td= "#{download.user.first_name} #{download.user.last_name}"
                     %td= link_to download.user.email, "mailto:#{download.user.email}"
 
             -#   .col-md-4.col-sm-6.disclosure
