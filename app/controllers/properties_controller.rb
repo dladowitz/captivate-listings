@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
     @site = @property.build_site
     if @property.save && @site.save
       #TODO Mailer should be sent asyncronously. Need to change so not to hold up the controller
-      PropertyMailer.new_property_email(@property).deliver
+      PropertyMailer.new_property_email(@property).deliver_now
 
       flash[:success] = "Awesome, lets add some property details."
       redirect_to user_property_path(@user, @property)
