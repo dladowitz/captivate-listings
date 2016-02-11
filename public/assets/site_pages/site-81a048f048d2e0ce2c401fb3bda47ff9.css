@@ -3455,6 +3455,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   color: darkorange;
 }
 
+.validation-block {
+  background: rgba(0, 0, 0, 0.5);
+  right: 36px;
+}
+
 
 /******** Colors ********/
 .inherit-color {
@@ -3475,6 +3480,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 
 .white {
   color: white;
+}
+
+.black {
+  color: black;
 }
 
 

@@ -5893,6 +5893,11 @@ a.thumbnail.active {
   color: darkorange;
 }
 
+.validation-block {
+  background: rgba(0, 0, 0, 0.5);
+  right: 36px;
+}
+
 
 /******** Colors ********/
 .inherit-color {
@@ -5913,6 +5918,10 @@ a.thumbnail.active {
 
 .white {
   color: white;
+}
+
+.black {
+  color: black;
 }
 
 

@@ -3364,38 +3364,38 @@ ul#photos li form {
   color: red !important;
 }
 
-/* line 105, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 109, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 .fixed-width {
   table-layout: fixed;
 }
 
-/* line 109, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 113, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 .fixed-width td {
   word-wrap: break-word;
 }
 
-/* line 113, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 117, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 .widget-border {
   border: 1px solid black;
 }
 
-/* line 117, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 121, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 #background-images-container img {
   max-width: 100%;
 }
 
-/* line 121, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 125, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 img.image-upload-panel {
   max-width: 100%;
   max-height: 400px;
 }
 
-/* line 127, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 131, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 .upload-panel-footer {
   min-height: 40px;
 }
 
-/* line 133, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
+/* line 137, /Users/david/Documents/repos/captivate/captivate-listings/app/assets/stylesheets/application.css.scss */
 #agent-image-panel #agent-image-delete {
   position: absolute;
   top: 60px;
@@ -10842,6 +10842,11 @@ body.skin-3 {
   color: darkorange;
 }
 
+.validation-block {
+  background: rgba(0, 0, 0, 0.5);
+  right: 36px;
+}
+
 
 /******** Colors ********/
 .inherit-color {
@@ -10862,6 +10867,10 @@ body.skin-3 {
 
 .white {
   color: white;
+}
+
+.black {
+  color: black;
 }
 
 
