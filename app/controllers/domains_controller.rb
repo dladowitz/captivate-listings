@@ -4,7 +4,7 @@ class DomainsController < ApplicationController
     domain = request.base_url
 
     # Checks for captivate listins domain
-    if domain == "http://localhost:3000" || domain == "http://www.captivatelistings.com"
+    if domain == "http://localhost:3000" || domain == "http://www.captivatelistings.com" || domain == "http://captivatelistings.com"
       render "landing_pages/landing", layout: "guest_pages/guest_layout"
 
     # Checking to see if there is the request url matches a custom domain on a site
