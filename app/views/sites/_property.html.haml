@@ -46,13 +46,20 @@
                               = @property.agent_name
 
                         %p.agent-details
-                          = @property.agent_company
+                          = link_to_if @property.agent_website, @property.agent_company, @property.agent_website
                           %br
 
                           = "Cell: #{number_to_phone(@property.agent_phone, area_code: true)}" if @property.agent_phone
                           %br
                           = @property.agent_license if @property.agent_license
                           %br
+                          - if @property.agent_facebook_url
+                            = link_to @property.agent_facebook_url do
+                              %span.fa.fa-facebook-square.fsize-30
+
+
+
+                            -# = link_to @property.agent_facebook_url if @property.agent_facebook_url
 
             / Property Details Area
             #block-20d2d7d07ef691626788.sqs-block.html-block.sqs-block-html{"data-block-type" => "2"}

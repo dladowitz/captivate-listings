@@ -148,7 +148,12 @@
               %td.col-md-2
                 %h3 Website:
               %td
-                %h3.weight-100= @property.agent_website
+                %h3.weight-100= link_to @property.agent_website, @property.agent_website, class: "white"
+            %tr
+              %td.col-md-2
+                %h3 Facebook:
+              %td
+                %h3.weight-100= link_to @property.agent_facebook_url, @property.agent_facebook_url, class: "white"
             -# %tr
             -#   %td.col-md-2
             -#     %h3 Logo URL:
