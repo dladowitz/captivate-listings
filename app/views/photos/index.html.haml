@@ -5,7 +5,15 @@
   .col-md-12
     %h1 Gallery Photos
 
+
   .col-md-12
+    %h3
+      %span.fa.fa-warning.text-warning
+      For best results use photos with a maximum height of 666px.
+      %br
+      Use
+      = link_to "this easy and free site", "http://bulkresizephotos.com/"
+      to resize all your photos at once.
     %ul#photos{data: {update_url: sort_user_properties_url}}
       - if @photos
         - @photos.each do |photo|
