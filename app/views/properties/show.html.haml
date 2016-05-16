@@ -136,6 +136,11 @@
                 %h3.weight-100= number_to_phone(@property.agent_phone, area_code: true)
             %tr
               %td.col-md-2
+                %h3 Email:
+              %td
+                %h3.weight-100= @property.agent_email                
+            %tr
+              %td.col-md-2
                 %h3 Company:
               %td
                 %h3.weight-100= @property.agent_company
