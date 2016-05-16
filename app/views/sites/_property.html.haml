@@ -47,13 +47,20 @@
 
                         %p.agent-details
                           = link_to_if @property.agent_website, @property.agent_company, @property.agent_website
-                          %br
+                          - if @property.agent_phone.present?
+                            %br
+                            = "Cell: #{number_to_phone(@property.agent_phone, area_code: true)}"
 
-                          = "Cell: #{number_to_phone(@property.agent_phone, area_code: true)}" if @property.agent_phone
-                          %br
-                          = @property.agent_license if @property.agent_license
-                          %br
-                          - if @property.agent_facebook_url
+                          - if @property.agent_email.present?
+                            %br
+                            = "Email: #{@property.agent_email}"
+
+                          - if @property.agent_license.present?
+                            %br
+                            = @property.agent_license
+
+                          - if @property.agent_facebook_url.present?
+                            %br
                             = link_to @property.agent_facebook_url do
                               %span.fa.fa-facebook-square.fsize-30
 
