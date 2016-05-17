@@ -85,7 +85,7 @@
                   %strong= "#{@property.sqfeet} sqft"
 
                 / property Description
-                %p= @property.description
+                %p= @property.description.html_safe
 
               / Property Beds and Bath Area
               / Used when home has garage or garden

@@ -63,7 +63,7 @@
               %td.col-md-2
                 %h3 Description:
               %td
-                %h3.weight-100.lheight-23= @property.description
+                %h3.weight-100.lheight-23= @property.description.html_safe
             %tr
               %td.col-md-2
                 %h3 Show Matterport 3D Model:
@@ -185,8 +185,7 @@
               %td.col-md-2
                 %h3 Description:
               %td
-                %h3.weight-100.lheight-23= @property.neighborhood_description
-
+                %h3.weight-100.lheight-23= @property.neighborhood_description.html_safe
           = link_to "Update Details", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update neighborhood details button', '4')"
         - else
           = link_to "Add Neighborhood", edit_user_property_path(@user, @property, detail_section: "neighborhood"), class: "btn btn-default mt20 btn-outline", onclick: "ga('send', 'event', 'link', 'clicked', 'update neighborhood details button', '5')"
