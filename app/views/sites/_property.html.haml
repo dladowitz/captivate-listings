@@ -49,7 +49,7 @@
                           = link_to_if @property.agent_website, @property.agent_company, @property.agent_website
                           - if @property.agent_email.present?
                             %br
-                            = link_to @property.agent_email
+                            = link_to @property.agent_email, "mailto:#{@property.agent_email}?subject=#{@property.address}"
 
                           - if @property.agent_phone.present?
                             %br
