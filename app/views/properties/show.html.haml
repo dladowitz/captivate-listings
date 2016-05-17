@@ -58,7 +58,7 @@
               %td.col-md-2
                 %h3 Tageline:
               %td
-                %h3.weight-100= @property.tag_line
+                %h3.weight-100= @property.tag_line.present? ? @property.tag_line : "YOU'RE HOME"
             %tr
               %td.col-md-2
                 %h3 Description:
