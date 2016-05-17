@@ -11,8 +11,8 @@
       %p
         %strong
           = @property.address + ","
-        %br
-        .hero-city= @property.city
+          %br
+          = @property.city
       %p
         - if @property.tag_line.present?
           = @property.tag_line
