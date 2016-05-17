@@ -9,9 +9,15 @@
       %img{"id" => "main-background", "src" => "#{@property.main_background_image_url}", "class" => "section-background", "data-image" => "#{@property.main_background_image_url}", "data-src" => "#{@property.main_background_image_url}", "data-image-dimensions" => "1844x1027", "data-image-focal-point" => "0.5,0.5" }/
     .desc-wrapper{"data-collection-id" => "55f2500fe4b0ce0cd8d12d02"}
       %p
-        %strong= @property.address
+        %strong
+          = @property.address + ","
+        %br
+        .hero-city= @property.city
       %p
-        YOU'RE HOME!
+        - if @property.tag_line.present?
+          = @property.tag_line
+        - else
+          YOU'RE HOME
 
   / Property Info Area
   .index-section-wrapper.page-content
